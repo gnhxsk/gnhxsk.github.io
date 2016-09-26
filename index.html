@@ -281,6 +281,142 @@
             
               
                 
+                <a class="post-title-link" href="/2016/09/26/每周烧脑-002/" itemprop="url">
+                  每周烧脑-002
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-26T15:49:03+08:00" content="2016-09-26">
+              2016-09-26
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Algorithm/" itemprop="url" rel="index">
+                    <span itemprop="name">Algorithm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/26/每周烧脑-002/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/26/每周烧脑-002/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/09/26/每周烧脑-002/" class="leancloud_visitors" data-flag-title="每周烧脑-002">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>螺旋二维数组</p>
+<p>输入：正整数N</p>
+<p>输出：N x N的二维数组，要求，数组元素从1到NxN螺旋排列，如N=5时，输出如下结果：</p>
+<p>1   2   3   4  5</p>
+<p>16 17 18 19  6</p>
+<p>15 24 25 20  7</p>
+<p>14 23 22 21  8 </p>
+<p>13 12 11 10  9</p>
+<h2 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">#import &lt;Foundation/Foundation.h&gt;</div><div class="line"></div><div class="line">#define M 100</div><div class="line">#define N 100</div><div class="line">/*</div><div class="line"> 填充方法，归纳每一行的数据规律</div><div class="line"> k为当前放下的数字，一边走一边放</div><div class="line"> 按照摆放数据的过程，逐层分别处理每圈的上下左右方的数据</div><div class="line"> */</div><div class="line">int main(int argc, const char * argv[]) &#123;</div><div class="line">    </div><div class="line">    int i, j, a[100][100]=&#123;0&#125;, n, k = 1;</div><div class="line">    printf(&quot;please input a number n:&quot;);</div><div class="line">    while(scanf(&quot;%d&quot;, &amp;n)!=EOF)&#123;</div><div class="line">        k = 1;</div><div class="line">        for (i = 1; i &lt;= n / 2; ++ i)&#123;</div><div class="line">            for (j = i; j &lt;= n - i; ++ j) /* 左侧 */</div><div class="line">                a[i][j] = k ++;</div><div class="line">            for (j = i; j &lt;= n - i; ++ j) /* 下方 */</div><div class="line">                a[j][n + 1 - i] = k ++;</div><div class="line">            for (j = n - i + 1; j &gt;= i + 1; j = j - 1) /* 右侧 */</div><div class="line">                a[n + 1 - i][j] = k ++;</div><div class="line">            for (j = n - i + 1; j &gt;= i + 1; j = j - 1) /* 上方 */</div><div class="line">                a[j][i] = k ++;</div><div class="line">        &#125;</div><div class="line">        if(n != 1)&#123;</div><div class="line">            for (i = 1; i &lt;= n; ++ i)&#123;</div><div class="line">                for (j = 1; j &lt;= n; ++ j)</div><div class="line">                    printf(&quot;%5d&quot;, a[i][j]); printf(&quot;\n&quot;);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        else</div><div class="line">            printf(&quot;%5d\n&quot;,n);</div><div class="line">        printf(&quot;please input a number n:&quot;);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/09/26/algorithm-1/" itemprop="url">
                   每周烧脑-001
                 </a>
@@ -555,7 +691,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">2</span>
+              <span class="site-state-item-count">3</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -572,7 +708,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
