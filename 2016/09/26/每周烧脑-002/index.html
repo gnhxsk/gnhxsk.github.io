@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="OC," />
+  <meta name="keywords" content="C," />
 
 
 
@@ -86,40 +86,46 @@
 
 
 
-<meta name="description" content="题目螺旋二维数组
-输入：正整数N
+<meta name="description" content="题目螺旋二维数组输入：正整数N
 输出：N x N的二维数组，要求，数组元素从1到NxN螺旋排列，如N=5时，输出如下结果：
 1   2   3   4  5
 16 17 18 19  6
 15 24 25 20  7
 14 23 22 21  8 
 13 12 11 10  9
-答案123456789101112131415161718192021222324252627282930313233">
+最佳答案12```## 答案
+#import 
+#define M 100
+#define N 100/ 填充方法，归纳">
 <meta property="og:type" content="article">
 <meta property="og:title" content="每周烧脑-002">
 <meta property="og:url" content="http://yoursite.com/2016/09/26/每周烧脑-002/index.html">
 <meta property="og:site_name" content="许晟馗SK的博客">
-<meta property="og:description" content="题目螺旋二维数组
-输入：正整数N
+<meta property="og:description" content="题目螺旋二维数组输入：正整数N
 输出：N x N的二维数组，要求，数组元素从1到NxN螺旋排列，如N=5时，输出如下结果：
 1   2   3   4  5
 16 17 18 19  6
 15 24 25 20  7
 14 23 22 21  8 
 13 12 11 10  9
-答案123456789101112131415161718192021222324252627282930313233">
-<meta property="og:updated_time" content="2016-09-26T07:55:55.000Z">
+最佳答案12```## 答案
+#import 
+#define M 100
+#define N 100/ 填充方法，归纳">
+<meta property="og:updated_time" content="2016-09-26T09:17:52.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="每周烧脑-002">
-<meta name="twitter:description" content="题目螺旋二维数组
-输入：正整数N
+<meta name="twitter:description" content="题目螺旋二维数组输入：正整数N
 输出：N x N的二维数组，要求，数组元素从1到NxN螺旋排列，如N=5时，输出如下结果：
 1   2   3   4  5
 16 17 18 19  6
 15 24 25 20  7
 14 23 22 21  8 
 13 12 11 10  9
-答案123456789101112131415161718192021222324252627282930313233">
+最佳答案12```## 答案
+#import 
+#define M 100
+#define N 100/ 填充方法，归纳">
 
 
 
@@ -378,15 +384,47 @@
       
 
       
-        <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>螺旋二维数组</p>
-<p>输入：正整数N</p>
+        <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="螺旋二维数组"><a href="#螺旋二维数组" class="headerlink" title="螺旋二维数组"></a>螺旋二维数组</h3><p>输入：正整数N</p>
 <p>输出：N x N的二维数组，要求，数组元素从1到NxN螺旋排列，如N=5时，输出如下结果：</p>
 <p>1   2   3   4  5</p>
 <p>16 17 18 19  6</p>
 <p>15 24 25 20  7</p>
 <p>14 23 22 21  8 </p>
 <p>13 12 11 10  9</p>
-<h2 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">#import &lt;Foundation/Foundation.h&gt;</div><div class="line"></div><div class="line">#define M 100</div><div class="line">#define N 100</div><div class="line">/*</div><div class="line"> 填充方法，归纳每一行的数据规律</div><div class="line"> k为当前放下的数字，一边走一边放</div><div class="line"> 按照摆放数据的过程，逐层分别处理每圈的上下左右方的数据</div><div class="line"> */</div><div class="line">int main(int argc, const char * argv[]) &#123;</div><div class="line">    </div><div class="line">    int i, j, a[100][100]=&#123;0&#125;, n, k = 1;</div><div class="line">    printf(&quot;please input a number n:&quot;);</div><div class="line">    while(scanf(&quot;%d&quot;, &amp;n)!=EOF)&#123;</div><div class="line">        k = 1;</div><div class="line">        for (i = 1; i &lt;= n / 2; ++ i)&#123;</div><div class="line">            for (j = i; j &lt;= n - i; ++ j) /* 左侧 */</div><div class="line">                a[i][j] = k ++;</div><div class="line">            for (j = i; j &lt;= n - i; ++ j) /* 下方 */</div><div class="line">                a[j][n + 1 - i] = k ++;</div><div class="line">            for (j = n - i + 1; j &gt;= i + 1; j = j - 1) /* 右侧 */</div><div class="line">                a[n + 1 - i][j] = k ++;</div><div class="line">            for (j = n - i + 1; j &gt;= i + 1; j = j - 1) /* 上方 */</div><div class="line">                a[j][i] = k ++;</div><div class="line">        &#125;</div><div class="line">        if(n != 1)&#123;</div><div class="line">            for (i = 1; i &lt;= n; ++ i)&#123;</div><div class="line">                for (j = 1; j &lt;= n; ++ j)</div><div class="line">                    printf(&quot;%5d&quot;, a[i][j]); printf(&quot;\n&quot;);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        else</div><div class="line">            printf(&quot;%5d\n&quot;,n);</div><div class="line">        printf(&quot;please input a number n:&quot;);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="最佳答案"><a href="#最佳答案" class="headerlink" title="最佳答案"></a>最佳答案</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">```</div><div class="line">## 答案</div></pre></td></tr></table></figure>
+<p>#import <foundation foundation.h=""></foundation></p>
+<p>#define M 100</p>
+<p>#define N 100<br>/<em><br> 填充方法，归纳每一行的数据规律<br> k为当前放下的数字，一边走一边放<br> 按照摆放数据的过程，逐层分别处理每圈的上下左右方的数据
+ </em>/<br>int main(int argc, const char * argv[]) {</p>
+<pre><code>int i, j, a[100][100]={0}, n, k = 1;
+printf(&quot;please input a number n:&quot;);
+while(scanf(&quot;%d&quot;, &amp;n)!=EOF){
+    k = 1;
+    for (i = 1; i &lt;= n / 2; ++ i){
+        for (j = i; j &lt;= n - i; ++ j) /* 左侧 */
+            a[i][j] = k ++;
+        for (j = i; j &lt;= n - i; ++ j) /* 下方 */
+            a[j][n + 1 - i] = k ++;
+        for (j = n - i + 1; j &gt;= i + 1; j = j - 1) /* 右侧 */
+            a[n + 1 - i][j] = k ++;
+        for (j = n - i + 1; j &gt;= i + 1; j = j - 1) /* 上方 */
+            a[j][i] = k ++;
+    }
+    if(n != 1){
+        for (i = 1; i &lt;= n; ++ i){
+            for (j = 1; j &lt;= n; ++ j)
+                printf(&quot;%5d&quot;, a[i][j]); printf(&quot;\n&quot;);
+        }
+    }
+    else
+        printf(&quot;%5d\n&quot;,n);
+    printf(&quot;please input a number n:&quot;);
+}
+
+return 0;
+</code></pre><p>}</p>
+<p>```</p>
+
       
     </div>
 
@@ -429,7 +467,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/OC/" rel="tag">#OC</a>
+            <a href="/tags/C/" rel="tag">#C</a>
           
         </div>
       
@@ -445,6 +483,10 @@
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/09/26/每周烧脑-003/" rel="prev" title="每周烧脑-003">
+                每周烧脑-003 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -538,7 +580,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">3</span>
+              <span class="site-state-item-count">11</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -555,7 +597,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -602,7 +644,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目"><span class="nav-number">1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#答案"><span class="nav-number">2.</span> <span class="nav-text">答案</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目"><span class="nav-number">1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#螺旋二维数组"><span class="nav-number">1.1.</span> <span class="nav-text">螺旋二维数组</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最佳答案"><span class="nav-number">2.</span> <span class="nav-text">最佳答案</span></a></li></ol></div>
             
           </div>
         </section>
