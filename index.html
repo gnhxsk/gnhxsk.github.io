@@ -281,6 +281,136 @@
             
               
                 
+                <a class="post-title-link" href="/2016/11/14/开发手记1-图片颜色获取/" itemprop="url">
+                  开发手记1-图片颜色获取
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-14T11:16:31+08:00" content="2016-11-14">
+              2016-11-14
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/14/开发手记1-图片颜色获取/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/14/开发手记1-图片颜色获取/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/11/14/开发手记1-图片颜色获取/" class="leancloud_visitors" data-flag-title="开发手记1-图片颜色获取">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">#import &lt;UIKit/UIKit.h&gt;</div><div class="line"></div><div class="line">@interface UIImage (getBackColorToChangeBorderColor)</div><div class="line">/**</div><div class="line"> *  出现最多的颜色</div><div class="line"> *</div><div class="line"> *  @return color</div><div class="line"> */</div><div class="line">- (UIColor *)mostColor;</div><div class="line">/**</div><div class="line"> *  是否是亮色</div><div class="line"> *</div><div class="line"> *  @param clr color</div><div class="line"> *</div><div class="line"> *  @return BOOL</div><div class="line"> */</div><div class="line">- (BOOL)isLightColor:(UIColor*)clr;</div><div class="line">@end</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div></pre></td><td class="code"><pre><div class="line">#import &quot;UIImage+getBackColorToChangeBorderColor.h&quot;</div><div class="line"></div><div class="line">@implementation UIImage (getBackColorToChangeBorderColor)</div><div class="line">- (UIColor *)mostColor&#123;</div><div class="line">    </div><div class="line">    </div><div class="line">#if __IPHONE_OS_VERSION_MAX_ALLOWED &gt; __IPHONE_6_1</div><div class="line">    int bitmapInfo = kCGBitmapByteOrderDefault | kCGImageAlphaPremultipliedLast;</div><div class="line">#else</div><div class="line">    int bitmapInfo = kCGImageAlphaPremultipliedLast;</div><div class="line">#endif</div><div class="line">    </div><div class="line">    //第一步 先把图片缩小 加快计算速度. 但越小结果误差可能越大</div><div class="line">    CGSize thumbSize=CGSizeMake(50, 50);</div><div class="line">    </div><div class="line">    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();</div><div class="line">    CGContextRef context = CGBitmapContextCreate(NULL,</div><div class="line">                                                 thumbSize.width,</div><div class="line">                                                 thumbSize.height,</div><div class="line">                                                 8,//bits per component</div><div class="line">                                                 thumbSize.width*4,</div><div class="line">                                                 colorSpace,</div><div class="line">                                                 bitmapInfo);</div><div class="line">    </div><div class="line">    CGRect drawRect = CGRectMake(0, 0, thumbSize.width, thumbSize.height);</div><div class="line">    CGContextDrawImage(context, drawRect, self.CGImage);</div><div class="line">    CGColorSpaceRelease(colorSpace);</div><div class="line">    </div><div class="line">    </div><div class="line">    </div><div class="line">    //第二步 取每个点的像素值</div><div class="line">    unsigned char* data = CGBitmapContextGetData (context);</div><div class="line">    </div><div class="line">    if (data == NULL) return nil;</div><div class="line">    </div><div class="line">    NSCountedSet *cls=[NSCountedSet setWithCapacity:thumbSize.width*thumbSize.height];</div><div class="line">    </div><div class="line">    for (int x=0; x&lt;thumbSize.width; x++) &#123;</div><div class="line">        for (int y=0; y&lt;thumbSize.height; y++) &#123;</div><div class="line">            </div><div class="line">            int offset = 4*(x*y);</div><div class="line">            </div><div class="line">            int red = data[offset];</div><div class="line">            int green = data[offset+1];</div><div class="line">            int blue = data[offset+2];</div><div class="line">            int alpha =  data[offset+3];</div><div class="line">            </div><div class="line">            NSArray *clr=@[@(red),@(green),@(blue),@(alpha)];</div><div class="line">            [cls addObject:clr];</div><div class="line">            </div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    CGContextRelease(context);</div><div class="line">    </div><div class="line">    //第三步 找到出现次数最多的那个颜色</div><div class="line">    NSEnumerator *enumerator = [cls objectEnumerator];</div><div class="line">    NSArray *curColor = nil;</div><div class="line">    </div><div class="line">    NSArray *MaxColor=nil;</div><div class="line">    NSUInteger MaxCount=0;</div><div class="line">    </div><div class="line">    while ( (curColor = [enumerator nextObject]) != nil )</div><div class="line">    &#123;</div><div class="line">        NSUInteger tmpCount = [cls countForObject:curColor];</div><div class="line">        </div><div class="line">        if ( tmpCount &lt; MaxCount ) continue;</div><div class="line">        </div><div class="line">        MaxCount=tmpCount;</div><div class="line">        MaxColor=curColor;</div><div class="line">        </div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    return [UIColor colorWithRed:([MaxColor[0] intValue]/255.0f) green:([MaxColor[1] intValue]/255.0f) blue:([MaxColor[2] intValue]/255.0f) alpha:([MaxColor[3] intValue]/255.0f)];</div><div class="line">&#125;</div><div class="line">//获取RGB值</div><div class="line">- (void)getRGBComponents:(CGFloat [3])components forColor:(UIColor *)color &#123;</div><div class="line">#if __IPHONE_OS_VERSION_MAX_ALLOWED &gt; __IPHONE_6_1</div><div class="line">    int bitmapInfo = kCGBitmapByteOrderDefault | kCGImageAlphaPremultipliedLast;</div><div class="line">#else</div><div class="line">    int bitmapInfo = kCGImageAlphaPremultipliedLast;</div><div class="line">#endif</div><div class="line">    </div><div class="line">    CGColorSpaceRef rgbColorSpace = CGColorSpaceCreateDeviceRGB();</div><div class="line">    unsigned char resultingPixel[4];</div><div class="line">    CGContextRef context = CGBitmapContextCreate(&amp;resultingPixel,</div><div class="line">                                                 1,</div><div class="line">                                                 1,</div><div class="line">                                                 8,</div><div class="line">                                                 4,</div><div class="line">                                                 rgbColorSpace,</div><div class="line">                                                 bitmapInfo);</div><div class="line">    CGContextSetFillColorWithColor(context, [color CGColor]);</div><div class="line">    CGContextFillRect(context, CGRectMake(0, 0, 1, 1));</div><div class="line">    CGContextRelease(context);</div><div class="line">    CGColorSpaceRelease(rgbColorSpace);</div><div class="line">    </div><div class="line">    for (int component = 0; component &lt; 3; component++) &#123;</div><div class="line">        components[component] = resultingPixel[component];</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">//判断颜色是不是亮色</div><div class="line">- (BOOL)isLightColor:(UIColor*)clr &#123;</div><div class="line">    CGFloat components[3];</div><div class="line">    [self getRGBComponents:components forColor:clr];</div><div class="line">    SKLog(@&quot;------------%f %f %f&quot;, components[0], components[1], components[2]);</div><div class="line">    </div><div class="line">    CGFloat num = components[0] + components[1] + components[2];</div><div class="line">    if(num &lt; 150)</div><div class="line">        return NO;</div><div class="line">    else</div><div class="line">        return YES;</div><div class="line">&#125;</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/11/14/每周烧脑-016/" itemprop="url">
                   每周烧脑-016
                 </a>
@@ -1488,145 +1618,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/09/26/每周烧脑-007/" itemprop="url">
-                  每周烧脑-007
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-26T16:34:00+08:00" content="2016-09-26">
-              2016-09-26
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Algorithm/" itemprop="url" rel="index">
-                    <span itemprop="name">Algorithm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/09/26/每周烧脑-007/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/26/每周烧脑-007/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/09/26/每周烧脑-007/" class="leancloud_visitors" data-flag-title="每周烧脑-007">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="有没有环"><a href="#有没有环" class="headerlink" title="有没有环"></a>有没有环</h3><p>给定一个单向链表，判断其中是否有环，即类似下面的形式：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">A -&gt; B -&gt; C -&gt; D -&gt; E -&gt; F</div><div class="line">               |         |</div><div class="line">               I &lt;- H &lt;- G</div></pre></td></tr></table></figure>
-<p>链表结点定义：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">struct ListNode</div><div class="line">&#123;</div><div class="line">    ListNode* next;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>函数原型：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">bool hasCycle( const ListNode* head )</div><div class="line">&#123;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="最佳答案"><a href="#最佳答案" class="headerlink" title="最佳答案"></a>最佳答案</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">```</div><div class="line">## 答案</div></pre></td></tr></table></figure>
-<p>#import <foundation foundation.h=""><br>typedef struct listNode{<br>    struct listNode <em>next;<br>}list;<br>bool hasCycle(list</em> head);<br>bool hasCycle(list<em> head)<br>{<br>    list </em>fast = head;<br>    list <em>slow = head;<br>    while (fast &amp;&amp; fast -&gt; next) {<br>        fast = fast -&gt; next -&gt; next;<br>        slow = slow -&gt; next;<br>        if (fast == slow) {<br>            return false;<br>        }<br>    }<br>    return true;<br>};<br>int main(int argc, const char </em> argv[]) {<br>    @autoreleasepool {</foundation></p>
-<pre><code>}
-return 0;
-</code></pre><p>}<br>```</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1672,7 +1663,7 @@ return 0;
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">17</span>
+              <span class="site-state-item-count">18</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1680,7 +1671,7 @@ return 0;
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1689,7 +1680,7 @@ return 0;
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
