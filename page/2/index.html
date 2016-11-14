@@ -281,6 +281,526 @@
             
               
                 
+                <a class="post-title-link" href="/2016/11/14/开发手记21-获取当前时间戳字符串/" itemprop="url">
+                  开发手记21-获取当前时间戳字符串
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-14T16:14:57+08:00" content="2016-11-14">
+              2016-11-14
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/14/开发手记21-获取当前时间戳字符串/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/14/开发手记21-获取当前时间戳字符串/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/11/14/开发手记21-获取当前时间戳字符串/" class="leancloud_visitors" data-flag-title="开发手记21-获取当前时间戳字符串">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="NSString-Extension-h"><a href="#NSString-Extension-h" class="headerlink" title="NSString+Extension.h"></a>NSString+Extension.h</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">#import &lt;Foundation/Foundation.h&gt;</div><div class="line">@interface NSString (Extension)</div><div class="line">/**</div><div class="line"> *  获得当前的时间戳字符串</div><div class="line"> *</div><div class="line"> *  @return &lt;#return value description#&gt;</div><div class="line"> */</div><div class="line">+ (NSString *)stringFormTimeInterval;</div><div class="line">@end</div></pre></td></tr></table></figure>
+<h2 id="NSString-Extension-m"><a href="#NSString-Extension-m" class="headerlink" title="NSString+Extension.m"></a>NSString+Extension.m</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">#import &quot;NSString+Extension.h&quot;</div><div class="line">@implementation NSString (ExaminePhoneNum)</div><div class="line">/**获得当前的时间戳字符串*/</div><div class="line">+ (NSString *)stringFormTimeInterval&#123;</div><div class="line">    NSTimeInterval interval = [[NSDate date] timeIntervalSince1970] * 1000;</div><div class="line">    NSInteger now = (NSInteger)interval;</div><div class="line">    NSString *timeSp = [NSString stringWithFormat:@&quot;%zd&quot;,now];</div><div class="line">    return timeSp;</div><div class="line"></div><div class="line">&#125;</div><div class="line">@end</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/11/14/开发手记20-文件夹操作/" itemprop="url">
+                  开发手记20-文件夹操作
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-14T16:06:10+08:00" content="2016-11-14">
+              2016-11-14
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/14/开发手记20-文件夹操作/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/14/开发手记20-文件夹操作/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/11/14/开发手记20-文件夹操作/" class="leancloud_visitors" data-flag-title="开发手记20-文件夹操作">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="NSString-Extension-h"><a href="#NSString-Extension-h" class="headerlink" title="NSString+Extension.h"></a>NSString+Extension.h</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">#import &lt;Foundation/Foundation.h&gt;</div><div class="line">@interface NSString (Extension)</div><div class="line">/**</div><div class="line"> *  返回的caches文件夹的路径</div><div class="line"> *</div><div class="line"> *  @param fileName 文件名</div><div class="line"> *</div><div class="line"> *  @return caches文件夹的路径</div><div class="line"> */</div><div class="line">+ (NSString *)stringFromCaches:(NSString *)fileName;</div><div class="line">/**</div><div class="line"> *  删除指定的文件</div><div class="line"> *</div><div class="line"> *  @param name 文件名</div><div class="line"> */</div><div class="line">+(void)stringToDeleteFileWithName:(NSString *)name;</div><div class="line">+(void)deleteFileWithFullPathName:(NSString *)fileFullPath;</div><div class="line"></div><div class="line">/**</div><div class="line"> *  创建文件夹</div><div class="line"> *</div><div class="line"> *  @param pathName 名字</div><div class="line"> */</div><div class="line">+ (NSString *)stringToCreateDirectoryAtPath:(NSString *)pathName;</div><div class="line">@end</div></pre></td></tr></table></figure>
+<h2 id="NSString-Extension-m"><a href="#NSString-Extension-m" class="headerlink" title="NSString+Extension.m"></a>NSString+Extension.m</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line">#import &quot;NSString+Extension.h&quot;</div><div class="line">@implementation NSString (ExaminePhoneNum)</div><div class="line">+ (NSString *)stringFromCaches:(NSString *)fileName&#123;</div><div class="line">    NSString *caches = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];</div><div class="line">    </div><div class="line">    //拼接文件全路径</div><div class="line">    NSString *fullPtah = [caches stringByAppendingPathComponent:fileName];</div><div class="line">    return fullPtah;</div><div class="line">&#125;</div><div class="line"></div><div class="line">/** 删除指定的文件*/</div><div class="line">+(void)stringToDeleteFileWithName:(NSString *)name &#123;</div><div class="line">    NSFileManager *fileMgr = [NSFileManager defaultManager];</div><div class="line">    NSString *FileFullPath = [NSString stringFromCaches:name];</div><div class="line">    BOOL bRet = [fileMgr fileExistsAtPath:FileFullPath];</div><div class="line">    if (bRet) &#123;</div><div class="line">        NSError *err;</div><div class="line">        [fileMgr removeItemAtPath:FileFullPath error:&amp;err];</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">/** 删除指定的文件*/</div><div class="line">+(void)deleteFileWithFullPathName:(NSString *)fileFullPath &#123;</div><div class="line">    NSFileManager *fileMgr = [NSFileManager defaultManager];</div><div class="line">    BOOL bRet = [fileMgr fileExistsAtPath:fileFullPath];</div><div class="line">    if (bRet) &#123;</div><div class="line">        NSError *err;</div><div class="line">        [fileMgr removeItemAtPath:fileFullPath error:&amp;err];</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">/** 创建文件夹*/</div><div class="line">+ (NSString *)stringToCreateDirectoryAtPath:(NSString *)pathName &#123;</div><div class="line">    NSString *path = [NSString stringFromCaches:pathName];</div><div class="line">    if (![[NSFileManager defaultManager] fileExistsAtPath:path]) &#123;</div><div class="line">        [[NSFileManager defaultManager] createDirectoryAtPath:path withIntermediateDirectories:YES attributes:nil error:nil];</div><div class="line">    &#125;</div><div class="line">    return path;</div><div class="line">&#125;</div><div class="line">@end</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/11/14/开发手记19-字符串高度/" itemprop="url">
+                  开发手记19-字符串高度
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-14T15:54:18+08:00" content="2016-11-14">
+              2016-11-14
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/14/开发手记19-字符串高度/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/14/开发手记19-字符串高度/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/11/14/开发手记19-字符串高度/" class="leancloud_visitors" data-flag-title="开发手记19-字符串高度">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="NSString-Extension-h"><a href="#NSString-Extension-h" class="headerlink" title="NSString+Extension.h"></a>NSString+Extension.h</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">#import &lt;Foundation/Foundation.h&gt;</div><div class="line">@interface NSString (Extension)</div><div class="line">/**</div><div class="line"> *  计算字符串的高度</div><div class="line"> *</div><div class="line"> *  @param size      字号大小</div><div class="line"> *  @param viewWidth 计算控件的宽度</div><div class="line"> *</div><div class="line"> *  @return 字符串的高度</div><div class="line"> */</div><div class="line">- (float)heightForStringWithFont:(float)size viewWidth:(float)viewWidth;</div><div class="line">@end</div></pre></td></tr></table></figure>
+<h2 id="NSString-Extension-m"><a href="#NSString-Extension-m" class="headerlink" title="NSString+Extension.m"></a>NSString+Extension.m</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">#import &quot;NSString+Extension.h&quot;</div><div class="line">@implementation NSString (Extension)</div><div class="line">- (float)heightForStringWithFont:(float)size viewWidth:(float)viewWidth&#123;</div><div class="line">        CGSize detailSize = [self boundingRectWithSize:CGSizeMake(viewWidth, 10000) options:NSStringDrawingUsesLineFragmentOrigin attributes:@&#123;NSFontAttributeName:[UIFont systemFontOfSize:size]&#125; context:nil].size;</div><div class="line">    return detailSize.height;</div><div class="line">&#125;</div><div class="line">@end</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/11/14/开发手记18-base64加密/" itemprop="url">
+                  开发手记18-base64加密
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-14T15:18:55+08:00" content="2016-11-14">
+              2016-11-14
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/14/开发手记18-base64加密/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/14/开发手记18-base64加密/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/11/14/开发手记18-base64加密/" class="leancloud_visitors" data-flag-title="开发手记18-base64加密">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="NSString-Encryption-h"><a href="#NSString-Encryption-h" class="headerlink" title="NSString+Encryption.h"></a>NSString+Encryption.h</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">#import &lt;Foundation/Foundation.h&gt;</div><div class="line"></div><div class="line">@interface NSString (Encryption)</div><div class="line">/**</div><div class="line"> *  字符串base64 加密</div><div class="line"> *</div><div class="line"> *  @return 加密后的字符串</div><div class="line"> */</div><div class="line">+ (NSString*)encodeBase64String:(NSString *)input;</div><div class="line">+ (NSString*)decodeBase64String:(NSString *)input;</div><div class="line">+ (NSString*)encodeBase64Data:(NSData *)data;</div><div class="line">+ (NSString*)decodeBase64Data:(NSData *)data;</div><div class="line">@end</div></pre></td></tr></table></figure>
+<h2 id="NSString-Encryption-m"><a href="#NSString-Encryption-m" class="headerlink" title="NSString+Encryption.m"></a>NSString+Encryption.m</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">#import &quot;NSString+Encryption.h&quot;</div><div class="line">#import &quot;GTMBase64.h&quot;</div><div class="line">@implementation NSString (Encryption)</div><div class="line">#pragma mark - base64</div><div class="line">+ (NSString*)encodeBase64String:(NSString * )input &#123;</div><div class="line">    NSData *data = [input dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:YES];</div><div class="line">    data = [GTMBase64 encodeData:data];</div><div class="line">    NSString *base64String = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];</div><div class="line">    return base64String;</div><div class="line">&#125;</div><div class="line"></div><div class="line">+ (NSString*)decodeBase64String:(NSString * )input &#123;</div><div class="line">    NSData *data = [input dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:YES];</div><div class="line">    data = [GTMBase64 decodeData:data];</div><div class="line">    NSString *base64String = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];</div><div class="line">    return base64String;</div><div class="line">&#125;</div><div class="line"></div><div class="line">+ (NSString*)encodeBase64Data:(NSData *)data &#123;</div><div class="line">    data = [GTMBase64 encodeData:data];</div><div class="line">    NSString *base64String = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];</div><div class="line">    return base64String;</div><div class="line">&#125;</div><div class="line"></div><div class="line">+ (NSString*)decodeBase64Data:(NSData *)data &#123;</div><div class="line">    data = [GTMBase64 decodeData:data];</div><div class="line">    NSString *base64String = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];</div><div class="line">    return base64String;</div><div class="line">&#125;</div><div class="line">@end</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/11/14/开发手记17-AES加密/" itemprop="url">
                   开发手记17-AES加密
                 </a>
@@ -1042,524 +1562,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/11/14/开发手记11-hex颜色转换/" itemprop="url">
-                  开发手记11-hex颜色转换
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-14T14:25:50+08:00" content="2016-11-14">
-              2016-11-14
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/11/14/开发手记11-hex颜色转换/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/14/开发手记11-hex颜色转换/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/11/14/开发手记11-hex颜色转换/" class="leancloud_visitors" data-flag-title="开发手记11-hex颜色转换">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="UIColor-SKExtension-h"><a href="#UIColor-SKExtension-h" class="headerlink" title="UIColor+SKExtension.h"></a>UIColor+SKExtension.h</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">#import &lt;UIKit/UIKit.h&gt;</div><div class="line"></div><div class="line">@interface UIColor (SKExtension)</div><div class="line">+ (UIColor *)colorWithHex:(NSInteger)hexValue;</div><div class="line">+ (UIColor *)colorWithHexString:(NSString *)color;</div><div class="line">@end</div></pre></td></tr></table></figure>
-<h2 id="UIColor-SKExtension-m"><a href="#UIColor-SKExtension-m" class="headerlink" title="UIColor+SKExtension.m"></a>UIColor+SKExtension.m</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div></pre></td><td class="code"><pre><div class="line">#import &quot;UIColor+SKExtension.h&quot;</div><div class="line"></div><div class="line">@implementation UIColor (SKExtension)</div><div class="line"></div><div class="line">+ (UIColor*) colorWithHex:(NSInteger)hexValue&#123;</div><div class="line">    return [UIColor  colorWithRed:((float)((hexValue &amp; 0xFF0000) &gt;&gt; 16))/255.0</div><div class="line">                            green:((float)((hexValue &amp; 0x00FF00) &gt;&gt; 8))/255.0</div><div class="line">                             blue:((float)(hexValue &amp; 0x0000FF))/255.0</div><div class="line">                            alpha:1.0];</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">+ (UIColor *) colorWithHexString: (NSString *)color</div><div class="line">&#123;</div><div class="line">    NSString *cString = [[color stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] uppercaseString];</div><div class="line">    </div><div class="line">    // 应该是6或8个字符</div><div class="line">    if ([cString length] &lt; 6) &#123;</div><div class="line">        return [UIColor clearColor];</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    // 去除0X</div><div class="line">    if ([cString hasPrefix:@&quot;0X&quot;])</div><div class="line">        cString = [cString substringFromIndex:2];</div><div class="line">    if ([cString hasPrefix:@&quot;#&quot;])</div><div class="line">        cString = [cString stringByReplacingOccurrencesOfString:@&quot;#&quot; withString:@&quot;&quot;];</div><div class="line">    //        cString = [cString substringFromIndex:1];</div><div class="line">    if ([cString length] != 6)</div><div class="line">        return [UIColor clearColor];</div><div class="line">    </div><div class="line">    // Separate into r, g, b substrings</div><div class="line">    NSRange range;</div><div class="line">    range.location = 0;</div><div class="line">    range.length = 2;</div><div class="line">    </div><div class="line">    //r</div><div class="line">    NSString *rString = [cString substringWithRange:range];</div><div class="line">    </div><div class="line">    //g</div><div class="line">    range.location = 2;</div><div class="line">    NSString *gString = [cString substringWithRange:range];</div><div class="line">    </div><div class="line">    //b</div><div class="line">    range.location = 4;</div><div class="line">    NSString *bString = [cString substringWithRange:range];</div><div class="line">    </div><div class="line">    // Scan values</div><div class="line">    unsigned int r, g, b;</div><div class="line">    [[NSScanner scannerWithString:rString] scanHexInt:&amp;r];</div><div class="line">    [[NSScanner scannerWithString:gString] scanHexInt:&amp;g];</div><div class="line">    [[NSScanner scannerWithString:bString] scanHexInt:&amp;b];</div><div class="line">    </div><div class="line">    return [UIColor colorWithRed:((float) r / 255.0f) green:((float) g / 255.0f) blue:((float) b / 255.0f) alpha:1.0f];</div><div class="line">&#125;</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/11/14/开发手记10-创建自定义按钮/" itemprop="url">
-                  开发手记10-创建自定义按钮
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-14T14:16:02+08:00" content="2016-11-14">
-              2016-11-14
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/11/14/开发手记10-创建自定义按钮/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/14/开发手记10-创建自定义按钮/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/11/14/开发手记10-创建自定义按钮/" class="leancloud_visitors" data-flag-title="开发手记10-创建自定义按钮">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="SKCustomButton-h"><a href="#SKCustomButton-h" class="headerlink" title="SKCustomButton.h"></a>SKCustomButton.h</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">#import &lt;UIKit/UIKit.h&gt;</div><div class="line"></div><div class="line">@interface SKCustomButton : UIButton</div><div class="line"></div><div class="line">/** 初始化方法 */</div><div class="line">- (instancetype)initWithFrame:(CGRect)frame;</div><div class="line">/** 类方法创建按钮 */</div><div class="line">+ (instancetype)creatCustomButtonWithImage:(NSString *)imageName title:(NSString *)title;</div><div class="line">@end</div></pre></td></tr></table></figure>
-<h2 id="SKCustomButton-m"><a href="#SKCustomButton-m" class="headerlink" title="SKCustomButton.m"></a>SKCustomButton.m</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line">#import &quot;SKCustomButton.h&quot;</div><div class="line"></div><div class="line">@implementation SKCustomButton</div><div class="line">// 初始化</div><div class="line">- (instancetype)initWithFrame:(CGRect)frame&#123;</div><div class="line">    </div><div class="line">    if (self = [super initWithFrame:frame]) &#123;</div><div class="line">        self.titleLabel.textAlignment = NSTextAlignmentCenter;</div><div class="line">    &#125;</div><div class="line">    return self;</div><div class="line">&#125;</div><div class="line">// 创建自定义按钮</div><div class="line">+ (instancetype)creatCustomButtonWithImage:(NSString *)imageName title:(NSString *)title&#123;</div><div class="line">    </div><div class="line">    SKCustomButton *button = [[SKCustomButton alloc] init];</div><div class="line">    [button setImage:[UIImage imageNamed:[NSString stringWithFormat:@&quot;%@&quot;,imageName]] forState:(UIControlStateNormal)];</div><div class="line">    [button setTitle:title forState:(UIControlStateNormal)];</div><div class="line">    [button setTitleColor:[UIColor whiteColor] forState:(UIControlStateNormal)];</div><div class="line">    [button setBackgroundColor:[UIColor blackColor]];</div><div class="line">    button.titleLabel.font = [UIFont systemFontOfSize:10.0];</div><div class="line">    [button sizeToFit];// 自适应</div><div class="line">    return button;</div><div class="line">&#125;</div><div class="line"></div><div class="line">/**</div><div class="line"> *  在viewWillApear之后，在viewDidApear之前执行</div><div class="line"> *  将button上的image和titleLabel进行上下结构布局</div><div class="line"> */</div><div class="line">// 重新布局子视图</div><div class="line">- (void)layoutSubviews&#123;</div><div class="line">    [super layoutSubviews];</div><div class="line">    </div><div class="line">    // 设置控件大小、间距</div><div class="line">    CGFloat imageViewSize = self.bounds.size.width * 18 / 138.0;// 高、宽一样</div><div class="line">    CGFloat centerX = self.bounds.size.width * 0.5;</div><div class="line">    // 设置imageView和titleLabel的间距</div><div class="line">    // 获取Label的高度</div><div class="line">    CGFloat labelHeight = self.titleLabel.font.lineHeight;</div><div class="line">    CGFloat verticalMargin = (self.bounds.size.height - labelHeight - imageViewSize) / 2.0;// 间隙</div><div class="line">    // 获取imageView和titleLabel 中心的Y值</div><div class="line">    CGFloat centerYOfImageView = verticalMargin + imageViewSize * 0.5;</div><div class="line">    CGFloat centerYOfTitleLabel = verticalMargin + imageViewSize + labelHeight * 0.5;</div><div class="line">    // 确定最终位置</div><div class="line">    self.imageView.bounds = CGRectMake(0, 0, imageViewSize, imageViewSize);</div><div class="line">    self.imageView.center = CGPointMake(centerX, centerYOfImageView);</div><div class="line">    self.titleLabel.center = CGPointMake(centerX, centerYOfTitleLabel);</div><div class="line">&#125;</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/11/14/开发手记9-宏颜色/" itemprop="url">
-                  开发手记9-宏颜色
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-14T14:13:53+08:00" content="2016-11-14">
-              2016-11-14
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/11/14/开发手记9-宏颜色/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/14/开发手记9-宏颜色/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/11/14/开发手记9-宏颜色/" class="leancloud_visitors" data-flag-title="开发手记9-宏颜色">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="SKColor-h"><a href="#SKColor-h" class="headerlink" title="SKColor.h"></a>SKColor.h</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">#ifndef SKColor_h</div><div class="line">#define SKColor_h</div><div class="line"></div><div class="line">// 设置随机颜色</div><div class="line">#define SKRandomColor [UIColor colorWithRed:arc4random()%256 / 255.0 green:arc4random()%256 /255.0 blue:arc4random()%256 / 255.0 alpha:1]</div><div class="line"></div><div class="line">// 设置RGB颜色</div><div class="line">#define SKRGBColor(r,g,b) [UIColor colorWithRed:(r) / 255.0 green:(g) /255.0 blue:(b) / 255.0 alpha:1]</div><div class="line">// 设置RGBA颜色</div><div class="line">#define SKRGBAColor(r,g,b,a) [UIColor colorWithRed:(r) / 255.0 green:(g) /255.0 blue:(b) / 255.0 alpha:a]</div><div class="line"></div><div class="line">// 清除背景色</div><div class="line">#define SKClearColor [UIColor clearColor]</div><div class="line"></div><div class="line">#endif /* SKColor_h */</div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/11/14/开发手记8-宏数据持久化/" itemprop="url">
-                  开发手记8-宏数据持久化
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-14T14:11:18+08:00" content="2016-11-14">
-              2016-11-14
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/11/14/开发手记8-宏数据持久化/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/14/开发手记8-宏数据持久化/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/11/14/开发手记8-宏数据持久化/" class="leancloud_visitors" data-flag-title="开发手记8-宏数据持久化">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="SKConfig-h"><a href="#SKConfig-h" class="headerlink" title="SKConfig.h"></a>SKConfig.h</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">#ifndef SKConfig_h</div><div class="line">#define SKConfig_h</div><div class="line"></div><div class="line">// 存储对象类型</div><div class="line">#define kUserDefaults(obj, key) \</div><div class="line">[[NSUserDefaults standardUserDefaults] setObject:obj forKey:key]</div><div class="line">// 存储布尔类型</div><div class="line">#define kBoolUserDefaults(value, key) \</div><div class="line">[[NSUserDefaults standardUserDefaults] setBool:value forKey:key]</div><div class="line">// 存储Integer类型</div><div class="line">#define kIntegerUserDefaults(integer, key) \</div><div class="line">[[NSUserDefaults standardUserDefaults] setInteger:integer forKey:key]</div><div class="line"></div><div class="line"></div><div class="line">// 获取对象类型</div><div class="line">#define kGetObjectUserDefaults(key) \</div><div class="line">[[NSUserDefaults standardUserDefaults] objectForKey:key]</div><div class="line">// 获取BOOL类型值</div><div class="line">#define kGetBoolUserDefaults(key) \</div><div class="line">[[NSUserDefaults standardUserDefaults] boolForKey:key]</div><div class="line">// 获取Value类型值</div><div class="line">#define kGetValueUserDefaults(key) \</div><div class="line">[[NSUserDefaults standardUserDefaults] valueForKey:key]</div><div class="line"></div><div class="line">// 移除本地持久化</div><div class="line">#define kRemoveObjectForKey(key) \</div><div class="line">[[NSUserDefaults standardUserDefaults] removeObjectForKey:key]</div><div class="line"></div><div class="line">#endif /* SKConfig_h */</div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1605,7 +1607,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">44</span>
+              <span class="site-state-item-count">48</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

@@ -281,6 +281,556 @@
             
               
                 
+                <a class="post-title-link" href="/2016/11/14/开发手记1-图片颜色获取/" itemprop="url">
+                  开发手记1-图片颜色获取
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-14T11:16:31+08:00" content="2016-11-14">
+              2016-11-14
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/14/开发手记1-图片颜色获取/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/14/开发手记1-图片颜色获取/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/11/14/开发手记1-图片颜色获取/" class="leancloud_visitors" data-flag-title="开发手记1-图片颜色获取">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">#import &lt;UIKit/UIKit.h&gt;</div><div class="line"></div><div class="line">@interface UIImage (getBackColorToChangeBorderColor)</div><div class="line">/**</div><div class="line"> *  出现最多的颜色</div><div class="line"> *</div><div class="line"> *  @return color</div><div class="line"> */</div><div class="line">- (UIColor *)mostColor;</div><div class="line">/**</div><div class="line"> *  是否是亮色</div><div class="line"> *</div><div class="line"> *  @param clr color</div><div class="line"> *</div><div class="line"> *  @return BOOL</div><div class="line"> */</div><div class="line">- (BOOL)isLightColor:(UIColor*)clr;</div><div class="line">@end</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div></pre></td><td class="code"><pre><div class="line">#import &quot;UIImage+getBackColorToChangeBorderColor.h&quot;</div><div class="line"></div><div class="line">@implementation UIImage (getBackColorToChangeBorderColor)</div><div class="line">- (UIColor *)mostColor&#123;</div><div class="line">    </div><div class="line">    </div><div class="line">#if __IPHONE_OS_VERSION_MAX_ALLOWED &gt; __IPHONE_6_1</div><div class="line">    int bitmapInfo = kCGBitmapByteOrderDefault | kCGImageAlphaPremultipliedLast;</div><div class="line">#else</div><div class="line">    int bitmapInfo = kCGImageAlphaPremultipliedLast;</div><div class="line">#endif</div><div class="line">    </div><div class="line">    //第一步 先把图片缩小 加快计算速度. 但越小结果误差可能越大</div><div class="line">    CGSize thumbSize=CGSizeMake(50, 50);</div><div class="line">    </div><div class="line">    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();</div><div class="line">    CGContextRef context = CGBitmapContextCreate(NULL,</div><div class="line">                                                 thumbSize.width,</div><div class="line">                                                 thumbSize.height,</div><div class="line">                                                 8,//bits per component</div><div class="line">                                                 thumbSize.width*4,</div><div class="line">                                                 colorSpace,</div><div class="line">                                                 bitmapInfo);</div><div class="line">    </div><div class="line">    CGRect drawRect = CGRectMake(0, 0, thumbSize.width, thumbSize.height);</div><div class="line">    CGContextDrawImage(context, drawRect, self.CGImage);</div><div class="line">    CGColorSpaceRelease(colorSpace);</div><div class="line">    </div><div class="line">    </div><div class="line">    </div><div class="line">    //第二步 取每个点的像素值</div><div class="line">    unsigned char* data = CGBitmapContextGetData (context);</div><div class="line">    </div><div class="line">    if (data == NULL) return nil;</div><div class="line">    </div><div class="line">    NSCountedSet *cls=[NSCountedSet setWithCapacity:thumbSize.width*thumbSize.height];</div><div class="line">    </div><div class="line">    for (int x=0; x&lt;thumbSize.width; x++) &#123;</div><div class="line">        for (int y=0; y&lt;thumbSize.height; y++) &#123;</div><div class="line">            </div><div class="line">            int offset = 4*(x*y);</div><div class="line">            </div><div class="line">            int red = data[offset];</div><div class="line">            int green = data[offset+1];</div><div class="line">            int blue = data[offset+2];</div><div class="line">            int alpha =  data[offset+3];</div><div class="line">            </div><div class="line">            NSArray *clr=@[@(red),@(green),@(blue),@(alpha)];</div><div class="line">            [cls addObject:clr];</div><div class="line">            </div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    CGContextRelease(context);</div><div class="line">    </div><div class="line">    //第三步 找到出现次数最多的那个颜色</div><div class="line">    NSEnumerator *enumerator = [cls objectEnumerator];</div><div class="line">    NSArray *curColor = nil;</div><div class="line">    </div><div class="line">    NSArray *MaxColor=nil;</div><div class="line">    NSUInteger MaxCount=0;</div><div class="line">    </div><div class="line">    while ( (curColor = [enumerator nextObject]) != nil )</div><div class="line">    &#123;</div><div class="line">        NSUInteger tmpCount = [cls countForObject:curColor];</div><div class="line">        </div><div class="line">        if ( tmpCount &lt; MaxCount ) continue;</div><div class="line">        </div><div class="line">        MaxCount=tmpCount;</div><div class="line">        MaxColor=curColor;</div><div class="line">        </div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    return [UIColor colorWithRed:([MaxColor[0] intValue]/255.0f) green:([MaxColor[1] intValue]/255.0f) blue:([MaxColor[2] intValue]/255.0f) alpha:([MaxColor[3] intValue]/255.0f)];</div><div class="line">&#125;</div><div class="line">//获取RGB值</div><div class="line">- (void)getRGBComponents:(CGFloat [3])components forColor:(UIColor *)color &#123;</div><div class="line">#if __IPHONE_OS_VERSION_MAX_ALLOWED &gt; __IPHONE_6_1</div><div class="line">    int bitmapInfo = kCGBitmapByteOrderDefault | kCGImageAlphaPremultipliedLast;</div><div class="line">#else</div><div class="line">    int bitmapInfo = kCGImageAlphaPremultipliedLast;</div><div class="line">#endif</div><div class="line">    </div><div class="line">    CGColorSpaceRef rgbColorSpace = CGColorSpaceCreateDeviceRGB();</div><div class="line">    unsigned char resultingPixel[4];</div><div class="line">    CGContextRef context = CGBitmapContextCreate(&amp;resultingPixel,</div><div class="line">                                                 1,</div><div class="line">                                                 1,</div><div class="line">                                                 8,</div><div class="line">                                                 4,</div><div class="line">                                                 rgbColorSpace,</div><div class="line">                                                 bitmapInfo);</div><div class="line">    CGContextSetFillColorWithColor(context, [color CGColor]);</div><div class="line">    CGContextFillRect(context, CGRectMake(0, 0, 1, 1));</div><div class="line">    CGContextRelease(context);</div><div class="line">    CGColorSpaceRelease(rgbColorSpace);</div><div class="line">    </div><div class="line">    for (int component = 0; component &lt; 3; component++) &#123;</div><div class="line">        components[component] = resultingPixel[component];</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">//判断颜色是不是亮色</div><div class="line">- (BOOL)isLightColor:(UIColor*)clr &#123;</div><div class="line">    CGFloat components[3];</div><div class="line">    [self getRGBComponents:components forColor:clr];</div><div class="line">    SKLog(@&quot;------------%f %f %f&quot;, components[0], components[1], components[2]);</div><div class="line">    </div><div class="line">    CGFloat num = components[0] + components[1] + components[2];</div><div class="line">    if(num &lt; 150)</div><div class="line">        return NO;</div><div class="line">    else</div><div class="line">        return YES;</div><div class="line">&#125;</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/11/14/每周烧脑-016/" itemprop="url">
+                  每周烧脑-016
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-14T10:22:36+08:00" content="2016-11-14">
+              2016-11-14
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Algorithm/" itemprop="url" rel="index">
+                    <span itemprop="name">Algorithm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/14/每周烧脑-016/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/14/每周烧脑-016/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/11/14/每周烧脑-016/" class="leancloud_visitors" data-flag-title="每周烧脑-016">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><p>给定一个长度为n的整数数组a（n&gt;0），每次操作把其中的n-1个元素加1，问最少需要多少次操作可以让数组中的所有元素相等。<br>如[1,2,3]的转换为：<br>[1,2,3]  =&gt;  [2,3,3]  =&gt;  [3,4,3]  =&gt;  [4,4,4]<br>需要三次操作<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">int minMoves(int* a, int n) &#123;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/11/14/每周烧脑-015/" itemprop="url">
+                  每周烧脑-015
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-14T10:21:22+08:00" content="2016-11-14">
+              2016-11-14
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Algorithm/" itemprop="url" rel="index">
+                    <span itemprop="name">Algorithm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/14/每周烧脑-015/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/14/每周烧脑-015/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/11/14/每周烧脑-015/" class="leancloud_visitors" data-flag-title="每周烧脑-015">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="矩阵清零"><a href="#矩阵清零" class="headerlink" title="矩阵清零"></a>矩阵清零</h3><p>给定一个MxN的矩阵，如果其中某个元素是0，则将其所在的行和列都清零。要求，原地操作，不能使用多余空间，即空间复杂度O(1)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">void SetZero( int **matrix, int m, int n)</div><div class="line">&#123;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="最佳答案"><a href="#最佳答案" class="headerlink" title="最佳答案"></a>最佳答案</h2><h2 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">void setZero(int **matrix, int m, int n)&#123;</div><div class="line">    </div><div class="line">    BOOL row[n]; // 行</div><div class="line">    BOOL line[m];// 列</div><div class="line">    for (int i = 0; i &lt; m; i ++) &#123;</div><div class="line">        for (int j = 0; j &lt; n; j ++) &#123;</div><div class="line">            if (matrix[i][j] == 0) &#123;</div><div class="line">                row[i] = true;</div><div class="line">                line[j] = true;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    for (int i = 0; i &lt; m; i ++) &#123;</div><div class="line">        for (int j = 0; j &lt; n; j ++) &#123;</div><div class="line">            if (row[i] || line[j]) &#123;</div><div class="line">                matrix[i][j] = 0;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/11/14/每周烧脑-014/" itemprop="url">
+                  每周烧脑-014
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-14T10:21:09+08:00" content="2016-11-14">
+              2016-11-14
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Algorithm/" itemprop="url" rel="index">
+                    <span itemprop="name">Algorithm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/14/每周烧脑-014/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/14/每周烧脑-014/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/11/14/每周烧脑-014/" class="leancloud_visitors" data-flag-title="每周烧脑-014">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="nginx按权重进行负载均衡的算法"><a href="#nginx按权重进行负载均衡的算法" class="headerlink" title="nginx按权重进行负载均衡的算法"></a>nginx按权重进行负载均衡的算法</h3><p>使用nginx时，可以给每台上游服务器指定一个权重，这样nginx会把请求按权重转发给上游服务器，如：<br>服务器A, 权重1<br>服务器B, 权重6<br>服务器C, 权重20<br>则nginx会把请求按照 1:6:20的比例分发给三台服务器。</p>
+<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><h2 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h2><p>　　在介绍加权轮询算法(WeightedRound-Robin)之前，首先介绍一下轮询算法(Round-Robin)。<br>　　<br>一：轮询算法(Round-Robin)<br>　　轮询算法是最简单的一种负载均衡算法。它的原理是把来自用户的请求轮流分配给内部的服务器：从服务器1开始，直到服务器N，然后重新开始循环。<br>　　算法的优点是其简洁性，它无需记录当前所有连接的状态，所以它是一种无状态调度。<br>　<br>　　假设有N台服务器：S = {S1, S2, …, Sn}，一个指示变量i表示上一次选择的服务器ID。变量i被初始化为N-1。该算法的伪代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">　</div><div class="line">j = i;</div><div class="line">do</div><div class="line">&#123;</div><div class="line">    j = (j + 1) mod n;</div><div class="line">    i = j;</div><div class="line">    return Si;</div><div class="line">&#125; while (j != i);</div><div class="line">return NULL;</div></pre></td></tr></table></figure></p>
+<p>　　轮询算法假设所有服务器的处理性能都相同，不关心每台服务器的当前连接数和响应速度。当请求服务间隔时间变化比较大时，轮询算法容易导致服务器间的负载不平衡。所以此种均衡算法适合于服务器组中的所有服务器都有相同的软硬件配置并且平均服务请求相对均衡的情况。</p>
+<p>二：加权轮询算法(WeightedRound-Robin)<br>　　轮询算法并没有考虑每台服务器的处理能力，实际中可能并不是这种情况。由于每台服务器的配置、安装的业务应用等不同，其处理能力会不一样。所以，加权轮询算法的原理就是：根据服务器的不同处理能力，给每个服务器分配不同的权值，使其能够接受相应权值数的服务请求。</p>
+<p>　　首先看一个简单的Nginx负载均衡配置。<br>http {<br>    upstream cluster {<br>        server a weight=1;<br>        server b weight=2;<br>        server c weight=4;<br>    }<br>    …<br>} </p>
+<p>　　按照上述配置，Nginx每收到7个客户端的请求，会把其中的1个转发给后端a，把其中的2个转发给后端b，把其中的4个转发给后端c。</p>
+<p>　　加权轮询算法的结果，就是要生成一个服务器序列。每当有请求到来时，就依次从该序列中取出下一个服务器用于处理该请求。比如针对上面的例子，加权轮询算法会生成序列{c, c, b, c, a, b, c}。这样，每收到7个客户端的请求，会把其中的1个转发给后端a，把其中的2个转发给后端b，把其中的4个转发给后端c。收到的第8个请求，重新从该序列的头部开始轮询。<br>　　总之，加权轮询算法要生成一个服务器序列，该序列中包含n个服务器。n是所有服务器的权重之和。在该序列中，每个服务器的出现的次数，等于其权重值。并且，生成的序列中，服务器的分布应该尽可能的均匀。比如序列{a, a, a, a, a, b, c}中，前五个请求都会分配给服务器a，这就是一种不均匀的分配方法，更好的序列应该是：{a, a, b, a, c, a, a}。<br>　　下面介绍两种加权轮询算法：</p>
+<p>1：普通加权轮询算法<br>         这种算法的原理是：在服务器数组S中，首先计算所有服务器权重的最大值max(S)，以及所有服务器权重的最大公约数gcd(S)。<br>         index表示本次请求到来时，选择的服务器的索引，初始值为-1；current_weight表示当前调度的权值，初始值为max(S)。<br>         当请求到来时，从index+1开始轮询服务器数组S，找到其中权重大于current_weight的第一个服务器，用于处理该请求。记录其索引到结果序列中。<br>　　在轮询服务器数组时，如果到达了数组末尾，则重新从头开始搜索，并且减小current_weight的值：current_weight -= gcd(S)。如果current_weight等于0，则将其重置为max(S)。</p>
+<p>　　该算法的实现代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">#include &lt;stdlib.h&gt;</div><div class="line">#include &lt;stdio.h&gt;</div><div class="line">#include &lt;unistd.h&gt;</div><div class="line">#include &lt;string.h&gt;</div><div class="line"></div><div class="line">typedef struct</div><div class="line">&#123;</div><div class="line">    int weight;</div><div class="line">    char name[2];</div><div class="line">&#125;server;</div><div class="line"></div><div class="line"></div><div class="line">int getsum(int *set, int size)</div><div class="line">&#123;</div><div class="line">    int i = 0; </div><div class="line">    int res = 0;</div><div class="line"></div><div class="line">    for (i = 0; i &lt; size; i++)</div><div class="line">        res += set[i];</div><div class="line"></div><div class="line">    return res;</div><div class="line">&#125;</div><div class="line"></div><div class="line">int gcd(int a, int b)</div><div class="line">&#123;</div><div class="line">    int c;</div><div class="line">    while(b)</div><div class="line">    &#123;</div><div class="line">        c = b;</div><div class="line">        b = a % b;</div><div class="line">        a = c;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    return a;</div><div class="line">&#125;</div><div class="line"></div><div class="line">int getgcd(int *set, int size)</div><div class="line">&#123;</div><div class="line">    int i = 0; </div><div class="line">    int res = set[0];</div><div class="line"></div><div class="line">    for (i = 1; i &lt; size; i++)</div><div class="line">        res = gcd(res, set[i]);</div><div class="line"></div><div class="line">    return res;</div><div class="line">&#125;</div><div class="line"></div><div class="line">int getmax(int *set, int size)</div><div class="line">&#123;</div><div class="line">    int i = 0; </div><div class="line">    int res = set[0];</div><div class="line"></div><div class="line">    for (i = 1; i &lt; size; i++)</div><div class="line">    &#123;</div><div class="line">        if (res &lt; set[i]) res = set[i];</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    return res;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">int lb_wrr__getwrr(server *ss, int size, int gcd, int maxweight, int *i, int *cw) </div><div class="line">&#123;</div><div class="line">    while (1) </div><div class="line">    &#123;</div><div class="line">        *i = (*i + 1) % size;</div><div class="line">        if (*i == 0) </div><div class="line">        &#123;</div><div class="line">            *cw = *cw - gcd;</div><div class="line">            if (*cw &lt;= 0) </div><div class="line">            &#123;</div><div class="line">                *cw = maxweight;</div><div class="line">                if (*cw == 0) </div><div class="line">                &#123;</div><div class="line">                    return -1;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        if (ss[*i].weight &gt;= *cw) </div><div class="line">        &#123;</div><div class="line">            return *i;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">void wrr(server *ss, int *weights, int size)</div><div class="line">&#123;</div><div class="line">    int i = 0;</div><div class="line"></div><div class="line">    int gcd = getgcd(weights, size);</div><div class="line">    int max = getmax(weights, size);</div><div class="line">    int sum = getsum(weights, size);</div><div class="line">    </div><div class="line"></div><div class="line">    int index = -1;</div><div class="line">    int curweight = 0;</div><div class="line"></div><div class="line">    for (i = 0; i &lt; sum; i++) </div><div class="line">    &#123;</div><div class="line">        lb_wrr__getwrr(ss, size, gcd, max, &amp;(index), &amp;(curweight));</div><div class="line">        printf(&quot;%s(%d) &quot;, ss[index].name, ss[index].weight);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    printf(&quot;\n&quot;);</div><div class="line">    return;</div><div class="line">&#125;</div><div class="line"></div><div class="line">server *initServers(char **names, int *weights, int size)</div><div class="line">&#123;</div><div class="line">    int i = 0;</div><div class="line">    server *ss = calloc(size, sizeof(server));</div><div class="line"></div><div class="line">    </div><div class="line">    for (i = 0; i &lt; size; i++)</div><div class="line">    &#123;</div><div class="line">        ss[i].weight = weights[i];</div><div class="line">        memcpy(ss[i].name, names[i], 2);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    return ss;</div><div class="line">&#125;</div><div class="line"></div><div class="line">int main()</div><div class="line">&#123;</div><div class="line">    int i = 0;</div><div class="line">    </div><div class="line">    int weights[] = &#123;1, 2, 4&#125;;</div><div class="line">    char *names[] = &#123;&quot;a&quot;, &quot;b&quot;, &quot;c&quot;&#125;;</div><div class="line">    int size = sizeof(weights) / sizeof(int);</div><div class="line"></div><div class="line"></div><div class="line">    server *ss = initServers(names, weights, size);</div><div class="line"></div><div class="line">    printf(&quot;server is &quot;);</div><div class="line">    for (i = 0; i &lt; size; i++)</div><div class="line">    &#123;</div><div class="line">        printf(&quot;%s(%d) &quot;, ss[i].name, ss[i].weight);</div><div class="line">    &#125;</div><div class="line">    printf(&quot;\n&quot;);</div><div class="line"></div><div class="line">    printf(&quot;\nwrr sequence is &quot;);</div><div class="line">    wrr(ss, weights, size);</div><div class="line"></div><div class="line">    return;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>　　上面的代码中，算法的核心部分就是wrr和lb_wrr<strong>getwrr函数。在wrr函数中，首先计算所有服务器权重的最大公约数gcd，权重最大值max，以及权重之和sum。<br>　　初始时，index为-1，curweight为0，然后依次调用lb_wrr</strong>getwrr函数，得到本次选择的服务器索引index。</p>
+<p>　　算法的核心思想体现在lb_wrr__getwrr函数中。以例子说明更好理解一些：对于服务器数组{a(1), b(2), c(4)}而言，gcd为1，maxweight为4。<br>　　第1次调用该函数时，i(index)为-1，cw(current_weight)为0，进入循环后，i首先被置为0，因此cw被置为maxweight。从i开始轮询服务器数组ss，第一个权重大于等于cw的服务器是c，因此，i被置为2，并返回其值。<br>　　第2次调用该函数时，i为2，cw为maxweight。进入循环后，i首先被置为0，因此cw被置为cw-gcd，也就是3。从i开始轮询服务器数组ss，第一个权重大于等于cw的服务器还是c，因此，i被置为2，并返回其值。<br>　　第3次调用该函数时，i为2，cw为3。进入循环后，i首先被置为0，因此cw被置为cw-gcd，也就是2。从i开始轮询服务器数组ss，第一个权重大于等于cw的服务器是b，因此，i被置为1，并返回其值。<br>　　第4次调用该函数时，i为1，cw为2。进入循环后，i首先被置为2，从i开始轮询服务器数组ss，第一个权重大于等于cw的服务器是c，因此，i被置为2，并返回其值。<br>　　第5次调用该函数时，i为2，cw为2。进入循环后，i首先被置为0，因此cw被置为cw-gcd，也就是1。从i开始轮询服务器数组ss，第一个权重大于等于cw的服务器是a，因此，i被置为0，并返回其值。<br>　　第6次调用该函数时，i为0，cw为1。进入循环后，i首先被置为1，从i开始轮询服务器数组ss，第一个权重大于等于cw的服务器是b，因此，i被置为1，并返回其值。<br>　　第7次调用该函数时，i为1，cw为1。进入循环后，i首先被置为2，从i开始轮询服务器数组ss，第一个权重大于等于cw的服务器是c，因此，i被置为2，并返回其值。</p>
+<p>　　经过7（1+2+4）次调用之后，每个服务器被选中的次数正好是其权重值。上面程序的运行结果如下：<br>server is a(1) b(2) c(4)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">wrr sequence is c(4) c(4) b(2) c(4) a(1) b(2) c(4)</div></pre></td></tr></table></figure></p>
+<pre><code>如果有新的请求到来，第8次调用该函数时，i为2，cw为1。进入循环后，i首先被置为0，cw被置为cw-gcd，也就是0，因此cw被重置为maxweight。这种情况就跟第一次调用该函数时一样了。因此，7次是一个轮回，7次之后，重复之前的过程。
+这背后的数学原理，自己思考了一下，总结如下：
+</code></pre><p>　　current_weight的值，其变化序列就是一个等差序列：max, max-gcd, max-2gcd, …, 0(max)，将current_weight从max变为0的过程，称为一个轮回。<br>　　针对每个current_weight，该算法就是要把服务器数组从头到尾扫描一遍，将其中权重大于等于current_weight的所有服务器填充到结果序列中。扫描完一遍服务器数组之后，将current_weight变为下一个值，再一次从头到尾扫描服务器数组。<br>　　在current_weight变化过程中，不管current_weight当前为何值，具有max权重的服务器每次肯定会被选中。因此，具有max权重的服务器会在序列中出现max/gcd次（等差序列中的项数）。<br>　　更一般的，当current_weight变为x之后，权重为x的服务器，在current_weight接下来的变化过程中，每次都会被选中，因此，具有x权重的服务器，会在序列中出现x/gcd次。所以，每个服务器在结果序列中出现的次数，是与其权重成正比的，这就是符合加权轮询算法的要求了。</p>
+<p>2：平滑的加权轮询<br>     上面的加权轮询算法有个缺陷，就是某些情况下生成的序列是不均匀的。比如针对这样的配置：<br>http {<br>    upstream cluster {<br>        server a weight=5;<br>        server b weight=1;<br>        server c weight=1;<br>    }<br>    …<br>} </p>
+<pre><code>生成的序列是这样的：{a,a, a, a, a, c, b}。会有5个连续的请求落在后端a上，分布不太均匀。
+</code></pre><p>　　在Nginx源码中，实现了一种叫做平滑的加权轮询（smooth weighted round-robin balancing）的算法，它生成的序列更加均匀。比如前面的例子，它生成的序列为{ a, a, b, a, c, a, a}，转发给后端a的5个请求现在分散开来，不再是连续的。</p>
+<p>　　该算法的原理如下：<br>　　每个服务器都有两个权重变量：<br>　　a：weight，配置文件中指定的该服务器的权重，这个值是固定不变的；<br>　　b：current_weight，服务器目前的权重。一开始为0，之后会动态调整。</p>
+<p>　　每次当请求到来，选取服务器时，会遍历数组中所有服务器。对于每个服务器，让它的current_weight增加它的weight；同时累加所有服务器的weight，并保存为total。<br>　　遍历完所有服务器之后，如果该服务器的current_weight是最大的，就选择这个服务器处理本次请求。最后把该服务器的current_weight减去total。</p>
+<p>　　上述描述可能不太直观，来看个例子。比如针对这样的配置：<br>http {<br>    upstream cluster {<br>        server a weight=4;<br>        server b weight=2;<br>        server c weight=1;<br>    }<br>    …<br>} </p>
+<p>　　按照这个配置，每7个客户端请求中，a会被选中4次、b会被选中2次、c会被选中1次，且分布平滑。我们来算算看是不是这样子的。<br>　　initial  current_weight  of a, b, c is {0, 0, 0}</p>
+<p>　　通过上述过程，可得以下结论：<br>　　a：7个请求中，a、b、c分别被选取了4、2、1次，符合它们的权重值。<br>　　b：7个请求中，a、b、c被选取的顺序为a, b,a, c, a, b, a，分布均匀，权重大的后端a没有被连续选取。<br>　　c：每经过7个请求后，a、b、c的current_weight又回到初始值{0, 0,0}，因此上述流程是不断循环的。</p>
+<p>　　根据该算法实现的代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div></pre></td><td class="code"><pre><div class="line">#include &lt;stdlib.h&gt;</div><div class="line">#include &lt;stdio.h&gt;</div><div class="line">#include &lt;unistd.h&gt;</div><div class="line">#include &lt;string.h&gt;</div><div class="line">typedef struct</div><div class="line">&#123;</div><div class="line">    int weight;</div><div class="line">    int cur_weight;</div><div class="line">    char name[3];</div><div class="line">&#125;server;</div><div class="line"></div><div class="line">int getsum(int *set, int size)</div><div class="line">&#123;</div><div class="line">    int i = 0; </div><div class="line">    int res = 0;</div><div class="line"></div><div class="line">    for (i = 0; i &lt; size; i++)</div><div class="line">        res += set[i];</div><div class="line"></div><div class="line">    return res;</div><div class="line">&#125;</div><div class="line"></div><div class="line">server *initServers(char **names, int *weights, int size)</div><div class="line">&#123;</div><div class="line">    int i = 0;</div><div class="line">    server *ss = calloc(size+1, sizeof(server));</div><div class="line"></div><div class="line">    for (i = 0; i &lt; size; i++)</div><div class="line">    &#123;</div><div class="line">        ss[i].weight = weights[i];</div><div class="line">        memcpy(ss[i].name, names[i], 3);</div><div class="line">        ss[i].cur_weight = 0;</div><div class="line">    &#125;</div><div class="line">    return ss;</div><div class="line">&#125;</div><div class="line"></div><div class="line">int getNextServerIndex(server *ss, int size)</div><div class="line">&#123;</div><div class="line">    int i ;</div><div class="line">    int index = -1;</div><div class="line">    int total = 0;</div><div class="line"></div><div class="line">    for (i = 0; i &lt; size; i++)</div><div class="line">    &#123;</div><div class="line">        ss[i].cur_weight += ss[i].weight;</div><div class="line">        total += ss[i].weight;</div><div class="line"></div><div class="line">        if (index == -1 || ss[index].cur_weight &lt; ss[i].cur_weight)</div><div class="line">        &#123;</div><div class="line">            index = i;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    ss[index].cur_weight -= total;</div><div class="line">    return index;</div><div class="line">&#125;</div><div class="line"></div><div class="line">void wrr_nginx(server *ss, int *weights, int size)</div><div class="line">&#123;</div><div class="line">    int i = 0;</div><div class="line">    int index = -1;</div><div class="line">    int sum = getsum(weights, size);</div><div class="line"></div><div class="line">    for (i = 0; i &lt; sum; i++) </div><div class="line">    &#123;</div><div class="line">        index = getNextServerIndex(ss, size);</div><div class="line">        printf(&quot;%s(%d) &quot;, ss[index].name, ss[index].weight);</div><div class="line">    &#125;</div><div class="line">    printf(&quot;\n&quot;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">int main()</div><div class="line">&#123;</div><div class="line">    int i = 0;</div><div class="line">    int weights[] = &#123;4, 2, 1&#125;;</div><div class="line">    char *names[] = &#123;&quot;a&quot;, &quot;b&quot;, &quot;c&quot;&#125;;</div><div class="line">    int size = sizeof(weights) / sizeof(int);</div><div class="line"></div><div class="line">    server *ss = initServers(names, weights, size);</div><div class="line"></div><div class="line">    printf(&quot;server is &quot;);</div><div class="line">    for (i = 0; i &lt; size; i++)</div><div class="line">    &#123;</div><div class="line">        printf(&quot;%s(%d) &quot;, ss[i].name, ss[i].weight);</div><div class="line">    &#125;</div><div class="line">    printf(&quot;\n&quot;);</div><div class="line"></div><div class="line">    printf(&quot;\nwrr_nginx sequence is &quot;);</div><div class="line">    wrr_nginx(ss, weights, size);</div><div class="line"></div><div class="line">    return;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<pre><code>上述代码的运行结果如下：
+</code></pre><p>server is a(4) b(2) c(1)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">wrr_nginx sequence is a(4) b(2) a(4) c(1) a(4) b(2) a(4)</div></pre></td></tr></table></figure></p>
+<pre><code>如果服务器配置为：{a(5),b(1), c(1)}，则运行结果如下：
+</code></pre><p>server is a(5) b(1) c(1)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">wrr_nginx sequence is a(5) a(5) b(1) a(5) c(1) a(5) a(5)</div></pre></td></tr></table></figure></p>
+<pre><code>可见，该算法生成的序列确实更加均匀。
+
+该算法背后的数学原理，实在没想出来，google也没查到相关论证……，等待后续查证了。
+</code></pre><p>三：健康检查<br>　　负载均衡算法，一般要伴随健康检查算法一起使用。健康检查算法的作用就是对所有的服务器进行存活和健康检测，看是否需要提供给负载均衡做选择。如果一台机器的服务出现了问题，健康检查就会将这台机器从服务列表中去掉，让负载均衡算法看不到这台机器的存在。<br>　　具体在加权轮询算法中，当健康检查算法检测出某服务器的状态发生了变化，比如从UP到DOWN，或者反之时，就会更新权重，重新计算结果序列。</p>
+<p>参考：<br><a href="http://kb.linuxvirtualserver.org/wiki/Weighted_Round-Robin_Scheduling" target="_blank" rel="external">http://kb.linuxvirtualserver.org/wiki/Weighted_Round-Robin_Scheduling</a><br><a href="http://ialloc.org/posts/2014/11/14/ngx-notes-module-http-sticky/" target="_blank" rel="external">http://ialloc.org/posts/2014/11/14/ngx-notes-module-http-sticky/</a><br><a href="http://blog.csdn.net/zhangskd/article/details/50194069" target="_blank" rel="external">http://blog.csdn.net/zhangskd/article/details/50194069</a><br>转载：<a href="http://m.blog.csdn.net/article/details?id=52076997" target="_blank" rel="external">http://m.blog.csdn.net/article/details?id=52076997</a></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/11/14/每周烧脑-013/" itemprop="url">
                   每周烧脑-013
                 </a>
@@ -541,145 +1091,6 @@
             
               
                 
-                <a class="post-title-link" href="/2016/09/26/每周烧脑-010/" itemprop="url">
-                  每周烧脑-010
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-26T16:34:27+08:00" content="2016-09-26">
-              2016-09-26
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Algorithm/" itemprop="url" rel="index">
-                    <span itemprop="name">Algorithm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/09/26/每周烧脑-010/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/26/每周烧脑-010/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/09/26/每周烧脑-010/" class="leancloud_visitors" data-flag-title="每周烧脑-010">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="整数替换"><a href="#整数替换" class="headerlink" title="整数替换"></a>整数替换</h3><p>对一个正整数n可以执行如下操作：</p>
-<ol>
-<li>如果 n 是偶数，把它替换为 n / 2</li>
-<li>如果 n 是奇数，可以把它替换为 n - 1 或 n + 1</li>
-</ol>
-<p>求最少需要多少步可以把 n 变成 1。</p>
-<p>例如：</p>
-<p>n = 8， 8-&gt;4-&gt;2-&gt;1，需要3步</p>
-<p>n = 7， 7 -&gt; 8 -&gt; 4 -&gt; 2 -&gt; 1 或 7 -&gt; 6 -&gt; 3 -&gt; 2 -&gt; 1，两种方法都需要4步</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">int replace( int n )</div><div class="line">&#123;</div><div class="line">    // 返回把n变成1需要的最少步数</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">int replace(int n)&#123;</div><div class="line">    int count = 0;</div><div class="line">    while(n &gt; 1)</div><div class="line">    &#123;</div><div class="line">        if(n % 2 == 0)            // n % 4等于0或2</div><div class="line">            n &gt;&gt;= 1;</div><div class="line">        else if(n == 3)</div><div class="line">            n--;</div><div class="line">        else</div><div class="line">            n += (n % 4 - 2);     // n % 4等于1或3</div><div class="line">        count++;</div><div class="line">    &#125;</div><div class="line">    return count;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
                 <a class="post-title-link" href="/2016/09/26/每周烧脑-011/" itemprop="url">
                   每周烧脑-011
                 </a>
@@ -770,6 +1181,145 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">int gold( int* scores, int n ) // scores是每个海盗的贡献值（不必考虑负数的情况），n是海盗的数量</div><div class="line">&#123;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>时间复杂度O(n) 空间复杂度O(1)</p>
 <h2 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div></pre></td><td class="code"><pre><div class="line">int gold( int* s, int n )</div><div class="line">&#123;</div><div class="line">    int c = 1, a = 1, d = 1;</div><div class="line">    for( int i = 1; i &lt; n; ++i )</div><div class="line">    &#123;</div><div class="line">        if( s[i] &lt; s[i-1] )</div><div class="line">        &#123;</div><div class="line">            ++d;</div><div class="line">            continue;</div><div class="line">        &#125;</div><div class="line">        c += d * (d - 1) / 2 + (d &gt; a ? d - a : 0);</div><div class="line">        if( s[i] == s[i-1] )</div><div class="line">            a = 0, d = 1;</div><div class="line">        else if( d &gt; 1 )</div><div class="line">            a = 1, d = 1;</div><div class="line">        c += ++a;</div><div class="line">    &#125;</div><div class="line">    return c + d * (d - 1) / 2 + (d &gt; a ? d - a : 0);</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">int gold( int* s, int n )</div><div class="line">&#123;</div><div class="line">    int c = 1, a = 1, d = 1;</div><div class="line">    for( int i = 1; i &lt; n; ++i )</div><div class="line">    &#123;</div><div class="line">        if( s[i] &gt; s[i-1] ) // in a ascending sequence</div><div class="line">        &#123;</div><div class="line">            if( d &gt; 1 ) // a descending sequence ended here?</div><div class="line">            &#123;</div><div class="line">                // add gold for the descending sequence but exclude the first pirate,</div><div class="line">                // the formula is simplified from &apos;((d - 1) + 1) * (d - 1) / 2&apos;</div><div class="line">                c += d * (d - 1) / 2;</div><div class="line">                // adjust gold for the last pirate in previous ascending sequence if needed,</div><div class="line">                // note he is also the first pirate in the descending sequence</div><div class="line">                if( d &gt; a )</div><div class="line">                    c += d - a;</div><div class="line">                a = d = 1; // reset length of ascending &amp; descending sequence</div><div class="line">            &#125;</div><div class="line">            ++a; // update length of ascending sequence</div><div class="line">            c += a; // add gold for current pirate</div><div class="line">        &#125;</div><div class="line">        else if( s[i] == s[i-1] )</div><div class="line">        &#123;</div><div class="line">            // same as the start of ascending sequence,</div><div class="line">            // add gold for the descending sequence if this end a descending sequence,</div><div class="line">            // note this will be &apos;0&apos; if &apos;d&apos; is 1</div><div class="line">            c += d * (d - 1) / 2;</div><div class="line">            if( d &gt; a )</div><div class="line">                c += d - a;</div><div class="line">            // add gold for current pirate, always &apos;1&apos;</div><div class="line">            ++c;</div><div class="line">            a = d = 1;  // reset length of ascending &amp; descending sequence</div><div class="line">        &#125;</div><div class="line">        else</div><div class="line">        &#123;</div><div class="line">            ++d; // update the length of descending sequence</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    c += d * (d - 1) / 2; // handle the last descending sequence</div><div class="line">    if( d &gt; a )</div><div class="line">        c += d - a;</div><div class="line">    return c;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/09/26/每周烧脑-010/" itemprop="url">
+                  每周烧脑-010
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-26T16:34:27+08:00" content="2016-09-26">
+              2016-09-26
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Algorithm/" itemprop="url" rel="index">
+                    <span itemprop="name">Algorithm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/26/每周烧脑-010/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/26/每周烧脑-010/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/09/26/每周烧脑-010/" class="leancloud_visitors" data-flag-title="每周烧脑-010">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="整数替换"><a href="#整数替换" class="headerlink" title="整数替换"></a>整数替换</h3><p>对一个正整数n可以执行如下操作：</p>
+<ol>
+<li>如果 n 是偶数，把它替换为 n / 2</li>
+<li>如果 n 是奇数，可以把它替换为 n - 1 或 n + 1</li>
+</ol>
+<p>求最少需要多少步可以把 n 变成 1。</p>
+<p>例如：</p>
+<p>n = 8， 8-&gt;4-&gt;2-&gt;1，需要3步</p>
+<p>n = 7， 7 -&gt; 8 -&gt; 4 -&gt; 2 -&gt; 1 或 7 -&gt; 6 -&gt; 3 -&gt; 2 -&gt; 1，两种方法都需要4步</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">int replace( int n )</div><div class="line">&#123;</div><div class="line">    // 返回把n变成1需要的最少步数</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">int replace(int n)&#123;</div><div class="line">    int count = 0;</div><div class="line">    while(n &gt; 1)</div><div class="line">    &#123;</div><div class="line">        if(n % 2 == 0)            // n % 4等于0或2</div><div class="line">            n &gt;&gt;= 1;</div><div class="line">        else if(n == 3)</div><div class="line">            n--;</div><div class="line">        else</div><div class="line">            n += (n % 4 - 2);     // n % 4等于1或3</div><div class="line">        count++;</div><div class="line">    &#125;</div><div class="line">    return count;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
           
         
@@ -1068,547 +1618,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/09/26/每周烧脑-007/" itemprop="url">
-                  每周烧脑-007
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-26T16:34:00+08:00" content="2016-09-26">
-              2016-09-26
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Algorithm/" itemprop="url" rel="index">
-                    <span itemprop="name">Algorithm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/09/26/每周烧脑-007/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/26/每周烧脑-007/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/09/26/每周烧脑-007/" class="leancloud_visitors" data-flag-title="每周烧脑-007">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="有没有环"><a href="#有没有环" class="headerlink" title="有没有环"></a>有没有环</h3><p>给定一个单向链表，判断其中是否有环，即类似下面的形式：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">A -&gt; B -&gt; C -&gt; D -&gt; E -&gt; F</div><div class="line">               |         |</div><div class="line">               I &lt;- H &lt;- G</div></pre></td></tr></table></figure>
-<p>链表结点定义：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">struct ListNode</div><div class="line">&#123;</div><div class="line">    ListNode* next;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>函数原型：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">bool hasCycle( const ListNode* head )</div><div class="line">&#123;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="最佳答案"><a href="#最佳答案" class="headerlink" title="最佳答案"></a>最佳答案</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">```</div><div class="line">## 答案</div></pre></td></tr></table></figure>
-<p>#import <foundation foundation.h=""><br>typedef struct listNode{<br>    struct listNode <em>next;<br>}list;<br>bool hasCycle(list</em> head);<br>bool hasCycle(list<em> head)<br>{<br>    list </em>fast = head;<br>    list <em>slow = head;<br>    while (fast &amp;&amp; fast -&gt; next) {<br>        fast = fast -&gt; next -&gt; next;<br>        slow = slow -&gt; next;<br>        if (fast == slow) {<br>            return false;<br>        }<br>    }<br>    return true;<br>};<br>int main(int argc, const char </em> argv[]) {<br>    @autoreleasepool {</foundation></p>
-<pre><code>}
-return 0;
-</code></pre><p>}<br>```</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/09/26/每周烧脑-006/" itemprop="url">
-                  每周烧脑-006
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-26T16:33:43+08:00" content="2016-09-26">
-              2016-09-26
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Algorithm/" itemprop="url" rel="index">
-                    <span itemprop="name">Algorithm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/09/26/每周烧脑-006/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/26/每周烧脑-006/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/09/26/每周烧脑-006/" class="leancloud_visitors" data-flag-title="每周烧脑-006">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="拼接字符串"><a href="#拼接字符串" class="headerlink" title="拼接字符串"></a>拼接字符串</h3><p>给定A,B两个字符串，串中的字符全都是小写英文字母（即a -&gt; z）。判断能否只使用A串中的字符拼出B串，A串中的每个字符只准使用一次。例如：</p>
-<p>A = “aaab”    B = “aaa”     true</p>
-<p>A = “aabb”    B= “aaa”      false</p>
-<p>A = “aaab”    B = “abaa”   true</p>
-<p>A = “aaab”    B = “aaac”   false</p>
-<p>函数原型：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">bool canConstruct(const char* A, const char* B)</div><div class="line"></div><div class="line">&#123;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="最佳答案"><a href="#最佳答案" class="headerlink" title="最佳答案"></a>最佳答案</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure>
-<h2 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">// 计算每个字母出现的次数，正向加法，逆向加法。小于0证明B比A中同样的字母少</div><div class="line">BOOL canConstruct(const char * A, const char * B);</div><div class="line">BOOL canConstruct(const char * A, const char * B)&#123;</div><div class="line">    </div><div class="line">    int a[26] = &#123;&#125;;</div><div class="line">    for (int i = 0; i &lt; strlen(A); i ++) &#123;</div><div class="line">        a[A[i] - &apos;a&apos;] += 1;</div><div class="line">    &#125;</div><div class="line">    for (int j = 0; j &lt; strlen(B); j ++) &#123;</div><div class="line">        a[B[j] - &apos;a&apos;] -= 1;</div><div class="line">        if (a[B[j] - &apos;a&apos;] &lt; 0) &#123;</div><div class="line">            return false;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    return true;</div><div class="line">&#125;</div><div class="line">int main(int argc, const char * argv[]) &#123;</div><div class="line">    @autoreleasepool &#123;</div><div class="line">        char a[] = &quot;aaab&quot;;</div><div class="line">        char b[] = &quot;aaca&quot;;</div><div class="line">        printf(&quot;%d&quot;,canConstruct(a, b));</div><div class="line">    &#125;</div><div class="line">    return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/09/26/每周烧脑-005/" itemprop="url">
-                  每周烧脑-005
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-26T16:33:24+08:00" content="2016-09-26">
-              2016-09-26
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Algorithm/" itemprop="url" rel="index">
-                    <span itemprop="name">Algorithm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/09/26/每周烧脑-005/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/26/每周烧脑-005/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/09/26/每周烧脑-005/" class="leancloud_visitors" data-flag-title="每周烧脑-005">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="寻找单身狗"><a href="#寻找单身狗" class="headerlink" title="寻找单身狗"></a>寻找单身狗</h3><p>一位单身人士混入了一个只允许情侣参加的聚会，已知每对情侣身上都贴了相同的号码，并且不同情侣的号码互不相同，单身人士身上的号码也是唯一的，找到他/她。</p>
-<p>C函数原型：返回只出现一次的号码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">int FindSignle( int* numbers, int n )</div><div class="line">&#123;</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>例如：对输入a[1,1,2,9,2,3,3,4,6,6,5,7,5,9,7,8,8]，返回4</p>
-<h2 id="最佳答案"><a href="#最佳答案" class="headerlink" title="最佳答案"></a>最佳答案</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">int FindSignle(int * numbers, int n)&#123;</div><div class="line">    </div><div class="line">    int r = a[0];</div><div class="line">    for (int i = 1 ; i &lt; n; i ++) &#123;</div><div class="line">        r ^= a[i];</div><div class="line">    &#125;</div><div class="line">    return r;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line">#import &lt;Foundation/Foundation.h&gt;</div><div class="line">int FindSignle(int * numbers, int n);</div><div class="line">int FindSignle(int * numbers, int n)&#123;</div><div class="line">    </div><div class="line">    int maxNum = 0;</div><div class="line">    int sumNum1 = 0;</div><div class="line">    int sumNum2 = 0;</div><div class="line">    for (int i = 0 ; i &lt; n; i ++) &#123;</div><div class="line">        if (maxNum &lt; numbers[i]) &#123;</div><div class="line">            maxNum = numbers[i];</div><div class="line">            sumNum1 = sumNum1 + maxNum;</div><div class="line">        &#125;</div><div class="line">        sumNum2 = sumNum2 + numbers[i];</div><div class="line">    &#125;</div><div class="line">    return (sumNum1 * 2 - sumNum2);</div><div class="line">&#125;</div><div class="line"></div><div class="line">int main(int argc, const char * argv[]) &#123;</div><div class="line">    @autoreleasepool &#123;</div><div class="line">        int a[] = &#123;1,1,2,9,2,3,3,4,6,6,5,7,5,9,7,8,8&#125;;</div><div class="line">        int n = sizeof(a) / sizeof(a[0]);</div><div class="line">        BOOL exChangeFlag = NO;</div><div class="line">        for(int i = 0 ; i &lt; n - 1; i ++)&#123;</div><div class="line">            exChangeFlag = NO;</div><div class="line">            for(int j = 0 ; j &lt; n - 1 - i ; j ++)&#123;</div><div class="line">                if(a[j] &gt; a[j+1])&#123;</div><div class="line">                    exChangeFlag = YES;</div><div class="line">                    int temp = a[j];</div><div class="line">                    a[j] = a[j+1];</div><div class="line">                    a[j+1] = temp;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            if(exChangeFlag == NO)&#123;</div><div class="line">                printf(&quot;第%d趟提前结束\n&quot;,i);</div><div class="line">                break;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        printf(&quot;%d\n&quot;,FindSignle(a, n));</div><div class="line">    &#125;</div><div class="line">    return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/09/26/每周烧脑-004/" itemprop="url">
-                  每周烧脑-004
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-26T16:31:59+08:00" content="2016-09-26">
-              2016-09-26
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Algorithm/" itemprop="url" rel="index">
-                    <span itemprop="name">Algorithm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/09/26/每周烧脑-004/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/26/每周烧脑-004/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/09/26/每周烧脑-004/" class="leancloud_visitors" data-flag-title="每周烧脑-004">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="重复的数字"><a href="#重复的数字" class="headerlink" title="重复的数字"></a>重复的数字</h3><p>n个连续的整数被打乱顺序放在一个数组中，其中有一个是重复的，请用最快的方法找出这个数字</p>
-<h2 id="最佳答案"><a href="#最佳答案" class="headerlink" title="最佳答案"></a>最佳答案</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure>
-<h2 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h2><pre><code>
-</code></pre>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1654,7 +1663,7 @@ return 0;
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">44</span>
+              <span class="site-state-item-count">48</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

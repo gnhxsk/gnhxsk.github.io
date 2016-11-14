@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="OC," />
 
 
 
@@ -86,15 +86,19 @@
 
 
 
-<meta name="description" content="千里之行，始于足下">
-<meta property="og:type" content="website">
-<meta property="og:title" content="许晟馗SK的博客">
-<meta property="og:url" content="http://yoursite.com/archives/2016/page/5/index.html">
+<meta name="description" content="SKLocation.h12345#import &amp;lt;Foundation/Foundation.h&amp;gt;@interface AdmixtureLocation : NSObject+ (instancetype)shareLocation;@end
+SKLocation.m1234567891011121314151617181920212223242526272829303132333">
+<meta property="og:type" content="article">
+<meta property="og:title" content="开发手记29-获取地图经纬度">
+<meta property="og:url" content="http://yoursite.com/2016/11/14/开发手记29-获取地图经纬度/index.html">
 <meta property="og:site_name" content="许晟馗SK的博客">
-<meta property="og:description" content="千里之行，始于足下">
+<meta property="og:description" content="SKLocation.h12345#import &amp;lt;Foundation/Foundation.h&amp;gt;@interface AdmixtureLocation : NSObject+ (instancetype)shareLocation;@end
+SKLocation.m1234567891011121314151617181920212223242526272829303132333">
+<meta property="og:updated_time" content="2016-11-14T10:11:02.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="许晟馗SK的博客">
-<meta name="twitter:description" content="千里之行，始于足下">
+<meta name="twitter:title" content="开发手记29-获取地图经纬度">
+<meta name="twitter:description" content="SKLocation.h12345#import &amp;lt;Foundation/Foundation.h&amp;gt;@interface AdmixtureLocation : NSObject+ (instancetype)shareLocation;@end
+SKLocation.m1234567891011121314151617181920212223242526272829303132333">
 
 
 
@@ -115,9 +119,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/2016/page/5/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/11/14/开发手记29-获取地图经纬度/"/>
 
-  <title> 归档 | 许晟馗SK的博客 </title>
+  <title> 开发手记29-获取地图经纬度 | 许晟馗SK的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -148,7 +152,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  page-archive  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -257,335 +261,220 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <span class="archive-move-on"></span>
-
-    <span class="archive-page-counter">
-      
-      
-       
-      
-      OK! 目前共计 48 篇日志。 继续努力。
-    </span>
-
+  <div id="posts" class="posts-expand">
     
 
-      
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                开发手记29-获取地图经纬度
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-14T18:05:30+08:00" content="2016-11-14">
+              2016-11-14
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/14/开发手记29-获取地图经纬度/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/14/开发手记29-获取地图经纬度/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/11/14/开发手记29-获取地图经纬度/" class="leancloud_visitors" data-flag-title="开发手记29-获取地图经纬度">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
       
       
 
       
+        <h2 id="SKLocation-h"><a href="#SKLocation-h" class="headerlink" title="SKLocation.h"></a>SKLocation.h</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">#import &lt;Foundation/Foundation.h&gt;</div><div class="line"></div><div class="line">@interface AdmixtureLocation : NSObject</div><div class="line">+ (instancetype)shareLocation;</div><div class="line">@end</div></pre></td></tr></table></figure>
+<h2 id="SKLocation-m"><a href="#SKLocation-m" class="headerlink" title="SKLocation.m"></a>SKLocation.m</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line">#import &quot;SKLocation.h&quot;</div><div class="line">#import &lt;CoreLocation/CoreLocation.h&gt;</div><div class="line"></div><div class="line">@interface AdmixtureLocation ()&lt;CLLocationManagerDelegate&gt;</div><div class="line">@property (strong, nonatomic) CLLocationManager *manager;</div><div class="line"></div><div class="line">@end</div><div class="line"></div><div class="line">@implementation AdmixtureLocation</div><div class="line">+ (instancetype)shareLocation&#123;</div><div class="line">    static dispatch_once_t onceToken;</div><div class="line">    static id instance;</div><div class="line">    dispatch_once(&amp;onceToken, ^&#123;</div><div class="line">        instance = [[self alloc] init];</div><div class="line">    &#125;);</div><div class="line">    return instance;</div><div class="line">&#125;</div><div class="line">- (instancetype)init&#123;</div><div class="line">    if (self = [super init]) &#123;</div><div class="line">        _manager = [[CLLocationManager alloc] init];</div><div class="line">        [self startPosition];</div><div class="line">    &#125;</div><div class="line">    return self;</div><div class="line">&#125;</div><div class="line">- (void)startPosition&#123;</div><div class="line">    if (![CLLocationManager locationServicesEnabled]) &#123;</div><div class="line">        NSLog(@&quot;定位服务可能未打开，请设置&quot;);</div><div class="line">        return;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusNotDetermined) &#123;</div><div class="line">        [_manager requestWhenInUseAuthorization];</div><div class="line">    &#125;else if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusAuthorizedWhenInUse)&#123;</div><div class="line">        _manager.delegate = self;</div><div class="line">        _manager.desiredAccuracy = kCLLocationAccuracyBest;</div><div class="line">        CLLocationDistance distance = 10.f;</div><div class="line">        _manager.distanceFilter = distance;</div><div class="line">        [_manager startUpdatingLocation];</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray&lt;CLLocation *&gt; *)locations&#123;</div><div class="line">    CLLocation *location = [locations firstObject];</div><div class="line">    CLLocationCoordinate2D coordinate = location.coordinate;</div><div class="line">    NSLog(@&quot;lon:%lf lat:%lf&quot;,coordinate.longitude,coordinate.latitude);</div><div class="line">    [_manager stopUpdatingLocation];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
         
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2016">2016</h2>
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/uploads/wechat-reward-image.png" alt="SK WeChat Pay"/>
+          <p>微信打赏</p>
         </div>
       
       
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/uploads/alipay-reward-image.png" alt="SK Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
 
       
+    </div>
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/OC/" rel="tag">#OC</a>
+          
+        </div>
+      
 
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/09/26/每周烧脑-007/" itemprop="url">
-              
-                <span itemprop="name">每周烧脑-007</span>
-              
-            </a>
-        
-      </h1>
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/11/14/开发手记28-自定义日志打印格式/" rel="next" title="开发手记28-自定义日志打印格式">
+                <i class="fa fa-chevron-left"></i> 开发手记28-自定义日志打印格式
+              </a>
+            
+          </div>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-09-26T16:34:00+08:00"
-              content="2016-09-26" >
-          09-26
-        </time>
-      </div>
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/11/14/开发手记30-网络请求封装/" rel="prev" title="开发手记30-网络请求封装">
+                开发手记30-网络请求封装 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
 
-    </header>
+      
+      
+    </footer>
   </article>
 
 
 
-    
-
+    <div class="post-spread">
       
+        <div class="ds-share flat" data-thread-key="2016/11/14/开发手记29-获取地图经纬度/"
+     data-title="开发手记29-获取地图经纬度"
+     data-content=""
+     data-url="http://yoursite.com/2016/11/14/开发手记29-获取地图经纬度/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
       
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/09/26/每周烧脑-006/" itemprop="url">
-              
-                <span itemprop="name">每周烧脑-006</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-09-26T16:33:43+08:00"
-              content="2016-09-26" >
-          09-26
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/09/26/每周烧脑-005/" itemprop="url">
-              
-                <span itemprop="name">每周烧脑-005</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-09-26T16:33:24+08:00"
-              content="2016-09-26" >
-          09-26
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/09/26/每周烧脑-004/" itemprop="url">
-              
-                <span itemprop="name">每周烧脑-004</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-09-26T16:31:59+08:00"
-              content="2016-09-26" >
-          09-26
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/09/26/每周烧脑-003/" itemprop="url">
-              
-                <span itemprop="name">每周烧脑-003</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-09-26T16:26:39+08:00"
-              content="2016-09-26" >
-          09-26
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/09/26/每周烧脑-002/" itemprop="url">
-              
-                <span itemprop="name">每周烧脑-002</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-09-26T15:49:03+08:00"
-              content="2016-09-26" >
-          09-26
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/09/26/algorithm-1/" itemprop="url">
-              
-                <span itemprop="name">每周烧脑-001</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-09-26T13:42:33+08:00"
-              content="2016-09-26" >
-          09-26
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/09/09/hello-world/" itemprop="url">
-              
-                <span itemprop="name">Hello World</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-09-09T13:20:19+08:00"
-              content="2016-09-09" >
-          09-09
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-  </section>
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/archives/2016/page/4/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/archives/2016/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/2016/page/4/">4</a><span class="page-number current">5</span>
-  </nav>
-
-
+    </div>
+  </div>
 
 
           </div>
           
 
+  <p>热评文章</p>
+  <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
+
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/11/14/开发手记29-获取地图经纬度/"
+           data-title="开发手记29-获取地图经纬度" data-url="http://yoursite.com/2016/11/14/开发手记29-获取地图经纬度/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -605,8 +494,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar.png"
@@ -674,6 +572,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#SKLocation-h"><span class="nav-number">1.</span> <span class="nav-text">SKLocation.h</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SKLocation-m"><span class="nav-number">2.</span> <span class="nav-text">SKLocation.m</span></a></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -770,11 +679,9 @@
   
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
 
 
   
