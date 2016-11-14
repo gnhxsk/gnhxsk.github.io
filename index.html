@@ -281,8 +281,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/11/14/开发手记2-图片压缩/" itemprop="url">
-                  开发手记2-图片压缩
+                <a class="post-title-link" href="/2016/11/14/开发手记18-base64加密/" itemprop="url">
+                  开发手记18-base64加密
                 </a>
               
             
@@ -295,7 +295,7 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-14T11:26:19+08:00" content="2016-11-14">
+            <time itemprop="dateCreated" datetime="2016-11-14T15:18:55+08:00" content="2016-11-14">
               2016-11-14
             </time>
           </span>
@@ -325,8 +325,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/11/14/开发手记2-图片压缩/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/14/开发手记2-图片压缩/" itemprop="commentsCount"></span>
+                <a href="/2016/11/14/开发手记18-base64加密/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/14/开发手记18-base64加密/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -336,7 +336,7 @@
 
           
           
-             <span id="/2016/11/14/开发手记2-图片压缩/" class="leancloud_visitors" data-flag-title="开发手记2-图片压缩">
+             <span id="/2016/11/14/开发手记18-base64加密/" class="leancloud_visitors" data-flag-title="开发手记18-base64加密">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -360,8 +360,8 @@
       
         
           
-            <h2 id="指定宽度按比例缩放"><a href="#指定宽度按比例缩放" class="headerlink" title="指定宽度按比例缩放"></a>指定宽度按比例缩放</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">#import &lt;UIKit/UIKit.h&gt;</div><div class="line"></div><div class="line">@interface UIImage (compressedWithWidth)</div><div class="line">/**</div><div class="line"> *  图片的压缩方法</div><div class="line"> *</div><div class="line"> *  @param sourceImg   要被压缩的图片</div><div class="line"> *  @param defineWidth 要被压缩的尺寸(宽)</div><div class="line"> *</div><div class="line"> *  @return 被压缩的图片</div><div class="line"> */</div><div class="line">+ (UIImage *)imgCompressed:(UIImage *)sourceImg targetWidth:(CGFloat)defineWidth;</div><div class="line">@end</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div></pre></td><td class="code"><pre><div class="line">#import &quot;UIImage+compressedWithWidth.h&quot;</div><div class="line"></div><div class="line">@implementation UIImage (compressedWithWidth)</div><div class="line">// 图片压缩方法</div><div class="line">+ (UIImage *)imgCompressed:(UIImage *)sourceImg targetWidth:(CGFloat)defineWidth&#123;</div><div class="line">    </div><div class="line">    UIImage *newImage = nil;</div><div class="line">    </div><div class="line">    CGSize imageSize = sourceImg.size;</div><div class="line">    CGFloat width = imageSize.width;</div><div class="line">    CGFloat height = imageSize.height;</div><div class="line">    </div><div class="line">    CGFloat targetWidth = defineWidth;</div><div class="line">    CGFloat targetHeight = height / (width / targetWidth);</div><div class="line">    </div><div class="line">    CGSize size = CGSizeMake(targetWidth, targetHeight);</div><div class="line">    CGFloat scaleFactor = 0.0;</div><div class="line">    CGFloat scaledWidth = targetWidth;</div><div class="line">    CGFloat scaledHeight = targetHeight;</div><div class="line">    </div><div class="line">    CGPoint thumbnailPoint = CGPointMake(0.0, 0.0);</div><div class="line">    </div><div class="line">    if (CGSizeEqualToSize(imageSize, size) == NO) &#123;</div><div class="line">        CGFloat widthFactor = targetWidth / width;</div><div class="line">        CGFloat heightFactor = targetHeight / height;</div><div class="line">        if (widthFactor &gt; heightFactor) &#123;</div><div class="line">            scaleFactor = widthFactor;</div><div class="line">        &#125;else&#123;</div><div class="line">            scaleFactor = heightFactor;</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        scaledWidth = width * scaleFactor;</div><div class="line">        scaledHeight = height * scaleFactor;</div><div class="line">        </div><div class="line">        if (widthFactor &gt; heightFactor) &#123;</div><div class="line">            thumbnailPoint.y = (targetHeight - scaledHeight) * 0.5;</div><div class="line">        &#125;else if (widthFactor &lt; heightFactor)&#123;</div><div class="line">            thumbnailPoint.x = (targetWidth - scaledWidth) * 0.5;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    UIGraphicsBeginImageContext(size);</div><div class="line">    CGRect thumbnailRect = CGRectZero;</div><div class="line">    thumbnailRect.origin = thumbnailPoint;</div><div class="line">    thumbnailRect.size.width = scaledWidth;</div><div class="line">    thumbnailRect.size.height = scaledHeight;</div><div class="line">    </div><div class="line">    [sourceImg drawInRect:thumbnailRect];</div><div class="line">    </div><div class="line">    newImage = UIGraphicsGetImageFromCurrentImageContext();</div><div class="line">    </div><div class="line">    if (newImage == nil) &#123;</div><div class="line">        NSAssert(!newImage, @&quot;图片压缩失败&quot;);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    UIGraphicsEndImageContext();</div><div class="line">    </div><div class="line">    return newImage;</div><div class="line">&#125;</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure>
+            <h2 id="NSString-Encryption-h"><a href="#NSString-Encryption-h" class="headerlink" title="NSString+Encryption.h"></a>NSString+Encryption.h</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">#import &lt;Foundation/Foundation.h&gt;</div><div class="line"></div><div class="line">@interface NSString (Encryption)</div><div class="line">/**</div><div class="line"> *  字符串base64 加密</div><div class="line"> *</div><div class="line"> *  @return 加密后的字符串</div><div class="line"> */</div><div class="line">+ (NSString*)encodeBase64String:(NSString *)input;</div><div class="line">+ (NSString*)decodeBase64String:(NSString *)input;</div><div class="line">+ (NSString*)encodeBase64Data:(NSData *)data;</div><div class="line">+ (NSString*)decodeBase64Data:(NSData *)data;</div><div class="line">@end</div></pre></td></tr></table></figure>
+<h2 id="NSString-Encryption-m"><a href="#NSString-Encryption-m" class="headerlink" title="NSString+Encryption.m"></a>NSString+Encryption.m</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">#import &quot;NSString+Encryption.h&quot;</div><div class="line">#import &quot;GTMBase64.h&quot;</div><div class="line">@implementation NSString (Encryption)</div><div class="line">#pragma mark - base64</div><div class="line">+ (NSString*)encodeBase64String:(NSString * )input &#123;</div><div class="line">    NSData *data = [input dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:YES];</div><div class="line">    data = [GTMBase64 encodeData:data];</div><div class="line">    NSString *base64String = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];</div><div class="line">    return base64String;</div><div class="line">&#125;</div><div class="line"></div><div class="line">+ (NSString*)decodeBase64String:(NSString * )input &#123;</div><div class="line">    NSData *data = [input dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:YES];</div><div class="line">    data = [GTMBase64 decodeData:data];</div><div class="line">    NSString *base64String = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];</div><div class="line">    return base64String;</div><div class="line">&#125;</div><div class="line"></div><div class="line">+ (NSString*)encodeBase64Data:(NSData *)data &#123;</div><div class="line">    data = [GTMBase64 encodeData:data];</div><div class="line">    NSString *base64String = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];</div><div class="line">    return base64String;</div><div class="line">&#125;</div><div class="line"></div><div class="line">+ (NSString*)decodeBase64Data:(NSData *)data &#123;</div><div class="line">    data = [GTMBase64 decodeData:data];</div><div class="line">    NSString *base64String = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];</div><div class="line">    return base64String;</div><div class="line">&#125;</div><div class="line">@end</div></pre></td></tr></table></figure>
 
           
         
@@ -411,8 +411,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/11/14/开发手记1-图片颜色获取/" itemprop="url">
-                  开发手记1-图片颜色获取
+                <a class="post-title-link" href="/2016/11/14/开发手记17-AES加密/" itemprop="url">
+                  开发手记17-AES加密
                 </a>
               
             
@@ -425,7 +425,7 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-14T11:16:31+08:00" content="2016-11-14">
+            <time itemprop="dateCreated" datetime="2016-11-14T15:15:18+08:00" content="2016-11-14">
               2016-11-14
             </time>
           </span>
@@ -455,8 +455,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/11/14/开发手记1-图片颜色获取/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/14/开发手记1-图片颜色获取/" itemprop="commentsCount"></span>
+                <a href="/2016/11/14/开发手记17-AES加密/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/14/开发手记17-AES加密/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -466,7 +466,7 @@
 
           
           
-             <span id="/2016/11/14/开发手记1-图片颜色获取/" class="leancloud_visitors" data-flag-title="开发手记1-图片颜色获取">
+             <span id="/2016/11/14/开发手记17-AES加密/" class="leancloud_visitors" data-flag-title="开发手记17-AES加密">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -490,8 +490,8 @@
       
         
           
-            <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">#import &lt;UIKit/UIKit.h&gt;</div><div class="line"></div><div class="line">@interface UIImage (getBackColorToChangeBorderColor)</div><div class="line">/**</div><div class="line"> *  出现最多的颜色</div><div class="line"> *</div><div class="line"> *  @return color</div><div class="line"> */</div><div class="line">- (UIColor *)mostColor;</div><div class="line">/**</div><div class="line"> *  是否是亮色</div><div class="line"> *</div><div class="line"> *  @param clr color</div><div class="line"> *</div><div class="line"> *  @return BOOL</div><div class="line"> */</div><div class="line">- (BOOL)isLightColor:(UIColor*)clr;</div><div class="line">@end</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div></pre></td><td class="code"><pre><div class="line">#import &quot;UIImage+getBackColorToChangeBorderColor.h&quot;</div><div class="line"></div><div class="line">@implementation UIImage (getBackColorToChangeBorderColor)</div><div class="line">- (UIColor *)mostColor&#123;</div><div class="line">    </div><div class="line">    </div><div class="line">#if __IPHONE_OS_VERSION_MAX_ALLOWED &gt; __IPHONE_6_1</div><div class="line">    int bitmapInfo = kCGBitmapByteOrderDefault | kCGImageAlphaPremultipliedLast;</div><div class="line">#else</div><div class="line">    int bitmapInfo = kCGImageAlphaPremultipliedLast;</div><div class="line">#endif</div><div class="line">    </div><div class="line">    //第一步 先把图片缩小 加快计算速度. 但越小结果误差可能越大</div><div class="line">    CGSize thumbSize=CGSizeMake(50, 50);</div><div class="line">    </div><div class="line">    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();</div><div class="line">    CGContextRef context = CGBitmapContextCreate(NULL,</div><div class="line">                                                 thumbSize.width,</div><div class="line">                                                 thumbSize.height,</div><div class="line">                                                 8,//bits per component</div><div class="line">                                                 thumbSize.width*4,</div><div class="line">                                                 colorSpace,</div><div class="line">                                                 bitmapInfo);</div><div class="line">    </div><div class="line">    CGRect drawRect = CGRectMake(0, 0, thumbSize.width, thumbSize.height);</div><div class="line">    CGContextDrawImage(context, drawRect, self.CGImage);</div><div class="line">    CGColorSpaceRelease(colorSpace);</div><div class="line">    </div><div class="line">    </div><div class="line">    </div><div class="line">    //第二步 取每个点的像素值</div><div class="line">    unsigned char* data = CGBitmapContextGetData (context);</div><div class="line">    </div><div class="line">    if (data == NULL) return nil;</div><div class="line">    </div><div class="line">    NSCountedSet *cls=[NSCountedSet setWithCapacity:thumbSize.width*thumbSize.height];</div><div class="line">    </div><div class="line">    for (int x=0; x&lt;thumbSize.width; x++) &#123;</div><div class="line">        for (int y=0; y&lt;thumbSize.height; y++) &#123;</div><div class="line">            </div><div class="line">            int offset = 4*(x*y);</div><div class="line">            </div><div class="line">            int red = data[offset];</div><div class="line">            int green = data[offset+1];</div><div class="line">            int blue = data[offset+2];</div><div class="line">            int alpha =  data[offset+3];</div><div class="line">            </div><div class="line">            NSArray *clr=@[@(red),@(green),@(blue),@(alpha)];</div><div class="line">            [cls addObject:clr];</div><div class="line">            </div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    CGContextRelease(context);</div><div class="line">    </div><div class="line">    //第三步 找到出现次数最多的那个颜色</div><div class="line">    NSEnumerator *enumerator = [cls objectEnumerator];</div><div class="line">    NSArray *curColor = nil;</div><div class="line">    </div><div class="line">    NSArray *MaxColor=nil;</div><div class="line">    NSUInteger MaxCount=0;</div><div class="line">    </div><div class="line">    while ( (curColor = [enumerator nextObject]) != nil )</div><div class="line">    &#123;</div><div class="line">        NSUInteger tmpCount = [cls countForObject:curColor];</div><div class="line">        </div><div class="line">        if ( tmpCount &lt; MaxCount ) continue;</div><div class="line">        </div><div class="line">        MaxCount=tmpCount;</div><div class="line">        MaxColor=curColor;</div><div class="line">        </div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    return [UIColor colorWithRed:([MaxColor[0] intValue]/255.0f) green:([MaxColor[1] intValue]/255.0f) blue:([MaxColor[2] intValue]/255.0f) alpha:([MaxColor[3] intValue]/255.0f)];</div><div class="line">&#125;</div><div class="line">//获取RGB值</div><div class="line">- (void)getRGBComponents:(CGFloat [3])components forColor:(UIColor *)color &#123;</div><div class="line">#if __IPHONE_OS_VERSION_MAX_ALLOWED &gt; __IPHONE_6_1</div><div class="line">    int bitmapInfo = kCGBitmapByteOrderDefault | kCGImageAlphaPremultipliedLast;</div><div class="line">#else</div><div class="line">    int bitmapInfo = kCGImageAlphaPremultipliedLast;</div><div class="line">#endif</div><div class="line">    </div><div class="line">    CGColorSpaceRef rgbColorSpace = CGColorSpaceCreateDeviceRGB();</div><div class="line">    unsigned char resultingPixel[4];</div><div class="line">    CGContextRef context = CGBitmapContextCreate(&amp;resultingPixel,</div><div class="line">                                                 1,</div><div class="line">                                                 1,</div><div class="line">                                                 8,</div><div class="line">                                                 4,</div><div class="line">                                                 rgbColorSpace,</div><div class="line">                                                 bitmapInfo);</div><div class="line">    CGContextSetFillColorWithColor(context, [color CGColor]);</div><div class="line">    CGContextFillRect(context, CGRectMake(0, 0, 1, 1));</div><div class="line">    CGContextRelease(context);</div><div class="line">    CGColorSpaceRelease(rgbColorSpace);</div><div class="line">    </div><div class="line">    for (int component = 0; component &lt; 3; component++) &#123;</div><div class="line">        components[component] = resultingPixel[component];</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">//判断颜色是不是亮色</div><div class="line">- (BOOL)isLightColor:(UIColor*)clr &#123;</div><div class="line">    CGFloat components[3];</div><div class="line">    [self getRGBComponents:components forColor:clr];</div><div class="line">    SKLog(@&quot;------------%f %f %f&quot;, components[0], components[1], components[2]);</div><div class="line">    </div><div class="line">    CGFloat num = components[0] + components[1] + components[2];</div><div class="line">    if(num &lt; 150)</div><div class="line">        return NO;</div><div class="line">    else</div><div class="line">        return YES;</div><div class="line">&#125;</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure>
+            <h2 id="NSData-AES-Encryption-h"><a href="#NSData-AES-Encryption-h" class="headerlink" title="NSData+AES_Encryption.h"></a>NSData+AES_Encryption.h</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">#import &lt;Foundation/Foundation.h&gt;</div><div class="line"></div><div class="line">@interface NSData (AES_Encryption)</div><div class="line"></div><div class="line">/**</div><div class="line"> *  AES加密</div><div class="line"> *</div><div class="line"> *  @param key 公钥</div><div class="line"> *</div><div class="line"> *  @return 加密后的数据</div><div class="line"> */</div><div class="line">- (NSData *)AES256EncryptWithKey:(NSString *)key;</div><div class="line"></div><div class="line">/**</div><div class="line"> *  AES解密</div><div class="line"> *</div><div class="line"> *  @param key 公钥</div><div class="line"> *</div><div class="line"> *  @return 解密后的数据</div><div class="line"> */</div><div class="line">- (NSData *)AES256DecryptWithKey:(NSString *)key;</div><div class="line"></div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure>
+<h2 id="NSData-AES-Encryption-m"><a href="#NSData-AES-Encryption-m" class="headerlink" title="NSData+AES_Encryption.m"></a>NSData+AES_Encryption.m</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line">#import &quot;NSData+AES_Encryption.h&quot;</div><div class="line">#import &lt;CommonCrypto/CommonCryptor.h&gt;</div><div class="line"></div><div class="line">@implementation NSData (AES_Encryption)</div><div class="line"></div><div class="line"></div><div class="line">- (NSData *)AES256EncryptWithKey:(NSString *)key &#123;//加密</div><div class="line">    char keyPtr[kCCKeySizeAES256+1];</div><div class="line">    bzero(keyPtr, sizeof(keyPtr));</div><div class="line">    [key getCString:keyPtr maxLength:sizeof(keyPtr) encoding:NSUTF8StringEncoding];</div><div class="line">    NSUInteger dataLength = [self length];</div><div class="line">    size_t bufferSize = dataLength + kCCBlockSizeAES128;</div><div class="line">    void *buffer = malloc(bufferSize);</div><div class="line">    size_t numBytesEncrypted = 0;</div><div class="line">    CCCryptorStatus cryptStatus = CCCrypt(kCCEncrypt, kCCAlgorithmAES128,</div><div class="line">                                          kCCOptionPKCS7Padding | kCCOptionECBMode,</div><div class="line">                                          keyPtr, kCCBlockSizeAES128,</div><div class="line">                                          NULL,</div><div class="line">                                          [self bytes], dataLength,</div><div class="line">                                          buffer, bufferSize,</div><div class="line">                                          &amp;numBytesEncrypted);</div><div class="line">    if (cryptStatus == kCCSuccess) &#123;</div><div class="line">        return [NSData dataWithBytesNoCopy:buffer length:numBytesEncrypted];</div><div class="line">    &#125;</div><div class="line">    free(buffer);</div><div class="line">    return nil;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">- (NSData *)AES256DecryptWithKey:(NSString *)key &#123;//解密</div><div class="line">    char keyPtr[kCCKeySizeAES256+1];</div><div class="line">    bzero(keyPtr, sizeof(keyPtr));</div><div class="line">    [key getCString:keyPtr maxLength:sizeof(keyPtr) encoding:NSUTF8StringEncoding];</div><div class="line">    NSUInteger dataLength = [self length];</div><div class="line">    size_t bufferSize = dataLength + kCCBlockSizeAES128;</div><div class="line">    void *buffer = malloc(bufferSize);</div><div class="line">    size_t numBytesDecrypted = 0;</div><div class="line">    CCCryptorStatus cryptStatus = CCCrypt(kCCDecrypt, kCCAlgorithmAES128,</div><div class="line">                                          kCCOptionPKCS7Padding | kCCOptionECBMode,</div><div class="line">                                          keyPtr, kCCBlockSizeAES128,</div><div class="line">                                          NULL,</div><div class="line">                                          [self bytes], dataLength,</div><div class="line">                                          buffer, bufferSize,</div><div class="line">                                          &amp;numBytesDecrypted);</div><div class="line">    if (cryptStatus == kCCSuccess) &#123;</div><div class="line">        return [NSData dataWithBytesNoCopy:buffer length:numBytesDecrypted];</div><div class="line">    &#125;</div><div class="line">    free(buffer);</div><div class="line">    return nil;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
           
         
@@ -541,8 +541,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/11/14/每周烧脑-016/" itemprop="url">
-                  每周烧脑-016
+                <a class="post-title-link" href="/2016/11/14/开发手记16-SHA1-base64加密/" itemprop="url">
+                  开发手记16-SHA1+base64加密
                 </a>
               
             
@@ -555,7 +555,7 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-14T10:22:36+08:00" content="2016-11-14">
+            <time itemprop="dateCreated" datetime="2016-11-14T15:10:21+08:00" content="2016-11-14">
               2016-11-14
             </time>
           </span>
@@ -569,8 +569,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Algorithm/" itemprop="url" rel="index">
-                    <span itemprop="name">Algorithm</span>
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
                   </a>
                 </span>
 
@@ -585,8 +585,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/11/14/每周烧脑-016/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/14/每周烧脑-016/" itemprop="commentsCount"></span>
+                <a href="/2016/11/14/开发手记16-SHA1-base64加密/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/14/开发手记16-SHA1-base64加密/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -596,7 +596,7 @@
 
           
           
-             <span id="/2016/11/14/每周烧脑-016/" class="leancloud_visitors" data-flag-title="每周烧脑-016">
+             <span id="/2016/11/14/开发手记16-SHA1-base64加密/" class="leancloud_visitors" data-flag-title="开发手记16-SHA1+base64加密">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -620,7 +620,8 @@
       
         
           
-            <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><p>给定一个长度为n的整数数组a（n&gt;0），每次操作把其中的n-1个元素加1，问最少需要多少次操作可以让数组中的所有元素相等。<br>如[1,2,3]的转换为：<br>[1,2,3]  =&gt;  [2,3,3]  =&gt;  [3,4,3]  =&gt;  [4,4,4]<br>需要三次操作<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">int minMoves(int* a, int n) &#123;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+            <h2 id="NSString-Encryption-h"><a href="#NSString-Encryption-h" class="headerlink" title="NSString+Encryption.h"></a>NSString+Encryption.h</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">#import &lt;Foundation/Foundation.h&gt;</div><div class="line"></div><div class="line">@interface NSString (Encryption)</div><div class="line">/**</div><div class="line"> *  sha1+base64加密</div><div class="line"> *</div><div class="line"> *  @return 获取加密后的字符串</div><div class="line"> */</div><div class="line">- (NSString *)sha1_base64;</div><div class="line">@end</div></pre></td></tr></table></figure>
+<h2 id="NSString-Encryption-m"><a href="#NSString-Encryption-m" class="headerlink" title="NSString+Encryption.m"></a>NSString+Encryption.m</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">#import &quot;NSString+Encryption.h&quot;</div><div class="line">#import &lt;CommonCrypto/CommonDigest.h&gt;</div><div class="line">#import &quot;GTMBase64.h&quot;</div><div class="line">@implementation NSString (Encryption)</div><div class="line">/**</div><div class="line"> *  sha1+base64加密</div><div class="line"> *</div><div class="line"> *  @return 获取加密后的字符串</div><div class="line"> */</div><div class="line">- (NSString *)sha1_base64 &#123;</div><div class="line">    </div><div class="line">    const char *cStr = [self cStringUsingEncoding:NSUTF8StringEncoding];</div><div class="line">    NSData *data = [NSData dataWithBytes:cStr length:self.length];</div><div class="line">    </div><div class="line">    unsigned char digest[CC_SHA1_DIGEST_LENGTH];</div><div class="line">    CC_SHA1(data.bytes, (uint32_t)data.length, digest);</div><div class="line">    </div><div class="line">    NSData *base64 = [[NSData alloc] initWithBytes:digest length:CC_SHA1_DIGEST_LENGTH];</div><div class="line">    base64 = [GTMBase64 encodeData:base64];</div><div class="line">    </div><div class="line">    NSString *encryptionString = [[NSString alloc] initWithData:base64 encoding:NSUTF8StringEncoding];</div><div class="line">    </div><div class="line">    return encryptionString;</div><div class="line">&#125;</div><div class="line">@end</div></pre></td></tr></table></figure>
 
           
         
@@ -670,8 +671,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/11/14/每周烧脑-015/" itemprop="url">
-                  每周烧脑-015
+                <a class="post-title-link" href="/2016/11/14/开发手记15-字符串SHA1加密/" itemprop="url">
+                  开发手记15-字符串SHA1加密
                 </a>
               
             
@@ -684,7 +685,7 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-14T10:21:22+08:00" content="2016-11-14">
+            <time itemprop="dateCreated" datetime="2016-11-14T15:04:55+08:00" content="2016-11-14">
               2016-11-14
             </time>
           </span>
@@ -698,8 +699,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Algorithm/" itemprop="url" rel="index">
-                    <span itemprop="name">Algorithm</span>
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
                   </a>
                 </span>
 
@@ -714,8 +715,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/11/14/每周烧脑-015/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/14/每周烧脑-015/" itemprop="commentsCount"></span>
+                <a href="/2016/11/14/开发手记15-字符串SHA1加密/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/14/开发手记15-字符串SHA1加密/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -725,7 +726,7 @@
 
           
           
-             <span id="/2016/11/14/每周烧脑-015/" class="leancloud_visitors" data-flag-title="每周烧脑-015">
+             <span id="/2016/11/14/开发手记15-字符串SHA1加密/" class="leancloud_visitors" data-flag-title="开发手记15-字符串SHA1加密">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -749,8 +750,10 @@
       
         
           
-            <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="矩阵清零"><a href="#矩阵清零" class="headerlink" title="矩阵清零"></a>矩阵清零</h3><p>给定一个MxN的矩阵，如果其中某个元素是0，则将其所在的行和列都清零。要求，原地操作，不能使用多余空间，即空间复杂度O(1)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">void SetZero( int **matrix, int m, int n)</div><div class="line">&#123;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h2 id="最佳答案"><a href="#最佳答案" class="headerlink" title="最佳答案"></a>最佳答案</h2><h2 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">void setZero(int **matrix, int m, int n)&#123;</div><div class="line">    </div><div class="line">    BOOL row[n]; // 行</div><div class="line">    BOOL line[m];// 列</div><div class="line">    for (int i = 0; i &lt; m; i ++) &#123;</div><div class="line">        for (int j = 0; j &lt; n; j ++) &#123;</div><div class="line">            if (matrix[i][j] == 0) &#123;</div><div class="line">                row[i] = true;</div><div class="line">                line[j] = true;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    for (int i = 0; i &lt; m; i ++) &#123;</div><div class="line">        for (int j = 0; j &lt; n; j ++) &#123;</div><div class="line">            if (row[i] || line[j]) &#123;</div><div class="line">                matrix[i][j] = 0;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+            <h2 id="算法解析"><a href="#算法解析" class="headerlink" title="算法解析"></a>算法解析</h2><p>SHA1算法原理<br>1 SHA1算法简介<br>安全哈希算法（Secure Hash Algorithm）主要适用于数字签名标准（Digital Signature Standard DSS）里面定义的数字签名算法（Digital Signature Algorithm DSA）。对于长度小于2^64位的消息，SHA1会产生一个160位的消息摘要。当接收到消息的时候，这个消息摘要可以用来验证数据的完整性。在传输的过程中，数据很可能会发生变化，那么这时候就会产生不同的消息摘要。<br>SHA1有如下特性：不可以从消息摘要中复原信息；两个不同的消息不会产生同样的消息摘要。<br>2 术语和概念<br>2.1位(Bit)，字节（Byte）和字（Word）<br>SHA1始终把消息当成一个位（bit）字符串来处理。本文中，一个“字”（Word）是32位，而一个“字节”（Byte）是8位。比如，字符串“abc”可以被转换成一个位字符串：01100001 01100010 01100011。它也可以被表示成16进制字符串: 0x616263.<br>2.2 运算符和符号<br>下面的逻辑运算符都被运用于“字”（Word）<br>X^Y    = X， Y逻辑与<br>X \/ Y   = X， Y逻辑或<br>X XOR Y= X， Y逻辑异或<br>~X     =   X逻辑取反<br>X+Y定义如下：<br>字 X 和 Y 代表两个整数 x 和y, 其中 0 &lt;= x &lt; 2^32 且 0 &lt;= y &lt; 2^32. 令整数z = (x + y) mod 2^32. 这时候 0 &lt;= z &lt; 2^32. 将z转换成字Z, 那么就是 Z = X + Y.<br>循环左移位操作符Sn(X)。X是一个字，n是一个整数，0&lt;=n&lt;=32。Sn(X) = (X&lt;<n)or(x>&gt;32-n)<br>X&lt;<n定义如下：抛弃最左边的n位数字，将各个位依次向左移动n位，然后用0填补右边的n位（最后结果还是32位）。x>&gt;n是抛弃右边的n位，将各个位依次向右移动n位，然后在左边的n位填0。因此可以叫Sn(X)位循环移位运算<br>3 SHA1算法描述<br>在SHA1算法中，我们必须把原始消息（字符串，文件等）转换成位字符串。SHA1算法只接受位作为输入。假设我们对字符串“abc”产生消息摘要。首先，我们将它转换成位字符串如下：<br>01100001 01100010 01100011<br>―――――――――――――<br>‘a’=97   ‘b’=98   ‘c’=99<br>这个位字符串的长度为24。下面我们需要5个步骤来计算MD5。<br>3.1 补位<br>消息必须进行补位，以使其长度在对512取模以后的余数是448。也就是说，（补位后的消息长度）%512 = 448。即使长度已经满足对512取模后余数是448，补位也必须要进行。<br>补位是这样进行的：先补一个1，然后再补0，直到长度满足对512取模后余数是448。总而言之，补位是至少补一位，最多补512位。还是以前面的“abc”为例显示补位的过程。<br>原始信息： 01100001 01100010 01100011<br>补位第一步：01100001 01100010 01100011 1<br>首先补一个“1”<br>补位第二步：01100001 01100010 01100011 10…..0<br>然后补423个“0”<br>我们可以把最后补位完成后的数据用16进制写成下面的样子<br>61626380 00000000 00000000 00000000<br>00000000 00000000 00000000 00000000<br>00000000 00000000 00000000 00000000<br>00000000 00000000<br>现在，数据的长度是448了，我们可以进行下一步操作。<br>3.2 补长度<br>所谓的补长度是将原始数据的长度补到已经进行了补位操作的消息后面。通常用一个64位的数据来表示原始消息的长度。如果消息长度不大于2^64，那么第一个字就是0。在进行了补长度的操作以后，整个消息就变成下面这样了（16进制格式）<br>61626380 00000000 00000000 00000000<br>00000000 00000000 00000000 00000000<br>00000000 00000000 00000000 00000000<br>00000000 00000000 00000000 00000018<br>如果原始的消息长度超过了512，我们需要将它补成512的倍数。然后我们把整个消息分成一个一个512位的数据块，分别处理每一个数据块，从而得到消息摘要。<br>3.3 使用的常量<br>一系列的常量字K(0), K(1), … , K(79)，如果以16进制给出。它们如下：<br>Kt = 0x5A827999  (0 &lt;= t &lt;= 19)<br>Kt = 0x6ED9EBA1 (20 &lt;= t &lt;= 39)<br>Kt = 0x8F1BBCDC (40 &lt;= t &lt;= 59)<br>Kt = 0xCA62C1D6 (60 &lt;= t &lt;= 79).<br>3.4 需要使用的函数<br>在SHA1中我们需要一系列的函数。每个函数ft (0 &lt;= t &lt;= 79)都操作32位字B，C，D并且产生32位字作为输出。ft(B,C,D)可以如下定义<br>ft(B,C,D) = (B AND C) or ((NOT B) AND D) ( 0 &lt;= t &lt;= 19)<br>ft(B,C,D) = B XOR C XOR D              (20 &lt;= t &lt;= 39)<br>ft(B,C,D) = (B AND C) or (B AND D) or (C AND D) (40 &lt;= t &lt;= 59)<br>ft(B,C,D) = B XOR C XOR D                     (60 &lt;= t &lt;= 79).<br>3.5 计算消息摘要<br>必须使用进行了补位和补长度后的消息来计算消息摘要。计算需要两个缓冲区，每个都由5个32位的字组成，还需要一个80个32位字的缓冲区。第一个5个字的缓冲区被标识为A，B，C，D，E。第一个5个字的缓冲区被标识为H0, H1, H2, H3, H4<br>。80个字的缓冲区被标识为W0, W1,…, W79</n定义如下：抛弃最左边的n位数字，将各个位依次向左移动n位，然后用0填补右边的n位（最后结果还是32位）。x></n)or(x></p>
+<p>另外还需要一个一个字的TEMP缓冲区。<br>为了产生消息摘要，在第4部分中定义的16个字的数据块M1, M2,…, Mn<br>会依次进行处理，处理每个数据块Mi 包含80个步骤。<br>在处理每个数据块之前，缓冲区 被初始化为下面的值（16进制）<br>H0 = 0x67452301<br>H1 = 0xEFCDAB89<br>H2 = 0x98BADCFE<br>H3 = 0x10325476<br>H4 = 0xC3D2E1F0.<br>现在开始处理M1, M2, … , Mn。为了处理 Mi,需要进行下面的步骤<br>(1). 将 Mi 分成 16 个字 W0, W1, … , W15,  W0 是最左边的字<br>(2). 对于 t = 16 到 79 令 Wt = S1(Wt-3 XOR Wt-8 XOR Wt- 14 XOR Wt-16).<br>(3). 令 A = H0, B = H1, C = H2, D = H3, E = H4.<br>(4) 对于 t = 0 到 79，执行下面的循环<br>TEMP = S5(A) + ft(B,C,D) + E + Wt + Kt;<br>E = D; D = C; C = S30(B); B = A; A = TEMP;<br>(5). 令 H0 = H0 + A, H1 = H1 + B, H2 = H2 + C, H3 = H3 + D, H4 = H4 + E.<br>在处理完所有的 Mn, 后，消息摘要是一个160位的字符串，以下面的顺序标识<br>H0 H1 H2 H3 H4.<br>对于SHA256,SHA384,SHA512。你也可以用相似的办法来计算消息摘要。对消息进行补位的算法完全是一样的。</p>
+<h2 id="NSString-Encryption-h"><a href="#NSString-Encryption-h" class="headerlink" title="NSString+Encryption.h"></a>NSString+Encryption.h</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">#import &lt;Foundation/Foundation.h&gt;</div><div class="line"></div><div class="line">@interface NSString (Encryption)</div><div class="line">/**</div><div class="line"> *  sha1加密</div><div class="line"> *</div><div class="line"> *  @return 获取加密后的字符串</div><div class="line"> */</div><div class="line">- (NSString *)sha1;</div><div class="line">@end</div></pre></td></tr></table></figure>
+<h2 id="NSString-Encryption-m"><a href="#NSString-Encryption-m" class="headerlink" title="NSString+Encryption.m"></a>NSString+Encryption.m</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">#import &quot;NSString+Encryption.h&quot;</div><div class="line">#import &lt;CommonCrypto/CommonDigest.h&gt;</div><div class="line">@implementation NSString (Encryption)</div><div class="line">/**</div><div class="line"> *  sha1加密</div><div class="line"> *</div><div class="line"> *  @return 获取加密后的字符串</div><div class="line"> */</div><div class="line">- (NSString *)sha1 &#123;</div><div class="line">    //  将字符串转换成 C字符串</div><div class="line">    const char *cstr = [self cStringUsingEncoding:NSUTF8StringEncoding];</div><div class="line">    //  C字符串转换成二进制数据</div><div class="line">    NSData *data = [NSData dataWithBytes:cstr length:self.length];</div><div class="line">    </div><div class="line">    unsigned char digest[CC_SHA1_DIGEST_LENGTH];</div><div class="line">    CC_SHA1(data.bytes, (uint32_t)data.length, digest);</div><div class="line">    </div><div class="line">    NSMutableString *encryptionString = [NSMutableString stringWithCapacity:CC_SHA1_DIGEST_LENGTH * 2];</div><div class="line">    </div><div class="line">    for (int i = 0; i &lt; CC_SHA1_DIGEST_LENGTH; i++) &#123;</div><div class="line">        [encryptionString appendFormat:@&quot;%02x&quot;, digest[i]];</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    return encryptionString;</div><div class="line">&#125;</div><div class="line">@end</div></pre></td></tr></table></figure>
 
           
         
@@ -800,8 +803,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/11/14/每周烧脑-014/" itemprop="url">
-                  每周烧脑-014
+                <a class="post-title-link" href="/2016/11/14/开发手记14-MD5-base64加密/" itemprop="url">
+                  开发手记14-MD5+base64加密
                 </a>
               
             
@@ -814,7 +817,7 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-14T10:21:09+08:00" content="2016-11-14">
+            <time itemprop="dateCreated" datetime="2016-11-14T14:55:02+08:00" content="2016-11-14">
               2016-11-14
             </time>
           </span>
@@ -828,8 +831,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Algorithm/" itemprop="url" rel="index">
-                    <span itemprop="name">Algorithm</span>
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
                   </a>
                 </span>
 
@@ -844,8 +847,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/11/14/每周烧脑-014/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/14/每周烧脑-014/" itemprop="commentsCount"></span>
+                <a href="/2016/11/14/开发手记14-MD5-base64加密/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/14/开发手记14-MD5-base64加密/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -855,7 +858,7 @@
 
           
           
-             <span id="/2016/11/14/每周烧脑-014/" class="leancloud_visitors" data-flag-title="每周烧脑-014">
+             <span id="/2016/11/14/开发手记14-MD5-base64加密/" class="leancloud_visitors" data-flag-title="开发手记14-MD5+base64加密">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -879,39 +882,8 @@
       
         
           
-            <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="nginx按权重进行负载均衡的算法"><a href="#nginx按权重进行负载均衡的算法" class="headerlink" title="nginx按权重进行负载均衡的算法"></a>nginx按权重进行负载均衡的算法</h3><p>使用nginx时，可以给每台上游服务器指定一个权重，这样nginx会把请求按权重转发给上游服务器，如：<br>服务器A, 权重1<br>服务器B, 权重6<br>服务器C, 权重20<br>则nginx会把请求按照 1:6:20的比例分发给三台服务器。</p>
-<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><h2 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h2><p>　　在介绍加权轮询算法(WeightedRound-Robin)之前，首先介绍一下轮询算法(Round-Robin)。<br>　　<br>一：轮询算法(Round-Robin)<br>　　轮询算法是最简单的一种负载均衡算法。它的原理是把来自用户的请求轮流分配给内部的服务器：从服务器1开始，直到服务器N，然后重新开始循环。<br>　　算法的优点是其简洁性，它无需记录当前所有连接的状态，所以它是一种无状态调度。<br>　<br>　　假设有N台服务器：S = {S1, S2, …, Sn}，一个指示变量i表示上一次选择的服务器ID。变量i被初始化为N-1。该算法的伪代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">　</div><div class="line">j = i;</div><div class="line">do</div><div class="line">&#123;</div><div class="line">    j = (j + 1) mod n;</div><div class="line">    i = j;</div><div class="line">    return Si;</div><div class="line">&#125; while (j != i);</div><div class="line">return NULL;</div></pre></td></tr></table></figure></p>
-<p>　　轮询算法假设所有服务器的处理性能都相同，不关心每台服务器的当前连接数和响应速度。当请求服务间隔时间变化比较大时，轮询算法容易导致服务器间的负载不平衡。所以此种均衡算法适合于服务器组中的所有服务器都有相同的软硬件配置并且平均服务请求相对均衡的情况。</p>
-<p>二：加权轮询算法(WeightedRound-Robin)<br>　　轮询算法并没有考虑每台服务器的处理能力，实际中可能并不是这种情况。由于每台服务器的配置、安装的业务应用等不同，其处理能力会不一样。所以，加权轮询算法的原理就是：根据服务器的不同处理能力，给每个服务器分配不同的权值，使其能够接受相应权值数的服务请求。</p>
-<p>　　首先看一个简单的Nginx负载均衡配置。<br>http {<br>    upstream cluster {<br>        server a weight=1;<br>        server b weight=2;<br>        server c weight=4;<br>    }<br>    …<br>} </p>
-<p>　　按照上述配置，Nginx每收到7个客户端的请求，会把其中的1个转发给后端a，把其中的2个转发给后端b，把其中的4个转发给后端c。</p>
-<p>　　加权轮询算法的结果，就是要生成一个服务器序列。每当有请求到来时，就依次从该序列中取出下一个服务器用于处理该请求。比如针对上面的例子，加权轮询算法会生成序列{c, c, b, c, a, b, c}。这样，每收到7个客户端的请求，会把其中的1个转发给后端a，把其中的2个转发给后端b，把其中的4个转发给后端c。收到的第8个请求，重新从该序列的头部开始轮询。<br>　　总之，加权轮询算法要生成一个服务器序列，该序列中包含n个服务器。n是所有服务器的权重之和。在该序列中，每个服务器的出现的次数，等于其权重值。并且，生成的序列中，服务器的分布应该尽可能的均匀。比如序列{a, a, a, a, a, b, c}中，前五个请求都会分配给服务器a，这就是一种不均匀的分配方法，更好的序列应该是：{a, a, b, a, c, a, a}。<br>　　下面介绍两种加权轮询算法：</p>
-<p>1：普通加权轮询算法<br>         这种算法的原理是：在服务器数组S中，首先计算所有服务器权重的最大值max(S)，以及所有服务器权重的最大公约数gcd(S)。<br>         index表示本次请求到来时，选择的服务器的索引，初始值为-1；current_weight表示当前调度的权值，初始值为max(S)。<br>         当请求到来时，从index+1开始轮询服务器数组S，找到其中权重大于current_weight的第一个服务器，用于处理该请求。记录其索引到结果序列中。<br>　　在轮询服务器数组时，如果到达了数组末尾，则重新从头开始搜索，并且减小current_weight的值：current_weight -= gcd(S)。如果current_weight等于0，则将其重置为max(S)。</p>
-<p>　　该算法的实现代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">#include &lt;stdlib.h&gt;</div><div class="line">#include &lt;stdio.h&gt;</div><div class="line">#include &lt;unistd.h&gt;</div><div class="line">#include &lt;string.h&gt;</div><div class="line"></div><div class="line">typedef struct</div><div class="line">&#123;</div><div class="line">    int weight;</div><div class="line">    char name[2];</div><div class="line">&#125;server;</div><div class="line"></div><div class="line"></div><div class="line">int getsum(int *set, int size)</div><div class="line">&#123;</div><div class="line">    int i = 0; </div><div class="line">    int res = 0;</div><div class="line"></div><div class="line">    for (i = 0; i &lt; size; i++)</div><div class="line">        res += set[i];</div><div class="line"></div><div class="line">    return res;</div><div class="line">&#125;</div><div class="line"></div><div class="line">int gcd(int a, int b)</div><div class="line">&#123;</div><div class="line">    int c;</div><div class="line">    while(b)</div><div class="line">    &#123;</div><div class="line">        c = b;</div><div class="line">        b = a % b;</div><div class="line">        a = c;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    return a;</div><div class="line">&#125;</div><div class="line"></div><div class="line">int getgcd(int *set, int size)</div><div class="line">&#123;</div><div class="line">    int i = 0; </div><div class="line">    int res = set[0];</div><div class="line"></div><div class="line">    for (i = 1; i &lt; size; i++)</div><div class="line">        res = gcd(res, set[i]);</div><div class="line"></div><div class="line">    return res;</div><div class="line">&#125;</div><div class="line"></div><div class="line">int getmax(int *set, int size)</div><div class="line">&#123;</div><div class="line">    int i = 0; </div><div class="line">    int res = set[0];</div><div class="line"></div><div class="line">    for (i = 1; i &lt; size; i++)</div><div class="line">    &#123;</div><div class="line">        if (res &lt; set[i]) res = set[i];</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    return res;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">int lb_wrr__getwrr(server *ss, int size, int gcd, int maxweight, int *i, int *cw) </div><div class="line">&#123;</div><div class="line">    while (1) </div><div class="line">    &#123;</div><div class="line">        *i = (*i + 1) % size;</div><div class="line">        if (*i == 0) </div><div class="line">        &#123;</div><div class="line">            *cw = *cw - gcd;</div><div class="line">            if (*cw &lt;= 0) </div><div class="line">            &#123;</div><div class="line">                *cw = maxweight;</div><div class="line">                if (*cw == 0) </div><div class="line">                &#123;</div><div class="line">                    return -1;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        if (ss[*i].weight &gt;= *cw) </div><div class="line">        &#123;</div><div class="line">            return *i;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">void wrr(server *ss, int *weights, int size)</div><div class="line">&#123;</div><div class="line">    int i = 0;</div><div class="line"></div><div class="line">    int gcd = getgcd(weights, size);</div><div class="line">    int max = getmax(weights, size);</div><div class="line">    int sum = getsum(weights, size);</div><div class="line">    </div><div class="line"></div><div class="line">    int index = -1;</div><div class="line">    int curweight = 0;</div><div class="line"></div><div class="line">    for (i = 0; i &lt; sum; i++) </div><div class="line">    &#123;</div><div class="line">        lb_wrr__getwrr(ss, size, gcd, max, &amp;(index), &amp;(curweight));</div><div class="line">        printf(&quot;%s(%d) &quot;, ss[index].name, ss[index].weight);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    printf(&quot;\n&quot;);</div><div class="line">    return;</div><div class="line">&#125;</div><div class="line"></div><div class="line">server *initServers(char **names, int *weights, int size)</div><div class="line">&#123;</div><div class="line">    int i = 0;</div><div class="line">    server *ss = calloc(size, sizeof(server));</div><div class="line"></div><div class="line">    </div><div class="line">    for (i = 0; i &lt; size; i++)</div><div class="line">    &#123;</div><div class="line">        ss[i].weight = weights[i];</div><div class="line">        memcpy(ss[i].name, names[i], 2);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    return ss;</div><div class="line">&#125;</div><div class="line"></div><div class="line">int main()</div><div class="line">&#123;</div><div class="line">    int i = 0;</div><div class="line">    </div><div class="line">    int weights[] = &#123;1, 2, 4&#125;;</div><div class="line">    char *names[] = &#123;&quot;a&quot;, &quot;b&quot;, &quot;c&quot;&#125;;</div><div class="line">    int size = sizeof(weights) / sizeof(int);</div><div class="line"></div><div class="line"></div><div class="line">    server *ss = initServers(names, weights, size);</div><div class="line"></div><div class="line">    printf(&quot;server is &quot;);</div><div class="line">    for (i = 0; i &lt; size; i++)</div><div class="line">    &#123;</div><div class="line">        printf(&quot;%s(%d) &quot;, ss[i].name, ss[i].weight);</div><div class="line">    &#125;</div><div class="line">    printf(&quot;\n&quot;);</div><div class="line"></div><div class="line">    printf(&quot;\nwrr sequence is &quot;);</div><div class="line">    wrr(ss, weights, size);</div><div class="line"></div><div class="line">    return;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>　　上面的代码中，算法的核心部分就是wrr和lb_wrr<strong>getwrr函数。在wrr函数中，首先计算所有服务器权重的最大公约数gcd，权重最大值max，以及权重之和sum。<br>　　初始时，index为-1，curweight为0，然后依次调用lb_wrr</strong>getwrr函数，得到本次选择的服务器索引index。</p>
-<p>　　算法的核心思想体现在lb_wrr__getwrr函数中。以例子说明更好理解一些：对于服务器数组{a(1), b(2), c(4)}而言，gcd为1，maxweight为4。<br>　　第1次调用该函数时，i(index)为-1，cw(current_weight)为0，进入循环后，i首先被置为0，因此cw被置为maxweight。从i开始轮询服务器数组ss，第一个权重大于等于cw的服务器是c，因此，i被置为2，并返回其值。<br>　　第2次调用该函数时，i为2，cw为maxweight。进入循环后，i首先被置为0，因此cw被置为cw-gcd，也就是3。从i开始轮询服务器数组ss，第一个权重大于等于cw的服务器还是c，因此，i被置为2，并返回其值。<br>　　第3次调用该函数时，i为2，cw为3。进入循环后，i首先被置为0，因此cw被置为cw-gcd，也就是2。从i开始轮询服务器数组ss，第一个权重大于等于cw的服务器是b，因此，i被置为1，并返回其值。<br>　　第4次调用该函数时，i为1，cw为2。进入循环后，i首先被置为2，从i开始轮询服务器数组ss，第一个权重大于等于cw的服务器是c，因此，i被置为2，并返回其值。<br>　　第5次调用该函数时，i为2，cw为2。进入循环后，i首先被置为0，因此cw被置为cw-gcd，也就是1。从i开始轮询服务器数组ss，第一个权重大于等于cw的服务器是a，因此，i被置为0，并返回其值。<br>　　第6次调用该函数时，i为0，cw为1。进入循环后，i首先被置为1，从i开始轮询服务器数组ss，第一个权重大于等于cw的服务器是b，因此，i被置为1，并返回其值。<br>　　第7次调用该函数时，i为1，cw为1。进入循环后，i首先被置为2，从i开始轮询服务器数组ss，第一个权重大于等于cw的服务器是c，因此，i被置为2，并返回其值。</p>
-<p>　　经过7（1+2+4）次调用之后，每个服务器被选中的次数正好是其权重值。上面程序的运行结果如下：<br>server is a(1) b(2) c(4)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">wrr sequence is c(4) c(4) b(2) c(4) a(1) b(2) c(4)</div></pre></td></tr></table></figure></p>
-<pre><code>如果有新的请求到来，第8次调用该函数时，i为2，cw为1。进入循环后，i首先被置为0，cw被置为cw-gcd，也就是0，因此cw被重置为maxweight。这种情况就跟第一次调用该函数时一样了。因此，7次是一个轮回，7次之后，重复之前的过程。
-这背后的数学原理，自己思考了一下，总结如下：
-</code></pre><p>　　current_weight的值，其变化序列就是一个等差序列：max, max-gcd, max-2gcd, …, 0(max)，将current_weight从max变为0的过程，称为一个轮回。<br>　　针对每个current_weight，该算法就是要把服务器数组从头到尾扫描一遍，将其中权重大于等于current_weight的所有服务器填充到结果序列中。扫描完一遍服务器数组之后，将current_weight变为下一个值，再一次从头到尾扫描服务器数组。<br>　　在current_weight变化过程中，不管current_weight当前为何值，具有max权重的服务器每次肯定会被选中。因此，具有max权重的服务器会在序列中出现max/gcd次（等差序列中的项数）。<br>　　更一般的，当current_weight变为x之后，权重为x的服务器，在current_weight接下来的变化过程中，每次都会被选中，因此，具有x权重的服务器，会在序列中出现x/gcd次。所以，每个服务器在结果序列中出现的次数，是与其权重成正比的，这就是符合加权轮询算法的要求了。</p>
-<p>2：平滑的加权轮询<br>     上面的加权轮询算法有个缺陷，就是某些情况下生成的序列是不均匀的。比如针对这样的配置：<br>http {<br>    upstream cluster {<br>        server a weight=5;<br>        server b weight=1;<br>        server c weight=1;<br>    }<br>    …<br>} </p>
-<pre><code>生成的序列是这样的：{a,a, a, a, a, c, b}。会有5个连续的请求落在后端a上，分布不太均匀。
-</code></pre><p>　　在Nginx源码中，实现了一种叫做平滑的加权轮询（smooth weighted round-robin balancing）的算法，它生成的序列更加均匀。比如前面的例子，它生成的序列为{ a, a, b, a, c, a, a}，转发给后端a的5个请求现在分散开来，不再是连续的。</p>
-<p>　　该算法的原理如下：<br>　　每个服务器都有两个权重变量：<br>　　a：weight，配置文件中指定的该服务器的权重，这个值是固定不变的；<br>　　b：current_weight，服务器目前的权重。一开始为0，之后会动态调整。</p>
-<p>　　每次当请求到来，选取服务器时，会遍历数组中所有服务器。对于每个服务器，让它的current_weight增加它的weight；同时累加所有服务器的weight，并保存为total。<br>　　遍历完所有服务器之后，如果该服务器的current_weight是最大的，就选择这个服务器处理本次请求。最后把该服务器的current_weight减去total。</p>
-<p>　　上述描述可能不太直观，来看个例子。比如针对这样的配置：<br>http {<br>    upstream cluster {<br>        server a weight=4;<br>        server b weight=2;<br>        server c weight=1;<br>    }<br>    …<br>} </p>
-<p>　　按照这个配置，每7个客户端请求中，a会被选中4次、b会被选中2次、c会被选中1次，且分布平滑。我们来算算看是不是这样子的。<br>　　initial  current_weight  of a, b, c is {0, 0, 0}</p>
-<p>　　通过上述过程，可得以下结论：<br>　　a：7个请求中，a、b、c分别被选取了4、2、1次，符合它们的权重值。<br>　　b：7个请求中，a、b、c被选取的顺序为a, b,a, c, a, b, a，分布均匀，权重大的后端a没有被连续选取。<br>　　c：每经过7个请求后，a、b、c的current_weight又回到初始值{0, 0,0}，因此上述流程是不断循环的。</p>
-<p>　　根据该算法实现的代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div></pre></td><td class="code"><pre><div class="line">#include &lt;stdlib.h&gt;</div><div class="line">#include &lt;stdio.h&gt;</div><div class="line">#include &lt;unistd.h&gt;</div><div class="line">#include &lt;string.h&gt;</div><div class="line">typedef struct</div><div class="line">&#123;</div><div class="line">    int weight;</div><div class="line">    int cur_weight;</div><div class="line">    char name[3];</div><div class="line">&#125;server;</div><div class="line"></div><div class="line">int getsum(int *set, int size)</div><div class="line">&#123;</div><div class="line">    int i = 0; </div><div class="line">    int res = 0;</div><div class="line"></div><div class="line">    for (i = 0; i &lt; size; i++)</div><div class="line">        res += set[i];</div><div class="line"></div><div class="line">    return res;</div><div class="line">&#125;</div><div class="line"></div><div class="line">server *initServers(char **names, int *weights, int size)</div><div class="line">&#123;</div><div class="line">    int i = 0;</div><div class="line">    server *ss = calloc(size+1, sizeof(server));</div><div class="line"></div><div class="line">    for (i = 0; i &lt; size; i++)</div><div class="line">    &#123;</div><div class="line">        ss[i].weight = weights[i];</div><div class="line">        memcpy(ss[i].name, names[i], 3);</div><div class="line">        ss[i].cur_weight = 0;</div><div class="line">    &#125;</div><div class="line">    return ss;</div><div class="line">&#125;</div><div class="line"></div><div class="line">int getNextServerIndex(server *ss, int size)</div><div class="line">&#123;</div><div class="line">    int i ;</div><div class="line">    int index = -1;</div><div class="line">    int total = 0;</div><div class="line"></div><div class="line">    for (i = 0; i &lt; size; i++)</div><div class="line">    &#123;</div><div class="line">        ss[i].cur_weight += ss[i].weight;</div><div class="line">        total += ss[i].weight;</div><div class="line"></div><div class="line">        if (index == -1 || ss[index].cur_weight &lt; ss[i].cur_weight)</div><div class="line">        &#123;</div><div class="line">            index = i;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    ss[index].cur_weight -= total;</div><div class="line">    return index;</div><div class="line">&#125;</div><div class="line"></div><div class="line">void wrr_nginx(server *ss, int *weights, int size)</div><div class="line">&#123;</div><div class="line">    int i = 0;</div><div class="line">    int index = -1;</div><div class="line">    int sum = getsum(weights, size);</div><div class="line"></div><div class="line">    for (i = 0; i &lt; sum; i++) </div><div class="line">    &#123;</div><div class="line">        index = getNextServerIndex(ss, size);</div><div class="line">        printf(&quot;%s(%d) &quot;, ss[index].name, ss[index].weight);</div><div class="line">    &#125;</div><div class="line">    printf(&quot;\n&quot;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">int main()</div><div class="line">&#123;</div><div class="line">    int i = 0;</div><div class="line">    int weights[] = &#123;4, 2, 1&#125;;</div><div class="line">    char *names[] = &#123;&quot;a&quot;, &quot;b&quot;, &quot;c&quot;&#125;;</div><div class="line">    int size = sizeof(weights) / sizeof(int);</div><div class="line"></div><div class="line">    server *ss = initServers(names, weights, size);</div><div class="line"></div><div class="line">    printf(&quot;server is &quot;);</div><div class="line">    for (i = 0; i &lt; size; i++)</div><div class="line">    &#123;</div><div class="line">        printf(&quot;%s(%d) &quot;, ss[i].name, ss[i].weight);</div><div class="line">    &#125;</div><div class="line">    printf(&quot;\n&quot;);</div><div class="line"></div><div class="line">    printf(&quot;\nwrr_nginx sequence is &quot;);</div><div class="line">    wrr_nginx(ss, weights, size);</div><div class="line"></div><div class="line">    return;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<pre><code>上述代码的运行结果如下：
-</code></pre><p>server is a(4) b(2) c(1)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">wrr_nginx sequence is a(4) b(2) a(4) c(1) a(4) b(2) a(4)</div></pre></td></tr></table></figure></p>
-<pre><code>如果服务器配置为：{a(5),b(1), c(1)}，则运行结果如下：
-</code></pre><p>server is a(5) b(1) c(1)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">wrr_nginx sequence is a(5) a(5) b(1) a(5) c(1) a(5) a(5)</div></pre></td></tr></table></figure></p>
-<pre><code>可见，该算法生成的序列确实更加均匀。
-
-该算法背后的数学原理，实在没想出来，google也没查到相关论证……，等待后续查证了。
-</code></pre><p>三：健康检查<br>　　负载均衡算法，一般要伴随健康检查算法一起使用。健康检查算法的作用就是对所有的服务器进行存活和健康检测，看是否需要提供给负载均衡做选择。如果一台机器的服务出现了问题，健康检查就会将这台机器从服务列表中去掉，让负载均衡算法看不到这台机器的存在。<br>　　具体在加权轮询算法中，当健康检查算法检测出某服务器的状态发生了变化，比如从UP到DOWN，或者反之时，就会更新权重，重新计算结果序列。</p>
-<p>参考：<br><a href="http://kb.linuxvirtualserver.org/wiki/Weighted_Round-Robin_Scheduling" target="_blank" rel="external">http://kb.linuxvirtualserver.org/wiki/Weighted_Round-Robin_Scheduling</a><br><a href="http://ialloc.org/posts/2014/11/14/ngx-notes-module-http-sticky/" target="_blank" rel="external">http://ialloc.org/posts/2014/11/14/ngx-notes-module-http-sticky/</a><br><a href="http://blog.csdn.net/zhangskd/article/details/50194069" target="_blank" rel="external">http://blog.csdn.net/zhangskd/article/details/50194069</a><br>转载：<a href="http://m.blog.csdn.net/article/details?id=52076997" target="_blank" rel="external">http://m.blog.csdn.net/article/details?id=52076997</a></p>
+            <h2 id="NSString-Encryption-h"><a href="#NSString-Encryption-h" class="headerlink" title="NSString+Encryption.h"></a>NSString+Encryption.h</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">#import &lt;Foundation/Foundation.h&gt;</div><div class="line"></div><div class="line">@interface NSString (Encryption)</div><div class="line">/**</div><div class="line"> *  md5+base64加密</div><div class="line"> *</div><div class="line"> *  @return 获取加密后的字符串</div><div class="line"> */</div><div class="line">- (NSString *)md5_base64;</div><div class="line">@end</div></pre></td></tr></table></figure>
+<h2 id="NSString-Encryption-m"><a href="#NSString-Encryption-m" class="headerlink" title="NSString+Encryption.m"></a>NSString+Encryption.m</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">#import &quot;NSString+Encryption.h&quot;</div><div class="line">#import &quot;GTMBase64.h&quot;</div><div class="line">@implementation NSString (Encryption)</div><div class="line">/**</div><div class="line"> *  md5+base64加密</div><div class="line"> *</div><div class="line"> *  @return 获取加密后的字符串</div><div class="line"> */</div><div class="line">- (NSString *)md5_base64 &#123;</div><div class="line">    </div><div class="line">    const char *cStr = [self UTF8String];</div><div class="line">    unsigned char digest[CC_MD5_DIGEST_LENGTH];</div><div class="line">    CC_MD5(cStr, (uint32_t)strlen(cStr), digest);</div><div class="line">    </div><div class="line">    NSData *base64 = [[NSData alloc] initWithBytes:digest length:CC_MD5_DIGEST_LENGTH];</div><div class="line">    base64 = [GTMBase64 encodeData:base64];</div><div class="line">    </div><div class="line">    NSString *encryptionString = [[NSString alloc] initWithData:base64 encoding:NSUTF8StringEncoding];</div><div class="line">    </div><div class="line">    return encryptionString;</div><div class="line">&#125;</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure>
 
           
         
@@ -961,8 +933,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/11/14/每周烧脑-013/" itemprop="url">
-                  每周烧脑-013
+                <a class="post-title-link" href="/2016/11/14/开发手记13-字符串MD5加密/" itemprop="url">
+                  开发手记13-字符串MD5加密
                 </a>
               
             
@@ -975,7 +947,7 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-14T10:20:46+08:00" content="2016-11-14">
+            <time itemprop="dateCreated" datetime="2016-11-14T14:38:44+08:00" content="2016-11-14">
               2016-11-14
             </time>
           </span>
@@ -989,8 +961,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Algorithm/" itemprop="url" rel="index">
-                    <span itemprop="name">Algorithm</span>
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
                   </a>
                 </span>
 
@@ -1005,8 +977,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/11/14/每周烧脑-013/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/14/每周烧脑-013/" itemprop="commentsCount"></span>
+                <a href="/2016/11/14/开发手记13-字符串MD5加密/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/14/开发手记13-字符串MD5加密/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -1016,7 +988,7 @@
 
           
           
-             <span id="/2016/11/14/每周烧脑-013/" class="leancloud_visitors" data-flag-title="每周烧脑-013">
+             <span id="/2016/11/14/开发手记13-字符串MD5加密/" class="leancloud_visitors" data-flag-title="开发手记13-字符串MD5加密">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1040,8 +1012,8 @@
       
         
           
-            <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="字符排序"><a href="#字符排序" class="headerlink" title="字符排序"></a>字符排序</h3><p>一个字符串中只包含数字0-9的英文单词（即：zero, one, two….），但这个字符串的字符顺序被打乱了，请按从小到大的顺序，输出这个字符串的数字形式。<br>例如：<br>owoztneoer -&gt; 012<br>owozzteneroero -&gt; 0012<br>fviefuro -&gt; 45<br>函数原型（输入字符串保证可以正确转换）：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">char* digits( const char* s )</div><div class="line">&#123;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><h2 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure>
+            <h2 id="NSString-SKExtension-h"><a href="#NSString-SKExtension-h" class="headerlink" title="NSString+SKExtension.h"></a>NSString+SKExtension.h</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">#import &lt;Foundation/Foundation.h&gt;</div><div class="line"></div><div class="line">@interface NSString (SKExtension)</div><div class="line">-(NSString *)md5;</div><div class="line">@end</div></pre></td></tr></table></figure>
+<h2 id="NSString-SKExtension-m"><a href="#NSString-SKExtension-m" class="headerlink" title="NSString+SKExtension.m"></a>NSString+SKExtension.m</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">#import &quot;NSString+SKExtension.h&quot;</div><div class="line">@implementation NSString (SKExtension)</div><div class="line">/**</div><div class="line"> *  md5加密</div><div class="line"> *</div><div class="line"> *  @return 获取加密后的字符串</div><div class="line"> */</div><div class="line">- (NSString *)md5 &#123;</div><div class="line">    </div><div class="line">    //  将传入OC字符串转换成C字符串</div><div class="line">    const char *cStr = [self UTF8String];</div><div class="line">    //  无符号字符数组 16位</div><div class="line">    unsigned char digest[CC_MD5_DIGEST_LENGTH];</div><div class="line">    CC_MD5(cStr, (uint32_t)strlen(cStr), digest);</div><div class="line">    </div><div class="line">    NSMutableString *encryptionString = [NSMutableString stringWithCapacity:CC_MD5_DIGEST_LENGTH *2];</div><div class="line">    </div><div class="line">    for (int i = 0; i &lt; CC_MD5_DIGEST_LENGTH; i++) &#123;</div><div class="line">        //  将转换后的字符转换成16进制, 02表示不足两位前面补0,  例如 &quot;a&quot; -&gt; &quot;0a&quot;,  &quot;3&quot; -&gt; &quot;03&quot;</div><div class="line">        [encryptionString appendFormat:@&quot;%02x&quot;,digest[i]];</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    return encryptionString;</div><div class="line">&#125;</div><div class="line">@end</div></pre></td></tr></table></figure>
 
           
         
@@ -1091,8 +1063,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/11/14/每周烧脑-012/" itemprop="url">
-                  每周烧脑-012
+                <a class="post-title-link" href="/2016/11/14/开发手记12-号码正则表达式判断/" itemprop="url">
+                  开发手记12-号码正则表达式判断
                 </a>
               
             
@@ -1105,7 +1077,7 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-14T10:20:24+08:00" content="2016-11-14">
+            <time itemprop="dateCreated" datetime="2016-11-14T14:29:55+08:00" content="2016-11-14">
               2016-11-14
             </time>
           </span>
@@ -1119,8 +1091,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Algorithm/" itemprop="url" rel="index">
-                    <span itemprop="name">Algorithm</span>
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
                   </a>
                 </span>
 
@@ -1135,8 +1107,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/11/14/每周烧脑-012/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/14/每周烧脑-012/" itemprop="commentsCount"></span>
+                <a href="/2016/11/14/开发手记12-号码正则表达式判断/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/14/开发手记12-号码正则表达式判断/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -1146,7 +1118,7 @@
 
           
           
-             <span id="/2016/11/14/每周烧脑-012/" class="leancloud_visitors" data-flag-title="每周烧脑-012">
+             <span id="/2016/11/14/开发手记12-号码正则表达式判断/" class="leancloud_visitors" data-flag-title="开发手记12-号码正则表达式判断">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1170,147 +1142,8 @@
       
         
           
-            <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="抽奖算法"><a href="#抽奖算法" class="headerlink" title="抽奖算法"></a>抽奖算法</h3><p>实现抽奖算法，使奖品出现的概率符合指定的值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line">// 奖品</div><div class="line">struct prize</div><div class="line">&#123;</div><div class="line"> double possibility;   // 中奖概率, 1 代表 100%</div><div class="line">&#125;;</div><div class="line">// 这是要实现的函数，返回摇奖结果的索引</div><div class="line">int draw( prize* prizes, int n )</div><div class="line">&#123;</div><div class="line"> return -1;</div><div class="line">&#125;</div><div class="line">// 用这个函数进行测试</div><div class="line">void test()</div><div class="line">&#123;</div><div class="line"> prize prizes[] = &#123;</div><div class="line">  &#123; 0.6 &#125;,</div><div class="line">  &#123; 0.000001 &#125;,</div><div class="line">  &#123; 0.000002 &#125;,</div><div class="line">  &#123; 0.05 &#125;,</div><div class="line">  &#123; 0.2 &#125;,</div><div class="line">  &#123; 0 &#125;,</div><div class="line">  &#123; 0.1 &#125;,</div><div class="line">  &#123; 0.0003 &#125;,</div><div class="line">  &#123; 0.01 &#125;,</div><div class="line">  &#123; 0.036 &#125;,</div><div class="line">  &#123; 0.003697 &#125;,</div><div class="line"> &#125;;</div><div class="line"> const int len = sizeof(prizes) / sizeof(prizes[0]);</div><div class="line"> int count[len] = &#123;0&#125;;</div><div class="line"> for( int i = 0; i &lt; 1000 * 10000; i++ )</div><div class="line"> &#123;</div><div class="line">  int n = draw( prizes, len );</div><div class="line">  if( n != -1 )</div><div class="line">   count[n]++;</div><div class="line"> &#125;</div><div class="line"> for( int i = 0; i &lt; len; i++ )</div><div class="line">  printf(&quot;%d\n&quot;, count[i]);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><h2 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h2><pre><code>
-</code></pre>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/09/26/每周烧脑-011/" itemprop="url">
-                  每周烧脑-011
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-26T16:34:27+08:00" content="2016-09-26">
-              2016-09-26
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Algorithm/" itemprop="url" rel="index">
-                    <span itemprop="name">Algorithm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/09/26/每周烧脑-011/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/26/每周烧脑-011/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/09/26/每周烧脑-011/" class="leancloud_visitors" data-flag-title="每周烧脑-011">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="分金子"><a href="#分金子" class="headerlink" title="分金子"></a>分金子</h3><p>海盗头目给部下分金子，他让部下随机站成一排，然后按以下规则发金子：</p>
-<ol>
-<li><p>每人至少一块</p>
-</li>
-<li><p>如果一个海盗的贡献值大于与他相邻的海盗，此海盗分到的金子必须多于与他相邻的海盗</p>
-</li>
-</ol>
-<p>求：头目至少要发出去多少块金子</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">int gold( int* scores, int n ) // scores是每个海盗的贡献值（不必考虑负数的情况），n是海盗的数量</div><div class="line">&#123;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>时间复杂度O(n) 空间复杂度O(1)</p>
-<h2 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div></pre></td><td class="code"><pre><div class="line">int gold( int* s, int n )</div><div class="line">&#123;</div><div class="line">    int c = 1, a = 1, d = 1;</div><div class="line">    for( int i = 1; i &lt; n; ++i )</div><div class="line">    &#123;</div><div class="line">        if( s[i] &lt; s[i-1] )</div><div class="line">        &#123;</div><div class="line">            ++d;</div><div class="line">            continue;</div><div class="line">        &#125;</div><div class="line">        c += d * (d - 1) / 2 + (d &gt; a ? d - a : 0);</div><div class="line">        if( s[i] == s[i-1] )</div><div class="line">            a = 0, d = 1;</div><div class="line">        else if( d &gt; 1 )</div><div class="line">            a = 1, d = 1;</div><div class="line">        c += ++a;</div><div class="line">    &#125;</div><div class="line">    return c + d * (d - 1) / 2 + (d &gt; a ? d - a : 0);</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">int gold( int* s, int n )</div><div class="line">&#123;</div><div class="line">    int c = 1, a = 1, d = 1;</div><div class="line">    for( int i = 1; i &lt; n; ++i )</div><div class="line">    &#123;</div><div class="line">        if( s[i] &gt; s[i-1] ) // in a ascending sequence</div><div class="line">        &#123;</div><div class="line">            if( d &gt; 1 ) // a descending sequence ended here?</div><div class="line">            &#123;</div><div class="line">                // add gold for the descending sequence but exclude the first pirate,</div><div class="line">                // the formula is simplified from &apos;((d - 1) + 1) * (d - 1) / 2&apos;</div><div class="line">                c += d * (d - 1) / 2;</div><div class="line">                // adjust gold for the last pirate in previous ascending sequence if needed,</div><div class="line">                // note he is also the first pirate in the descending sequence</div><div class="line">                if( d &gt; a )</div><div class="line">                    c += d - a;</div><div class="line">                a = d = 1; // reset length of ascending &amp; descending sequence</div><div class="line">            &#125;</div><div class="line">            ++a; // update length of ascending sequence</div><div class="line">            c += a; // add gold for current pirate</div><div class="line">        &#125;</div><div class="line">        else if( s[i] == s[i-1] )</div><div class="line">        &#123;</div><div class="line">            // same as the start of ascending sequence,</div><div class="line">            // add gold for the descending sequence if this end a descending sequence,</div><div class="line">            // note this will be &apos;0&apos; if &apos;d&apos; is 1</div><div class="line">            c += d * (d - 1) / 2;</div><div class="line">            if( d &gt; a )</div><div class="line">                c += d - a;</div><div class="line">            // add gold for current pirate, always &apos;1&apos;</div><div class="line">            ++c;</div><div class="line">            a = d = 1;  // reset length of ascending &amp; descending sequence</div><div class="line">        &#125;</div><div class="line">        else</div><div class="line">        &#123;</div><div class="line">            ++d; // update the length of descending sequence</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    c += d * (d - 1) / 2; // handle the last descending sequence</div><div class="line">    if( d &gt; a )</div><div class="line">        c += d - a;</div><div class="line">    return c;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+            <h2 id="NSString-ExaminePhoneNum-h"><a href="#NSString-ExaminePhoneNum-h" class="headerlink" title="NSString+ExaminePhoneNum.h"></a>NSString+ExaminePhoneNum.h</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">#import &lt;Foundation/Foundation.h&gt;</div><div class="line"></div><div class="line">@interface NSString (ExaminePhoneNum)</div><div class="line">- (BOOL)examineStrIsPhoneNum;</div><div class="line">- (BOOL)examineStrIsFixedPhone;</div><div class="line">- (BOOL)examineStrIs400Phone;</div><div class="line">- (BOOL)examineStrIs800Phone;</div><div class="line">@end</div></pre></td></tr></table></figure>
+<h2 id="NSString-ExaminePhoneNum-m"><a href="#NSString-ExaminePhoneNum-m" class="headerlink" title="NSString+ExaminePhoneNum.m"></a>NSString+ExaminePhoneNum.m</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">#import &quot;NSString+ExaminePhoneNum.h&quot;</div><div class="line">@implementation NSString (ExaminePhoneNum)</div><div class="line">// 判断是否是手机号</div><div class="line">- (BOOL)examineStrIsPhoneNum &#123;</div><div class="line">    NSString *regex = @&quot;^((13)|(14)|(15)|(17)|(18))\\d&#123;9&#125;$&quot;;//^1[3-5,7,8]&#123;1&#125;[0-9]&#123;9&#125;</div><div class="line">    </div><div class="line">    NSPredicate *pred = [NSPredicate predicateWithFormat:@&quot;SELF MATCHES %@&quot;, regex];</div><div class="line">    </div><div class="line">    return [pred evaluateWithObject:self];</div><div class="line">&#125;</div><div class="line">// 判断是否是电话</div><div class="line">- (BOOL)examineStrIsFixedPhone &#123;</div><div class="line">    NSString *regex = @&quot;0\\d&#123;2,3&#125;\\d&#123;5,9&#125;|0\\d&#123;2,3&#125;\\d&#123;5,9&#125;&quot;;</div><div class="line">    </div><div class="line">    NSPredicate *pred = [NSPredicate predicateWithFormat:@&quot;SELF MATCHES %@&quot;, regex];</div><div class="line">    </div><div class="line">    return [pred evaluateWithObject:self];</div><div class="line">&#125;</div><div class="line">// 判断是否是400电话</div><div class="line">- (BOOL)examineStrIs400Phone&#123;</div><div class="line">    NSString *regex = @&quot;^400[0-9]&#123;7&#125;&quot;;</div><div class="line">    NSPredicate *pred = [NSPredicate predicateWithFormat:@&quot;SELF MATCHES %@&quot;,regex];</div><div class="line">    return [pred evaluateWithObject:self];</div><div class="line">&#125;</div><div class="line">// 判断是否是800电话</div><div class="line">- (BOOL)examineStrIs800Phone&#123;</div><div class="line">    NSString *regex = @&quot;^800[0-9]&#123;7&#125;&quot;;</div><div class="line">    NSPredicate *pred = [NSPredicate predicateWithFormat:@&quot;SELF MATCHES %@&quot;,regex];</div><div class="line">    return [pred evaluateWithObject:self];</div><div class="line">&#125;</div><div class="line">@end</div></pre></td></tr></table></figure>
 
           
         
@@ -1360,8 +1193,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/09/26/每周烧脑-010/" itemprop="url">
-                  每周烧脑-010
+                <a class="post-title-link" href="/2016/11/14/开发手记11-hex颜色转换/" itemprop="url">
+                  开发手记11-hex颜色转换
                 </a>
               
             
@@ -1374,8 +1207,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-26T16:34:27+08:00" content="2016-09-26">
-              2016-09-26
+            <time itemprop="dateCreated" datetime="2016-11-14T14:25:50+08:00" content="2016-11-14">
+              2016-11-14
             </time>
           </span>
 
@@ -1388,8 +1221,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Algorithm/" itemprop="url" rel="index">
-                    <span itemprop="name">Algorithm</span>
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
                   </a>
                 </span>
 
@@ -1404,8 +1237,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/09/26/每周烧脑-010/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/26/每周烧脑-010/" itemprop="commentsCount"></span>
+                <a href="/2016/11/14/开发手记11-hex颜色转换/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/14/开发手记11-hex颜色转换/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -1415,7 +1248,7 @@
 
           
           
-             <span id="/2016/09/26/每周烧脑-010/" class="leancloud_visitors" data-flag-title="每周烧脑-010">
+             <span id="/2016/11/14/开发手记11-hex颜色转换/" class="leancloud_visitors" data-flag-title="开发手记11-hex颜色转换">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1439,17 +1272,8 @@
       
         
           
-            <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="整数替换"><a href="#整数替换" class="headerlink" title="整数替换"></a>整数替换</h3><p>对一个正整数n可以执行如下操作：</p>
-<ol>
-<li>如果 n 是偶数，把它替换为 n / 2</li>
-<li>如果 n 是奇数，可以把它替换为 n - 1 或 n + 1</li>
-</ol>
-<p>求最少需要多少步可以把 n 变成 1。</p>
-<p>例如：</p>
-<p>n = 8， 8-&gt;4-&gt;2-&gt;1，需要3步</p>
-<p>n = 7， 7 -&gt; 8 -&gt; 4 -&gt; 2 -&gt; 1 或 7 -&gt; 6 -&gt; 3 -&gt; 2 -&gt; 1，两种方法都需要4步</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">int replace( int n )</div><div class="line">&#123;</div><div class="line">    // 返回把n变成1需要的最少步数</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">int replace(int n)&#123;</div><div class="line">    int count = 0;</div><div class="line">    while(n &gt; 1)</div><div class="line">    &#123;</div><div class="line">        if(n % 2 == 0)            // n % 4等于0或2</div><div class="line">            n &gt;&gt;= 1;</div><div class="line">        else if(n == 3)</div><div class="line">            n--;</div><div class="line">        else</div><div class="line">            n += (n % 4 - 2);     // n % 4等于1或3</div><div class="line">        count++;</div><div class="line">    &#125;</div><div class="line">    return count;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+            <h2 id="UIColor-SKExtension-h"><a href="#UIColor-SKExtension-h" class="headerlink" title="UIColor+SKExtension.h"></a>UIColor+SKExtension.h</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">#import &lt;UIKit/UIKit.h&gt;</div><div class="line"></div><div class="line">@interface UIColor (SKExtension)</div><div class="line">+ (UIColor *)colorWithHex:(NSInteger)hexValue;</div><div class="line">+ (UIColor *)colorWithHexString:(NSString *)color;</div><div class="line">@end</div></pre></td></tr></table></figure>
+<h2 id="UIColor-SKExtension-m"><a href="#UIColor-SKExtension-m" class="headerlink" title="UIColor+SKExtension.m"></a>UIColor+SKExtension.m</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div></pre></td><td class="code"><pre><div class="line">#import &quot;UIColor+SKExtension.h&quot;</div><div class="line"></div><div class="line">@implementation UIColor (SKExtension)</div><div class="line"></div><div class="line">+ (UIColor*) colorWithHex:(NSInteger)hexValue&#123;</div><div class="line">    return [UIColor  colorWithRed:((float)((hexValue &amp; 0xFF0000) &gt;&gt; 16))/255.0</div><div class="line">                            green:((float)((hexValue &amp; 0x00FF00) &gt;&gt; 8))/255.0</div><div class="line">                             blue:((float)(hexValue &amp; 0x0000FF))/255.0</div><div class="line">                            alpha:1.0];</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">+ (UIColor *) colorWithHexString: (NSString *)color</div><div class="line">&#123;</div><div class="line">    NSString *cString = [[color stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] uppercaseString];</div><div class="line">    </div><div class="line">    // 应该是6或8个字符</div><div class="line">    if ([cString length] &lt; 6) &#123;</div><div class="line">        return [UIColor clearColor];</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    // 去除0X</div><div class="line">    if ([cString hasPrefix:@&quot;0X&quot;])</div><div class="line">        cString = [cString substringFromIndex:2];</div><div class="line">    if ([cString hasPrefix:@&quot;#&quot;])</div><div class="line">        cString = [cString stringByReplacingOccurrencesOfString:@&quot;#&quot; withString:@&quot;&quot;];</div><div class="line">    //        cString = [cString substringFromIndex:1];</div><div class="line">    if ([cString length] != 6)</div><div class="line">        return [UIColor clearColor];</div><div class="line">    </div><div class="line">    // Separate into r, g, b substrings</div><div class="line">    NSRange range;</div><div class="line">    range.location = 0;</div><div class="line">    range.length = 2;</div><div class="line">    </div><div class="line">    //r</div><div class="line">    NSString *rString = [cString substringWithRange:range];</div><div class="line">    </div><div class="line">    //g</div><div class="line">    range.location = 2;</div><div class="line">    NSString *gString = [cString substringWithRange:range];</div><div class="line">    </div><div class="line">    //b</div><div class="line">    range.location = 4;</div><div class="line">    NSString *bString = [cString substringWithRange:range];</div><div class="line">    </div><div class="line">    // Scan values</div><div class="line">    unsigned int r, g, b;</div><div class="line">    [[NSScanner scannerWithString:rString] scanHexInt:&amp;r];</div><div class="line">    [[NSScanner scannerWithString:gString] scanHexInt:&amp;g];</div><div class="line">    [[NSScanner scannerWithString:bString] scanHexInt:&amp;b];</div><div class="line">    </div><div class="line">    return [UIColor colorWithRed:((float) r / 255.0f) green:((float) g / 255.0f) blue:((float) b / 255.0f) alpha:1.0f];</div><div class="line">&#125;</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure>
 
           
         
@@ -1499,8 +1323,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/09/26/每周烧脑-009/" itemprop="url">
-                  每周烧脑-009
+                <a class="post-title-link" href="/2016/11/14/开发手记10-创建自定义按钮/" itemprop="url">
+                  开发手记10-创建自定义按钮
                 </a>
               
             
@@ -1513,8 +1337,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-26T16:34:21+08:00" content="2016-09-26">
-              2016-09-26
+            <time itemprop="dateCreated" datetime="2016-11-14T14:16:02+08:00" content="2016-11-14">
+              2016-11-14
             </time>
           </span>
 
@@ -1527,8 +1351,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Algorithm/" itemprop="url" rel="index">
-                    <span itemprop="name">Algorithm</span>
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
                   </a>
                 </span>
 
@@ -1543,8 +1367,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/09/26/每周烧脑-009/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/26/每周烧脑-009/" itemprop="commentsCount"></span>
+                <a href="/2016/11/14/开发手记10-创建自定义按钮/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/14/开发手记10-创建自定义按钮/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -1554,7 +1378,7 @@
 
           
           
-             <span id="/2016/09/26/每周烧脑-009/" class="leancloud_visitors" data-flag-title="每周烧脑-009">
+             <span id="/2016/11/14/开发手记10-创建自定义按钮/" class="leancloud_visitors" data-flag-title="开发手记10-创建自定义按钮">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1578,15 +1402,137 @@
       
         
           
-            <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="子序列"><a href="#子序列" class="headerlink" title="子序列"></a>子序列</h3><p>两个字符串a，b，判断a是否是b的子序列。</p>
-<p>子序列是指a中的每个字符在b中都存在，且a中任意两个字符的先后顺序与它们在b中的先后顺序完全相同，但b中的某些字符可以不在a中出现。<br>如：</p>
-<p>   a = “abc”    b = “aabbcc”   true</p>
-<p>   a = “aabcc”  b = “aabbcc”  true</p>
-<p>   a = “acb”   b = “aabbcc”   false</p>
-<p>   a = “abd”   b = “aabbcc”   false</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">bool isSubsequence(const char* a, const char* b) &#123;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="最佳答案"><a href="#最佳答案" class="headerlink" title="最佳答案"></a>最佳答案</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">bool isSubsequence( char* a, char* b )</div><div class="line">&#123;</div><div class="line">    for( ; *a != 0; ++a, ++b )</div><div class="line">        for( ; *a != *b; ++b )</div><div class="line">            if( *b == 0 )</div><div class="line">                return false;</div><div class="line">    return true;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">#import &lt;Foundation/Foundation.h&gt;</div><div class="line">BOOL isSubsequence(const char * a, const char * b);</div><div class="line">BOOL isSubsequence(const char * a, const char * b)&#123;</div><div class="line">    int j = 0;</div><div class="line">    BOOL flag = YES;</div><div class="line">    for (int i = 0; i &lt; strlen(a); i ++) &#123;</div><div class="line">        for (;j &lt; strlen(b);) &#123;</div><div class="line">            if (a[i]^b[j]) &#123;</div><div class="line">                flag = NO;</div><div class="line">                break;</div><div class="line">            &#125;else&#123;</div><div class="line">                flag = YES;</div><div class="line">                j++;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    return flag;</div><div class="line">&#125;</div><div class="line">int main(int argc, const char * argv[]) &#123;</div><div class="line">    @autoreleasepool &#123;</div><div class="line">        char a[] = &quot;abc&quot;;</div><div class="line">        char b[] = &quot;aabbcc&quot;;</div><div class="line">        printf(&quot;%d&quot;,isSubsequence(a, b));</div><div class="line">    &#125;</div><div class="line">    return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+            <h2 id="SKCustomButton-h"><a href="#SKCustomButton-h" class="headerlink" title="SKCustomButton.h"></a>SKCustomButton.h</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">#import &lt;UIKit/UIKit.h&gt;</div><div class="line"></div><div class="line">@interface SKCustomButton : UIButton</div><div class="line"></div><div class="line">/** 初始化方法 */</div><div class="line">- (instancetype)initWithFrame:(CGRect)frame;</div><div class="line">/** 类方法创建按钮 */</div><div class="line">+ (instancetype)creatCustomButtonWithImage:(NSString *)imageName title:(NSString *)title;</div><div class="line">@end</div></pre></td></tr></table></figure>
+<h2 id="SKCustomButton-m"><a href="#SKCustomButton-m" class="headerlink" title="SKCustomButton.m"></a>SKCustomButton.m</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line">#import &quot;SKCustomButton.h&quot;</div><div class="line"></div><div class="line">@implementation SKCustomButton</div><div class="line">// 初始化</div><div class="line">- (instancetype)initWithFrame:(CGRect)frame&#123;</div><div class="line">    </div><div class="line">    if (self = [super initWithFrame:frame]) &#123;</div><div class="line">        self.titleLabel.textAlignment = NSTextAlignmentCenter;</div><div class="line">    &#125;</div><div class="line">    return self;</div><div class="line">&#125;</div><div class="line">// 创建自定义按钮</div><div class="line">+ (instancetype)creatCustomButtonWithImage:(NSString *)imageName title:(NSString *)title&#123;</div><div class="line">    </div><div class="line">    SKCustomButton *button = [[SKCustomButton alloc] init];</div><div class="line">    [button setImage:[UIImage imageNamed:[NSString stringWithFormat:@&quot;%@&quot;,imageName]] forState:(UIControlStateNormal)];</div><div class="line">    [button setTitle:title forState:(UIControlStateNormal)];</div><div class="line">    [button setTitleColor:[UIColor whiteColor] forState:(UIControlStateNormal)];</div><div class="line">    [button setBackgroundColor:[UIColor blackColor]];</div><div class="line">    button.titleLabel.font = [UIFont systemFontOfSize:10.0];</div><div class="line">    [button sizeToFit];// 自适应</div><div class="line">    return button;</div><div class="line">&#125;</div><div class="line"></div><div class="line">/**</div><div class="line"> *  在viewWillApear之后，在viewDidApear之前执行</div><div class="line"> *  将button上的image和titleLabel进行上下结构布局</div><div class="line"> */</div><div class="line">// 重新布局子视图</div><div class="line">- (void)layoutSubviews&#123;</div><div class="line">    [super layoutSubviews];</div><div class="line">    </div><div class="line">    // 设置控件大小、间距</div><div class="line">    CGFloat imageViewSize = self.bounds.size.width * 18 / 138.0;// 高、宽一样</div><div class="line">    CGFloat centerX = self.bounds.size.width * 0.5;</div><div class="line">    // 设置imageView和titleLabel的间距</div><div class="line">    // 获取Label的高度</div><div class="line">    CGFloat labelHeight = self.titleLabel.font.lineHeight;</div><div class="line">    CGFloat verticalMargin = (self.bounds.size.height - labelHeight - imageViewSize) / 2.0;// 间隙</div><div class="line">    // 获取imageView和titleLabel 中心的Y值</div><div class="line">    CGFloat centerYOfImageView = verticalMargin + imageViewSize * 0.5;</div><div class="line">    CGFloat centerYOfTitleLabel = verticalMargin + imageViewSize + labelHeight * 0.5;</div><div class="line">    // 确定最终位置</div><div class="line">    self.imageView.bounds = CGRectMake(0, 0, imageViewSize, imageViewSize);</div><div class="line">    self.imageView.center = CGPointMake(centerX, centerYOfImageView);</div><div class="line">    self.titleLabel.center = CGPointMake(centerX, centerYOfTitleLabel);</div><div class="line">&#125;</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/11/14/开发手记9-宏颜色/" itemprop="url">
+                  开发手记9-宏颜色
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-14T14:13:53+08:00" content="2016-11-14">
+              2016-11-14
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/14/开发手记9-宏颜色/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/14/开发手记9-宏颜色/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/11/14/开发手记9-宏颜色/" class="leancloud_visitors" data-flag-title="开发手记9-宏颜色">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="SKColor-h"><a href="#SKColor-h" class="headerlink" title="SKColor.h"></a>SKColor.h</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">#ifndef SKColor_h</div><div class="line">#define SKColor_h</div><div class="line"></div><div class="line">// 设置随机颜色</div><div class="line">#define SKRandomColor [UIColor colorWithRed:arc4random()%256 / 255.0 green:arc4random()%256 /255.0 blue:arc4random()%256 / 255.0 alpha:1]</div><div class="line"></div><div class="line">// 设置RGB颜色</div><div class="line">#define SKRGBColor(r,g,b) [UIColor colorWithRed:(r) / 255.0 green:(g) /255.0 blue:(b) / 255.0 alpha:1]</div><div class="line">// 设置RGBA颜色</div><div class="line">#define SKRGBAColor(r,g,b,a) [UIColor colorWithRed:(r) / 255.0 green:(g) /255.0 blue:(b) / 255.0 alpha:a]</div><div class="line"></div><div class="line">// 清除背景色</div><div class="line">#define SKClearColor [UIColor clearColor]</div><div class="line"></div><div class="line">#endif /* SKColor_h */</div></pre></td></tr></table></figure>
 
           
         
@@ -1619,7 +1565,7 @@
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1660,7 +1606,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">19</span>
+              <span class="site-state-item-count">35</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1677,7 +1623,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

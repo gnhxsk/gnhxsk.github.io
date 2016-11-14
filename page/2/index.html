@@ -281,8 +281,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/09/26/每周烧脑-008/" itemprop="url">
-                  每周烧脑-008
+                <a class="post-title-link" href="/2016/11/14/开发手记8-宏数据持久化/" itemprop="url">
+                  开发手记8-宏数据持久化
                 </a>
               
             
@@ -295,8 +295,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-26T16:34:13+08:00" content="2016-09-26">
-              2016-09-26
+            <time itemprop="dateCreated" datetime="2016-11-14T14:11:18+08:00" content="2016-11-14">
+              2016-11-14
             </time>
           </span>
 
@@ -309,8 +309,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Algorithm/" itemprop="url" rel="index">
-                    <span itemprop="name">Algorithm</span>
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
                   </a>
                 </span>
 
@@ -325,8 +325,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/09/26/每周烧脑-008/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/26/每周烧脑-008/" itemprop="commentsCount"></span>
+                <a href="/2016/11/14/开发手记8-宏数据持久化/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/14/开发手记8-宏数据持久化/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -336,7 +336,7 @@
 
           
           
-             <span id="/2016/09/26/每周烧脑-008/" class="leancloud_visitors" data-flag-title="每周烧脑-008">
+             <span id="/2016/11/14/开发手记8-宏数据持久化/" class="leancloud_visitors" data-flag-title="开发手记8-宏数据持久化">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -360,11 +360,7 @@
       
         
           
-            <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="计算x的n次方"><a href="#计算x的n次方" class="headerlink" title="计算x的n次方"></a>计算x的n次方</h3><p>n个连续的整数被打乱顺序放在一个数组中，其中有一个是重复的，请用最快的方法找出这个数字</p>
-<p>注意：除了效率，还要考虑各种边界条件。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">函数原型：</div><div class="line">double myPow( double x, int n )</div><div class="line">&#123;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="最佳答案"><a href="#最佳答案" class="headerlink" title="最佳答案"></a>最佳答案</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">```</div><div class="line">## 答案</div></pre></td></tr></table></figure>
-<p>```</p>
+            <h2 id="SKConfig-h"><a href="#SKConfig-h" class="headerlink" title="SKConfig.h"></a>SKConfig.h</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">#ifndef SKConfig_h</div><div class="line">#define SKConfig_h</div><div class="line"></div><div class="line">// 存储对象类型</div><div class="line">#define kUserDefaults(obj, key) \</div><div class="line">[[NSUserDefaults standardUserDefaults] setObject:obj forKey:key]</div><div class="line">// 存储布尔类型</div><div class="line">#define kBoolUserDefaults(value, key) \</div><div class="line">[[NSUserDefaults standardUserDefaults] setBool:value forKey:key]</div><div class="line">// 存储Integer类型</div><div class="line">#define kIntegerUserDefaults(integer, key) \</div><div class="line">[[NSUserDefaults standardUserDefaults] setInteger:integer forKey:key]</div><div class="line"></div><div class="line"></div><div class="line">// 获取对象类型</div><div class="line">#define kGetObjectUserDefaults(key) \</div><div class="line">[[NSUserDefaults standardUserDefaults] objectForKey:key]</div><div class="line">// 获取BOOL类型值</div><div class="line">#define kGetBoolUserDefaults(key) \</div><div class="line">[[NSUserDefaults standardUserDefaults] boolForKey:key]</div><div class="line">// 获取Value类型值</div><div class="line">#define kGetValueUserDefaults(key) \</div><div class="line">[[NSUserDefaults standardUserDefaults] valueForKey:key]</div><div class="line"></div><div class="line">// 移除本地持久化</div><div class="line">#define kRemoveObjectForKey(key) \</div><div class="line">[[NSUserDefaults standardUserDefaults] removeObjectForKey:key]</div><div class="line"></div><div class="line">#endif /* SKConfig_h */</div></pre></td></tr></table></figure>
 
           
         
@@ -414,8 +410,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/09/26/每周烧脑-007/" itemprop="url">
-                  每周烧脑-007
+                <a class="post-title-link" href="/2016/11/14/开发手记7-完整单例/" itemprop="url">
+                  开发手记7-完整单例
                 </a>
               
             
@@ -428,8 +424,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-26T16:34:00+08:00" content="2016-09-26">
-              2016-09-26
+            <time itemprop="dateCreated" datetime="2016-11-14T14:06:31+08:00" content="2016-11-14">
+              2016-11-14
             </time>
           </span>
 
@@ -442,8 +438,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Algorithm/" itemprop="url" rel="index">
-                    <span itemprop="name">Algorithm</span>
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
                   </a>
                 </span>
 
@@ -458,8 +454,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/09/26/每周烧脑-007/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/26/每周烧脑-007/" itemprop="commentsCount"></span>
+                <a href="/2016/11/14/开发手记7-完整单例/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/14/开发手记7-完整单例/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -469,7 +465,7 @@
 
           
           
-             <span id="/2016/09/26/每周烧脑-007/" class="leancloud_visitors" data-flag-title="每周烧脑-007">
+             <span id="/2016/11/14/开发手记7-完整单例/" class="leancloud_visitors" data-flag-title="开发手记7-完整单例">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -493,17 +489,8 @@
       
         
           
-            <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="有没有环"><a href="#有没有环" class="headerlink" title="有没有环"></a>有没有环</h3><p>给定一个单向链表，判断其中是否有环，即类似下面的形式：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">A -&gt; B -&gt; C -&gt; D -&gt; E -&gt; F</div><div class="line">               |         |</div><div class="line">               I &lt;- H &lt;- G</div></pre></td></tr></table></figure>
-<p>链表结点定义：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">struct ListNode</div><div class="line">&#123;</div><div class="line">    ListNode* next;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>函数原型：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">bool hasCycle( const ListNode* head )</div><div class="line">&#123;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="最佳答案"><a href="#最佳答案" class="headerlink" title="最佳答案"></a>最佳答案</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">```</div><div class="line">## 答案</div></pre></td></tr></table></figure>
-<p>#import <foundation foundation.h=""><br>typedef struct listNode{<br>    struct listNode <em>next;<br>}list;<br>bool hasCycle(list</em> head);<br>bool hasCycle(list<em> head)<br>{<br>    list </em>fast = head;<br>    list <em>slow = head;<br>    while (fast &amp;&amp; fast -&gt; next) {<br>        fast = fast -&gt; next -&gt; next;<br>        slow = slow -&gt; next;<br>        if (fast == slow) {<br>            return false;<br>        }<br>    }<br>    return true;<br>};<br>int main(int argc, const char </em> argv[]) {<br>    @autoreleasepool {</foundation></p>
-<pre><code>}
-return 0;
-</code></pre><p>}<br>```</p>
+            <h2 id="SKSingleton-m"><a href="#SKSingleton-m" class="headerlink" title="SKSingleton.m"></a>SKSingleton.m</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">#import &lt;Foundation/Foundation.h&gt;</div><div class="line"></div><div class="line">@interface XSKSingleton : NSObject&lt;NSCopying,NSMutableCopying&gt;</div><div class="line"></div><div class="line">/**</div><div class="line"> *  系统并没有提供专门的方法来创建单例类，若想设计一个单例类，必须自己创建新的方法或者复写系统原有的方法。</div><div class="line"> */</div><div class="line"></div><div class="line">+ (instancetype)sharedSingleton;</div><div class="line"></div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure>
+<h2 id="SKSingleton-h"><a href="#SKSingleton-h" class="headerlink" title="SKSingleton.h"></a>SKSingleton.h</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div></pre></td><td class="code"><pre><div class="line">#import &quot;XSKSingleton.h&quot;</div><div class="line"></div><div class="line">@implementation XSKSingleton</div><div class="line"></div><div class="line">// 创建静态区指针，避免栈区指针被不定性的回收</div><div class="line">// 1.编译器不允许</div><div class="line">// 2.如果没用到，造成内存浪费</div><div class="line"></div><div class="line">/**</div><div class="line"> *  static修饰的语句在程序中只执行一次</div><div class="line"> */</div><div class="line">static XSKSingleton *singleton = nil;</div><div class="line">+ (instancetype)sharedSingleton&#123;</div><div class="line">   </div><div class="line">    // 真正的单例，第二种写法</div><div class="line">    </div><div class="line">    // static修饰的语句只执行一次，不再走第二次</div><div class="line">    // static修饰的语句在静态区，不能被外文件使用。只能在本文件使用</div><div class="line">    </div><div class="line">    // dispatch_once_t线程的一次队列。dispatch_once添加的任务只执行一次，就再也不会执行</div><div class="line">    </div><div class="line">    /**</div><div class="line">     *  onceToken由static修饰，保证了唯一性</div><div class="line">     *  dispatch_once向onceToken中添加的任务，只会执行一次。</div><div class="line">     *  综上，一个实例若是在任务中创建，那么只会创建一个唯一的实例</div><div class="line">     */</div><div class="line">    static dispatch_once_t onceToken;</div><div class="line">    dispatch_once(&amp;onceToken, ^&#123;</div><div class="line">        singleton = [self new];</div><div class="line">    &#125;);</div><div class="line">    return singleton;</div><div class="line">&#125;</div><div class="line">#warning &quot;一个人开发的时候，可以不用实现以下方法，只使用以上伪单例就可以了&quot;</div><div class="line">// 重写是为了保证对象的唯一性</div><div class="line"></div><div class="line">// 每次外界在使用alloc来创建对象时，系统会使用allocWithZone来进行对象的创建过程</div><div class="line">// 系统会用NSZone来开辟空间，类似copy</div><div class="line">+ (instancetype)allocWithZone:(struct _NSZone *)zone&#123;</div><div class="line">    </div><div class="line"></div><div class="line">    </div><div class="line">    // 父类是NSObject，调用子类的东西，没有递归关系</div><div class="line">    // self是自己调自己，会造成递归循环</div><div class="line">    </div><div class="line">    // 这个方法造成多线程</div><div class="line">//    if (!singleton) &#123;</div><div class="line">//        singleton = [super allocWithZone:zone];</div><div class="line">//    &#125;</div><div class="line">//    return singleton;</div><div class="line">    </div><div class="line">    // 为避免递归调用方法，我们复写alloc时，必须使用super来执行开辟空间的方法，将结果返回给当前实例，防止递归造成死循环。</div><div class="line">    // 在保证对象唯一性的前提下，若有多线程参与，必须对被访问的资源加锁，保证同一时间只有一个任务在生产实例对象。</div><div class="line">    </div><div class="line">    // 当访问到singleton对象时，写在大括号内部的代码会被保证同一时间只有一个任务在访问。</div><div class="line">    // atomic是线程安全的，使用@synchronized进行对对象的加锁操作，但是只能是对象类型</div><div class="line">    // @synchronized自动对参数对象加锁，保证临界区内的代码线程安全</div><div class="line">    @synchronized (singleton) &#123;</div><div class="line">        if (!singleton) &#123;</div><div class="line">            singleton = [super allocWithZone:zone];</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    return singleton;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// NSArray的alloc，init会造成地址错位【只有这一个】:因此，使用数组的时候尽量使用便利构造器。使用系统类的时候也是</div><div class="line"></div><div class="line">// 为了安全【地址】，重写init</div><div class="line">/**</div><div class="line"> *  一般情况下，自定义的类不会发生alloc和init出现地址差的因素，但是某些系统类，比如NSMutableArray在开辟空间初始化时使用了不同的地址。</div><div class="line"> */</div><div class="line">- (instancetype)init&#123;</div><div class="line">    @synchronized (self) &#123;</div><div class="line">        self = [super init];</div><div class="line">    &#125;</div><div class="line">    return self;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// new不需要重写，因为new生产对象的过程为alloc + init</div><div class="line"></div><div class="line">/**</div><div class="line"> *  在ARC情况下，不需要考虑retain/release/autorelease/retainCount等相关操作对当前对象造成的内存影响，但是copy仍需要覆写，保证对象的唯一性</div><div class="line"> */</div><div class="line">// 遵循NSCopying，NSMutableCopying协议</div><div class="line">// 防止copy的深拷贝</div><div class="line">- (id)copy&#123;</div><div class="line">    // 直接返回本身，不允许进行新空间的开辟【浅拷贝】</div><div class="line">    return self;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (id)mutableCopy&#123;</div><div class="line">    // 直接返回本身，不允许进行新空间的开辟【浅拷贝】</div><div class="line">    return self;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 实现代理方法</div><div class="line">- (id)copyWithZone:(NSZone *)zone&#123;</div><div class="line">    </div><div class="line">    return self;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (id)mutableCopyWithZone:(NSZone *)zone&#123;</div><div class="line">    </div><div class="line">    return self;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
           
         
@@ -553,8 +540,8 @@ return 0;
             
               
                 
-                <a class="post-title-link" href="/2016/09/26/每周烧脑-006/" itemprop="url">
-                  每周烧脑-006
+                <a class="post-title-link" href="/2016/11/14/开发手记6-宏单例/" itemprop="url">
+                  开发手记6-宏单例
                 </a>
               
             
@@ -567,8 +554,8 @@ return 0;
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-26T16:33:43+08:00" content="2016-09-26">
-              2016-09-26
+            <time itemprop="dateCreated" datetime="2016-11-14T14:04:04+08:00" content="2016-11-14">
+              2016-11-14
             </time>
           </span>
 
@@ -581,8 +568,8 @@ return 0;
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Algorithm/" itemprop="url" rel="index">
-                    <span itemprop="name">Algorithm</span>
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
                   </a>
                 </span>
 
@@ -597,8 +584,8 @@ return 0;
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/09/26/每周烧脑-006/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/26/每周烧脑-006/" itemprop="commentsCount"></span>
+                <a href="/2016/11/14/开发手记6-宏单例/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/14/开发手记6-宏单例/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -608,7 +595,7 @@ return 0;
 
           
           
-             <span id="/2016/09/26/每周烧脑-006/" class="leancloud_visitors" data-flag-title="每周烧脑-006">
+             <span id="/2016/11/14/开发手记6-宏单例/" class="leancloud_visitors" data-flag-title="开发手记6-宏单例">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -632,15 +619,7 @@ return 0;
       
         
           
-            <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="拼接字符串"><a href="#拼接字符串" class="headerlink" title="拼接字符串"></a>拼接字符串</h3><p>给定A,B两个字符串，串中的字符全都是小写英文字母（即a -&gt; z）。判断能否只使用A串中的字符拼出B串，A串中的每个字符只准使用一次。例如：</p>
-<p>A = “aaab”    B = “aaa”     true</p>
-<p>A = “aabb”    B= “aaa”      false</p>
-<p>A = “aaab”    B = “abaa”   true</p>
-<p>A = “aaab”    B = “aaac”   false</p>
-<p>函数原型：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">bool canConstruct(const char* A, const char* B)</div><div class="line"></div><div class="line">&#123;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="最佳答案"><a href="#最佳答案" class="headerlink" title="最佳答案"></a>最佳答案</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure>
-<h2 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">// 计算每个字母出现的次数，正向加法，逆向加法。小于0证明B比A中同样的字母少</div><div class="line">BOOL canConstruct(const char * A, const char * B);</div><div class="line">BOOL canConstruct(const char * A, const char * B)&#123;</div><div class="line">    </div><div class="line">    int a[26] = &#123;&#125;;</div><div class="line">    for (int i = 0; i &lt; strlen(A); i ++) &#123;</div><div class="line">        a[A[i] - &apos;a&apos;] += 1;</div><div class="line">    &#125;</div><div class="line">    for (int j = 0; j &lt; strlen(B); j ++) &#123;</div><div class="line">        a[B[j] - &apos;a&apos;] -= 1;</div><div class="line">        if (a[B[j] - &apos;a&apos;] &lt; 0) &#123;</div><div class="line">            return false;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    return true;</div><div class="line">&#125;</div><div class="line">int main(int argc, const char * argv[]) &#123;</div><div class="line">    @autoreleasepool &#123;</div><div class="line">        char a[] = &quot;aaab&quot;;</div><div class="line">        char b[] = &quot;aaca&quot;;</div><div class="line">        printf(&quot;%d&quot;,canConstruct(a, b));</div><div class="line">    &#125;</div><div class="line">    return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+            <h2 id="SKSingleton"><a href="#SKSingleton" class="headerlink" title="SKSingleton"></a>SKSingleton</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">#ifndef SKSingleton_h</div><div class="line">#define SKSingleton_h</div><div class="line"></div><div class="line">/** 单例声明 */</div><div class="line">#define skSingleton_interface(className) \</div><div class="line">+ (instancetype)shared##className</div><div class="line"></div><div class="line">/** 单例实现 */</div><div class="line">#define skSingleton_impplementation(className) \</div><div class="line">static className * manager; \</div><div class="line">+ (instancetype)shared##className&#123; \</div><div class="line">    static dispatch_once_t onceToken; \</div><div class="line">    dispatch_once(&amp;onceToken, ^&#123; \</div><div class="line">        manager = [[[self class] alloc] init]; \</div><div class="line">    &#125;); \</div><div class="line">    return manager; \</div><div class="line">&#125;</div><div class="line"></div><div class="line">#endif /* SKSingleton_h */</div></pre></td></tr></table></figure>
 
           
         
@@ -690,8 +669,8 @@ return 0;
             
               
                 
-                <a class="post-title-link" href="/2016/09/26/每周烧脑-005/" itemprop="url">
-                  每周烧脑-005
+                <a class="post-title-link" href="/2016/11/14/开发手记5-创建色块图片/" itemprop="url">
+                  开发手记5-创建色块图片
                 </a>
               
             
@@ -704,8 +683,8 @@ return 0;
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-26T16:33:24+08:00" content="2016-09-26">
-              2016-09-26
+            <time itemprop="dateCreated" datetime="2016-11-14T13:56:35+08:00" content="2016-11-14">
+              2016-11-14
             </time>
           </span>
 
@@ -718,8 +697,8 @@ return 0;
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Algorithm/" itemprop="url" rel="index">
-                    <span itemprop="name">Algorithm</span>
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
                   </a>
                 </span>
 
@@ -734,8 +713,8 @@ return 0;
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/09/26/每周烧脑-005/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/26/每周烧脑-005/" itemprop="commentsCount"></span>
+                <a href="/2016/11/14/开发手记5-创建色块图片/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/14/开发手记5-创建色块图片/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -745,7 +724,7 @@ return 0;
 
           
           
-             <span id="/2016/09/26/每周烧脑-005/" class="leancloud_visitors" data-flag-title="每周烧脑-005">
+             <span id="/2016/11/14/开发手记5-创建色块图片/" class="leancloud_visitors" data-flag-title="开发手记5-创建色块图片">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -769,12 +748,8 @@ return 0;
       
         
           
-            <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="寻找单身狗"><a href="#寻找单身狗" class="headerlink" title="寻找单身狗"></a>寻找单身狗</h3><p>一位单身人士混入了一个只允许情侣参加的聚会，已知每对情侣身上都贴了相同的号码，并且不同情侣的号码互不相同，单身人士身上的号码也是唯一的，找到他/她。</p>
-<p>C函数原型：返回只出现一次的号码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">int FindSignle( int* numbers, int n )</div><div class="line">&#123;</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>例如：对输入a[1,1,2,9,2,3,3,4,6,6,5,7,5,9,7,8,8]，返回4</p>
-<h2 id="最佳答案"><a href="#最佳答案" class="headerlink" title="最佳答案"></a>最佳答案</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">int FindSignle(int * numbers, int n)&#123;</div><div class="line">    </div><div class="line">    int r = a[0];</div><div class="line">    for (int i = 1 ; i &lt; n; i ++) &#123;</div><div class="line">        r ^= a[i];</div><div class="line">    &#125;</div><div class="line">    return r;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line">#import &lt;Foundation/Foundation.h&gt;</div><div class="line">int FindSignle(int * numbers, int n);</div><div class="line">int FindSignle(int * numbers, int n)&#123;</div><div class="line">    </div><div class="line">    int maxNum = 0;</div><div class="line">    int sumNum1 = 0;</div><div class="line">    int sumNum2 = 0;</div><div class="line">    for (int i = 0 ; i &lt; n; i ++) &#123;</div><div class="line">        if (maxNum &lt; numbers[i]) &#123;</div><div class="line">            maxNum = numbers[i];</div><div class="line">            sumNum1 = sumNum1 + maxNum;</div><div class="line">        &#125;</div><div class="line">        sumNum2 = sumNum2 + numbers[i];</div><div class="line">    &#125;</div><div class="line">    return (sumNum1 * 2 - sumNum2);</div><div class="line">&#125;</div><div class="line"></div><div class="line">int main(int argc, const char * argv[]) &#123;</div><div class="line">    @autoreleasepool &#123;</div><div class="line">        int a[] = &#123;1,1,2,9,2,3,3,4,6,6,5,7,5,9,7,8,8&#125;;</div><div class="line">        int n = sizeof(a) / sizeof(a[0]);</div><div class="line">        BOOL exChangeFlag = NO;</div><div class="line">        for(int i = 0 ; i &lt; n - 1; i ++)&#123;</div><div class="line">            exChangeFlag = NO;</div><div class="line">            for(int j = 0 ; j &lt; n - 1 - i ; j ++)&#123;</div><div class="line">                if(a[j] &gt; a[j+1])&#123;</div><div class="line">                    exChangeFlag = YES;</div><div class="line">                    int temp = a[j];</div><div class="line">                    a[j] = a[j+1];</div><div class="line">                    a[j+1] = temp;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            if(exChangeFlag == NO)&#123;</div><div class="line">                printf(&quot;第%d趟提前结束\n&quot;,i);</div><div class="line">                break;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        printf(&quot;%d\n&quot;,FindSignle(a, n));</div><div class="line">    &#125;</div><div class="line">    return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+            <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">#import &lt;UIKit/UIKit.h&gt;</div><div class="line"></div><div class="line">@interface UIImage (SKExtension)</div><div class="line"></div><div class="line">/**</div><div class="line"> *  创建色块图片</div><div class="line"> *</div><div class="line"> *  @param color 填充颜色</div><div class="line"> *</div><div class="line"> *  @return 图片</div><div class="line"> */</div><div class="line">+ (UIImage *)imageWithColor:(UIColor *)color;</div><div class="line">@end</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">#import &quot;UIImage+SKExtension.h&quot;</div><div class="line"></div><div class="line">@implementation UIImage (SKExtension)</div><div class="line"></div><div class="line">// 创建色块图片</div><div class="line">+ (UIImage *)imageWithColor:(UIColor *)color&#123;</div><div class="line">    </div><div class="line">    CGRect rect = CGRectMake(0, 0, 1, 1);</div><div class="line">    </div><div class="line">    // 绘制图片</div><div class="line">    UIGraphicsBeginImageContextWithOptions(rect.size, NO, 0);// 开始</div><div class="line">    </div><div class="line">    [color setFill];// 设置填充颜色</div><div class="line">    UIRectFill(rect);// 填充颜色</div><div class="line">    UIImage * image = UIGraphicsGetImageFromCurrentImageContext();// 获取图片</div><div class="line">    UIGraphicsEndImageContext();// 结束</div><div class="line">    </div><div class="line">    return image;</div><div class="line">&#125;</div><div class="line">@end</div></pre></td></tr></table></figure>
 
           
         
@@ -824,8 +799,8 @@ return 0;
             
               
                 
-                <a class="post-title-link" href="/2016/09/26/每周烧脑-004/" itemprop="url">
-                  每周烧脑-004
+                <a class="post-title-link" href="/2016/11/14/开发手记4-快速创建MVC目录结构脚本/" itemprop="url">
+                  开发手记4-快速创建MVC目录结构脚本
                 </a>
               
             
@@ -838,8 +813,8 @@ return 0;
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-26T16:31:59+08:00" content="2016-09-26">
-              2016-09-26
+            <time itemprop="dateCreated" datetime="2016-11-14T13:50:22+08:00" content="2016-11-14">
+              2016-11-14
             </time>
           </span>
 
@@ -852,8 +827,8 @@ return 0;
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Algorithm/" itemprop="url" rel="index">
-                    <span itemprop="name">Algorithm</span>
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
                   </a>
                 </span>
 
@@ -868,8 +843,8 @@ return 0;
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/09/26/每周烧脑-004/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/26/每周烧脑-004/" itemprop="commentsCount"></span>
+                <a href="/2016/11/14/开发手记4-快速创建MVC目录结构脚本/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/14/开发手记4-快速创建MVC目录结构脚本/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -879,7 +854,7 @@ return 0;
 
           
           
-             <span id="/2016/09/26/每周烧脑-004/" class="leancloud_visitors" data-flag-title="每周烧脑-004">
+             <span id="/2016/11/14/开发手记4-快速创建MVC目录结构脚本/" class="leancloud_visitors" data-flag-title="开发手记4-快速创建MVC目录结构脚本">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -903,277 +878,7 @@ return 0;
       
         
           
-            <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="重复的数字"><a href="#重复的数字" class="headerlink" title="重复的数字"></a>重复的数字</h3><p>n个连续的整数被打乱顺序放在一个数组中，其中有一个是重复的，请用最快的方法找出这个数字</p>
-<h2 id="最佳答案"><a href="#最佳答案" class="headerlink" title="最佳答案"></a>最佳答案</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure>
-<h2 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h2><pre><code>
-</code></pre>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/09/26/每周烧脑-003/" itemprop="url">
-                  每周烧脑-003
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-26T16:26:39+08:00" content="2016-09-26">
-              2016-09-26
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Algorithm/" itemprop="url" rel="index">
-                    <span itemprop="name">Algorithm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/09/26/每周烧脑-003/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/26/每周烧脑-003/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/09/26/每周烧脑-003/" class="leancloud_visitors" data-flag-title="每周烧脑-003">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="重复的数字"><a href="#重复的数字" class="headerlink" title="重复的数字"></a>重复的数字</h3><p>n个连续的整数被打乱顺序放在一个数组中，其中有一个是重复的，请用最快的方法找出这个数字</p>
-<h2 id="最佳答案"><a href="#最佳答案" class="headerlink" title="最佳答案"></a>最佳答案</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure>
-<h2 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h2><pre><code>
-</code></pre>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/09/26/每周烧脑-002/" itemprop="url">
-                  每周烧脑-002
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-26T15:49:03+08:00" content="2016-09-26">
-              2016-09-26
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Algorithm/" itemprop="url" rel="index">
-                    <span itemprop="name">Algorithm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/09/26/每周烧脑-002/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/26/每周烧脑-002/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/09/26/每周烧脑-002/" class="leancloud_visitors" data-flag-title="每周烧脑-002">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="螺旋二维数组"><a href="#螺旋二维数组" class="headerlink" title="螺旋二维数组"></a>螺旋二维数组</h3><p>输入：正整数N</p>
-<p>输出：N x N的二维数组，要求，数组元素从1到NxN螺旋排列，如N=5时，输出如下结果：</p>
-<p>1   2   3   4  5</p>
-<p>16 17 18 19  6</p>
-<p>15 24 25 20  7</p>
-<p>14 23 22 21  8 </p>
-<p>13 12 11 10  9</p>
-<h2 id="最佳答案"><a href="#最佳答案" class="headerlink" title="最佳答案"></a>最佳答案</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure>
-<h2 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">#import &lt;Foundation/Foundation.h&gt;</div><div class="line"></div><div class="line">#define M 100</div><div class="line">#define N 100</div><div class="line">/*</div><div class="line"> 填充方法，归纳每一行的数据规律</div><div class="line"> k为当前放下的数字，一边走一边放</div><div class="line"> 按照摆放数据的过程，逐层分别处理每圈的上下左右方的数据</div><div class="line"> */</div><div class="line">int main(int argc, const char * argv[]) &#123;</div><div class="line">    </div><div class="line">    int i, j, a[100][100]=&#123;0&#125;, n, k = 1;</div><div class="line">    printf(&quot;please input a number n:&quot;);</div><div class="line">    while(scanf(&quot;%d&quot;, &amp;n)!=EOF)&#123;</div><div class="line">        k = 1;</div><div class="line">        for (i = 1; i &lt;= n / 2; ++ i)&#123;</div><div class="line">            for (j = i; j &lt;= n - i; ++ j) /* 左侧 */</div><div class="line">                a[i][j] = k ++;</div><div class="line">            for (j = i; j &lt;= n - i; ++ j) /* 下方 */</div><div class="line">                a[j][n + 1 - i] = k ++;</div><div class="line">            for (j = n - i + 1; j &gt;= i + 1; j = j - 1) /* 右侧 */</div><div class="line">                a[n + 1 - i][j] = k ++;</div><div class="line">            for (j = n - i + 1; j &gt;= i + 1; j = j - 1) /* 上方 */</div><div class="line">                a[j][i] = k ++;</div><div class="line">        &#125;</div><div class="line">        if(n != 1)&#123;</div><div class="line">            for (i = 1; i &lt;= n; ++ i)&#123;</div><div class="line">                for (j = 1; j &lt;= n; ++ j)</div><div class="line">                    printf(&quot;%5d&quot;, a[i][j]); printf(&quot;\n&quot;);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        else</div><div class="line">            printf(&quot;%5d\n&quot;,n);</div><div class="line">        printf(&quot;please input a number n:&quot;);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+            <h2 id="makeProjectDir-sh"><a href="#makeProjectDir-sh" class="headerlink" title="makeProjectDir.sh"></a>makeProjectDir.sh</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">#! /bin/bash</div><div class="line"></div><div class="line"># &quot;#&quot; 是注释</div><div class="line">#在哪儿执行这个脚本,下面的文件夹就创建在哪儿</div><div class="line"></div><div class="line">#shell脚本</div><div class="line">#创建一个classes文件夹并且进入这个文件夹</div><div class="line">mkdir classes &amp;&amp; cd classes</div><div class="line">#在进入的classes文件夹中依次创建下面几个文件夹</div><div class="line">mkdir Appdelegate General Helpers Marco Models Resources Scenes Vendors</div><div class="line"></div><div class="line">#当前路径是在classess里面,要取到上一级(..)的Appdelegate文件,移动到classess下的Appdelegate文件夹</div><div class="line">#mv 原文件 目的文件</div><div class="line">mv ../AppDelegate.h Appdelegate/AppDelegate.h</div><div class="line">mv ../AppDelegate.m Appdelegate/AppDelegate.m</div><div class="line">#echo 在终端输出一段文字</div><div class="line">echo &quot;创建项目文件夹成功&quot;</div></pre></td></tr></table></figure>
 
           
         
@@ -1223,8 +928,8 @@ return 0;
             
               
                 
-                <a class="post-title-link" href="/2016/09/26/algorithm-1/" itemprop="url">
-                  每周烧脑-001
+                <a class="post-title-link" href="/2016/11/14/开发手记3-创建文件夹脚本/" itemprop="url">
+                  开发手记3-创建文件夹脚本
                 </a>
               
             
@@ -1237,8 +942,8 @@ return 0;
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-26T13:42:33+08:00" content="2016-09-26">
-              2016-09-26
+            <time itemprop="dateCreated" datetime="2016-11-14T13:46:23+08:00" content="2016-11-14">
+              2016-11-14
             </time>
           </span>
 
@@ -1251,8 +956,8 @@ return 0;
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Algorithm/" itemprop="url" rel="index">
-                    <span itemprop="name">Algorithm</span>
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
                   </a>
                 </span>
 
@@ -1267,8 +972,8 @@ return 0;
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/09/26/algorithm-1/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/26/algorithm-1/" itemprop="commentsCount"></span>
+                <a href="/2016/11/14/开发手记3-创建文件夹脚本/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/14/开发手记3-创建文件夹脚本/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -1278,7 +983,7 @@ return 0;
 
           
           
-             <span id="/2016/09/26/algorithm-1/" class="leancloud_visitors" data-flag-title="每周烧脑-001">
+             <span id="/2016/11/14/开发手记3-创建文件夹脚本/" class="leancloud_visitors" data-flag-title="开发手记3-创建文件夹脚本">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1302,14 +1007,7 @@ return 0;
       
         
           
-            <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="随机数"><a href="#随机数" class="headerlink" title="随机数"></a>随机数</h3><p>最大值、最小值、平均值和步进值四个属性，随机生成符合下列条件的一个数:</p>
-<ol>
-<li>这个数字不能小于最小值</li>
-<li>这个数字不能大于最大值</li>
-<li>这个数字与最小值的差必须是步进的整数倍</li>
-<li>当生成多个随机数后，所有这些数字的平均趋近于平均值</li>
-</ol>
-<h2 id="最佳答案"><a href="#最佳答案" class="headerlink" title="最佳答案"></a>最佳答案</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line">#include &lt;stdio.h&gt;</div><div class="line">#include &lt;stdlib.h&gt;</div><div class="line">#include &lt;time.h&gt;</div><div class="line">double avgrand( double min, double max, double avg, double step )</div><div class="line">&#123;</div><div class="line">    int nMin = (int)(min * 200 + 0.1);</div><div class="line">    int nStep = (int)(step * 200 + 0.1);</div><div class="line">    int nMax = ((int)(max * 200 + 0.1) - nMin) / nStep * nStep;</div><div class="line">    int nAvg = (int)(avg * 200 + 0.1) - nMin;</div><div class="line">    </div><div class="line">    int r = rand() % (nMax + 1);</div><div class="line">    if( r &lt; nAvg )</div><div class="line">        r = rand() % (nMax - nAvg) + nAvg + 1;</div><div class="line">    else if( r &gt; nAvg )</div><div class="line">        r = rand() % nAvg;</div><div class="line"></div><div class="line">    r = (r + nStep / 2) / nStep * nStep;</div><div class="line"></div><div class="line">    return (double)(r + nMin) / 200.0;</div><div class="line">&#125;</div><div class="line">int main()</div><div class="line">&#123;</div><div class="line">    const int count = 10000;</div><div class="line">    double min = 5.0, max = 9.0, avg = 8.0, step = 0.2, sum = 0.0;</div><div class="line"></div><div class="line">    srand( time(NULL) );</div><div class="line">    for( int i = 0; i &lt; count; ++i )</div><div class="line">    &#123;</div><div class="line">        double r = avgrand( min, max, avg, step );</div><div class="line">        if( i &lt; 200 )</div><div class="line">        &#123;</div><div class="line">            if( i % 20 == 0 )</div><div class="line">                printf(&quot;\n&quot;);</div><div class="line">            printf(&quot;%5.2f&quot;, r);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        if( r &lt; min )</div><div class="line">            printf(&quot;\ntoo small %5.2f\n&quot;, r);</div><div class="line">        else if( r &gt; max )</div><div class="line">            printf(&quot;\ntoo big %5.2f\n&quot;, r);</div><div class="line">            </div><div class="line">        sum += r;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    printf(&quot;\naverage is: %f\n&quot;, sum / count);</div><div class="line">    </div><div class="line">    return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+            <h2 id="makeModule-sh"><a href="#makeModule-sh" class="headerlink" title="makeModule.sh"></a>makeModule.sh</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"># !/bin/bash</div><div class="line"></div><div class="line">#判断是否传入一个参数</div><div class="line">#$1 是调用脚本时传进来的第一个参数</div><div class="line"># shell 中的脚本 判断if 时需要和test 组合起来</div><div class="line"># test 不是 text</div><div class="line">if test $1</div><div class="line">then</div><div class="line">	#判断结果是yes 会执行这儿</div><div class="line">	mkdir $1</div><div class="line">	cd $1</div><div class="line">	mkdir Views Models Controllers</div><div class="line">	echo &quot;$1模块创建成功&quot;</div><div class="line">else</div><div class="line">	#判断结果是no 会执行这儿</div><div class="line">	echo &quot;Error!!!!!缺少一个模块名称&quot;</div><div class="line">fi</div></pre></td></tr></table></figure>
 
           
         
@@ -1359,8 +1057,8 @@ return 0;
             
               
                 
-                <a class="post-title-link" href="/2016/09/09/hello-world/" itemprop="url">
-                  Hello World
+                <a class="post-title-link" href="/2016/11/14/开发手记2-图片压缩/" itemprop="url">
+                  开发手记2-图片压缩
                 </a>
               
             
@@ -1373,8 +1071,8 @@ return 0;
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-09T13:20:19+08:00" content="2016-09-09">
-              2016-09-09
+            <time itemprop="dateCreated" datetime="2016-11-14T11:26:19+08:00" content="2016-11-14">
+              2016-11-14
             </time>
           </span>
 
@@ -1387,8 +1085,8 @@ return 0;
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/markdown/" itemprop="url" rel="index">
-                    <span itemprop="name">markdown</span>
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
                   </a>
                 </span>
 
@@ -1403,8 +1101,8 @@ return 0;
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/09/09/hello-world/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/09/hello-world/" itemprop="commentsCount"></span>
+                <a href="/2016/11/14/开发手记2-图片压缩/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/14/开发手记2-图片压缩/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -1414,7 +1112,7 @@ return 0;
 
           
           
-             <span id="/2016/09/09/hello-world/" class="leancloud_visitors" data-flag-title="Hello World">
+             <span id="/2016/11/14/开发手记2-图片压缩/" class="leancloud_visitors" data-flag-title="开发手记2-图片压缩">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1438,24 +1136,397 @@ return 0;
       
         
           
-            <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h3><p>当Node.js和Git都安装好后就可以正式安装Hexo了，终端执行如下命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo npm install -g hexo</div></pre></td></tr></table></figure>
-<h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><p>终端cd到一个你选定的目录，执行hexo init命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo init blog</div></pre></td></tr></table></figure>
-<p>blog是你建立的文件夹名称。cd到blog文件夹下，执行如下命令，安装npm：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install</div></pre></td></tr></table></figure>
-<p>执行如下命令，开启hexo服务器：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo s</div></pre></td></tr></table></figure>
-<p>此时，浏览器中打开网址<a href="http://localhost:4000，能看到如下页面：" target="_blank" rel="external">http://localhost:4000，能看到如下页面：</a></p>
-<h2 id="快速开始"><a href="#快速开始" class="headerlink" title="快速开始"></a>快速开始</h2><h3 id="创建新的文章"><a href="#创建新的文章" class="headerlink" title="创建新的文章"></a>创建新的文章</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new &quot;My New Post&quot;</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="运行本地服务"><a href="#运行本地服务" class="headerlink" title="运行本地服务"></a>运行本地服务</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="清除缓存文件-db-json-和已生成的静态文件-public"><a href="#清除缓存文件-db-json-和已生成的静态文件-public" class="headerlink" title="清除缓存文件 (db.json) 和已生成的静态文件 (public)"></a>清除缓存文件 (db.json) 和已生成的静态文件 (public)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo clean</div></pre></td></tr></table></figure>
-<h3 id="生成缓存和静态文件"><a href="#生成缓存和静态文件" class="headerlink" title="生成缓存和静态文件"></a>生成缓存和静态文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="重新部署到服务器"><a href="#重新部署到服务器" class="headerlink" title="重新部署到服务器"></a>重新部署到服务器</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+            <h2 id="指定宽度按比例缩放"><a href="#指定宽度按比例缩放" class="headerlink" title="指定宽度按比例缩放"></a>指定宽度按比例缩放</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">#import &lt;UIKit/UIKit.h&gt;</div><div class="line"></div><div class="line">@interface UIImage (compressedWithWidth)</div><div class="line">/**</div><div class="line"> *  图片的压缩方法</div><div class="line"> *</div><div class="line"> *  @param sourceImg   要被压缩的图片</div><div class="line"> *  @param defineWidth 要被压缩的尺寸(宽)</div><div class="line"> *</div><div class="line"> *  @return 被压缩的图片</div><div class="line"> */</div><div class="line">+ (UIImage *)imgCompressed:(UIImage *)sourceImg targetWidth:(CGFloat)defineWidth;</div><div class="line">@end</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div></pre></td><td class="code"><pre><div class="line">#import &quot;UIImage+compressedWithWidth.h&quot;</div><div class="line"></div><div class="line">@implementation UIImage (compressedWithWidth)</div><div class="line">// 图片压缩方法</div><div class="line">+ (UIImage *)imgCompressed:(UIImage *)sourceImg targetWidth:(CGFloat)defineWidth&#123;</div><div class="line">    </div><div class="line">    UIImage *newImage = nil;</div><div class="line">    </div><div class="line">    CGSize imageSize = sourceImg.size;</div><div class="line">    CGFloat width = imageSize.width;</div><div class="line">    CGFloat height = imageSize.height;</div><div class="line">    </div><div class="line">    CGFloat targetWidth = defineWidth;</div><div class="line">    CGFloat targetHeight = height / (width / targetWidth);</div><div class="line">    </div><div class="line">    CGSize size = CGSizeMake(targetWidth, targetHeight);</div><div class="line">    CGFloat scaleFactor = 0.0;</div><div class="line">    CGFloat scaledWidth = targetWidth;</div><div class="line">    CGFloat scaledHeight = targetHeight;</div><div class="line">    </div><div class="line">    CGPoint thumbnailPoint = CGPointMake(0.0, 0.0);</div><div class="line">    </div><div class="line">    if (CGSizeEqualToSize(imageSize, size) == NO) &#123;</div><div class="line">        CGFloat widthFactor = targetWidth / width;</div><div class="line">        CGFloat heightFactor = targetHeight / height;</div><div class="line">        if (widthFactor &gt; heightFactor) &#123;</div><div class="line">            scaleFactor = widthFactor;</div><div class="line">        &#125;else&#123;</div><div class="line">            scaleFactor = heightFactor;</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        scaledWidth = width * scaleFactor;</div><div class="line">        scaledHeight = height * scaleFactor;</div><div class="line">        </div><div class="line">        if (widthFactor &gt; heightFactor) &#123;</div><div class="line">            thumbnailPoint.y = (targetHeight - scaledHeight) * 0.5;</div><div class="line">        &#125;else if (widthFactor &lt; heightFactor)&#123;</div><div class="line">            thumbnailPoint.x = (targetWidth - scaledWidth) * 0.5;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    UIGraphicsBeginImageContext(size);</div><div class="line">    CGRect thumbnailRect = CGRectZero;</div><div class="line">    thumbnailRect.origin = thumbnailPoint;</div><div class="line">    thumbnailRect.size.width = scaledWidth;</div><div class="line">    thumbnailRect.size.height = scaledHeight;</div><div class="line">    </div><div class="line">    [sourceImg drawInRect:thumbnailRect];</div><div class="line">    </div><div class="line">    newImage = UIGraphicsGetImageFromCurrentImageContext();</div><div class="line">    </div><div class="line">    if (newImage == nil) &#123;</div><div class="line">        NSAssert(!newImage, @&quot;图片压缩失败&quot;);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    UIGraphicsEndImageContext();</div><div class="line">    </div><div class="line">    return newImage;</div><div class="line">&#125;</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/11/14/开发手记1-图片颜色获取/" itemprop="url">
+                  开发手记1-图片颜色获取
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-14T11:16:31+08:00" content="2016-11-14">
+              2016-11-14
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/14/开发手记1-图片颜色获取/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/14/开发手记1-图片颜色获取/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/11/14/开发手记1-图片颜色获取/" class="leancloud_visitors" data-flag-title="开发手记1-图片颜色获取">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">#import &lt;UIKit/UIKit.h&gt;</div><div class="line"></div><div class="line">@interface UIImage (getBackColorToChangeBorderColor)</div><div class="line">/**</div><div class="line"> *  出现最多的颜色</div><div class="line"> *</div><div class="line"> *  @return color</div><div class="line"> */</div><div class="line">- (UIColor *)mostColor;</div><div class="line">/**</div><div class="line"> *  是否是亮色</div><div class="line"> *</div><div class="line"> *  @param clr color</div><div class="line"> *</div><div class="line"> *  @return BOOL</div><div class="line"> */</div><div class="line">- (BOOL)isLightColor:(UIColor*)clr;</div><div class="line">@end</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div></pre></td><td class="code"><pre><div class="line">#import &quot;UIImage+getBackColorToChangeBorderColor.h&quot;</div><div class="line"></div><div class="line">@implementation UIImage (getBackColorToChangeBorderColor)</div><div class="line">- (UIColor *)mostColor&#123;</div><div class="line">    </div><div class="line">    </div><div class="line">#if __IPHONE_OS_VERSION_MAX_ALLOWED &gt; __IPHONE_6_1</div><div class="line">    int bitmapInfo = kCGBitmapByteOrderDefault | kCGImageAlphaPremultipliedLast;</div><div class="line">#else</div><div class="line">    int bitmapInfo = kCGImageAlphaPremultipliedLast;</div><div class="line">#endif</div><div class="line">    </div><div class="line">    //第一步 先把图片缩小 加快计算速度. 但越小结果误差可能越大</div><div class="line">    CGSize thumbSize=CGSizeMake(50, 50);</div><div class="line">    </div><div class="line">    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();</div><div class="line">    CGContextRef context = CGBitmapContextCreate(NULL,</div><div class="line">                                                 thumbSize.width,</div><div class="line">                                                 thumbSize.height,</div><div class="line">                                                 8,//bits per component</div><div class="line">                                                 thumbSize.width*4,</div><div class="line">                                                 colorSpace,</div><div class="line">                                                 bitmapInfo);</div><div class="line">    </div><div class="line">    CGRect drawRect = CGRectMake(0, 0, thumbSize.width, thumbSize.height);</div><div class="line">    CGContextDrawImage(context, drawRect, self.CGImage);</div><div class="line">    CGColorSpaceRelease(colorSpace);</div><div class="line">    </div><div class="line">    </div><div class="line">    </div><div class="line">    //第二步 取每个点的像素值</div><div class="line">    unsigned char* data = CGBitmapContextGetData (context);</div><div class="line">    </div><div class="line">    if (data == NULL) return nil;</div><div class="line">    </div><div class="line">    NSCountedSet *cls=[NSCountedSet setWithCapacity:thumbSize.width*thumbSize.height];</div><div class="line">    </div><div class="line">    for (int x=0; x&lt;thumbSize.width; x++) &#123;</div><div class="line">        for (int y=0; y&lt;thumbSize.height; y++) &#123;</div><div class="line">            </div><div class="line">            int offset = 4*(x*y);</div><div class="line">            </div><div class="line">            int red = data[offset];</div><div class="line">            int green = data[offset+1];</div><div class="line">            int blue = data[offset+2];</div><div class="line">            int alpha =  data[offset+3];</div><div class="line">            </div><div class="line">            NSArray *clr=@[@(red),@(green),@(blue),@(alpha)];</div><div class="line">            [cls addObject:clr];</div><div class="line">            </div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    CGContextRelease(context);</div><div class="line">    </div><div class="line">    //第三步 找到出现次数最多的那个颜色</div><div class="line">    NSEnumerator *enumerator = [cls objectEnumerator];</div><div class="line">    NSArray *curColor = nil;</div><div class="line">    </div><div class="line">    NSArray *MaxColor=nil;</div><div class="line">    NSUInteger MaxCount=0;</div><div class="line">    </div><div class="line">    while ( (curColor = [enumerator nextObject]) != nil )</div><div class="line">    &#123;</div><div class="line">        NSUInteger tmpCount = [cls countForObject:curColor];</div><div class="line">        </div><div class="line">        if ( tmpCount &lt; MaxCount ) continue;</div><div class="line">        </div><div class="line">        MaxCount=tmpCount;</div><div class="line">        MaxColor=curColor;</div><div class="line">        </div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    return [UIColor colorWithRed:([MaxColor[0] intValue]/255.0f) green:([MaxColor[1] intValue]/255.0f) blue:([MaxColor[2] intValue]/255.0f) alpha:([MaxColor[3] intValue]/255.0f)];</div><div class="line">&#125;</div><div class="line">//获取RGB值</div><div class="line">- (void)getRGBComponents:(CGFloat [3])components forColor:(UIColor *)color &#123;</div><div class="line">#if __IPHONE_OS_VERSION_MAX_ALLOWED &gt; __IPHONE_6_1</div><div class="line">    int bitmapInfo = kCGBitmapByteOrderDefault | kCGImageAlphaPremultipliedLast;</div><div class="line">#else</div><div class="line">    int bitmapInfo = kCGImageAlphaPremultipliedLast;</div><div class="line">#endif</div><div class="line">    </div><div class="line">    CGColorSpaceRef rgbColorSpace = CGColorSpaceCreateDeviceRGB();</div><div class="line">    unsigned char resultingPixel[4];</div><div class="line">    CGContextRef context = CGBitmapContextCreate(&amp;resultingPixel,</div><div class="line">                                                 1,</div><div class="line">                                                 1,</div><div class="line">                                                 8,</div><div class="line">                                                 4,</div><div class="line">                                                 rgbColorSpace,</div><div class="line">                                                 bitmapInfo);</div><div class="line">    CGContextSetFillColorWithColor(context, [color CGColor]);</div><div class="line">    CGContextFillRect(context, CGRectMake(0, 0, 1, 1));</div><div class="line">    CGContextRelease(context);</div><div class="line">    CGColorSpaceRelease(rgbColorSpace);</div><div class="line">    </div><div class="line">    for (int component = 0; component &lt; 3; component++) &#123;</div><div class="line">        components[component] = resultingPixel[component];</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">//判断颜色是不是亮色</div><div class="line">- (BOOL)isLightColor:(UIColor*)clr &#123;</div><div class="line">    CGFloat components[3];</div><div class="line">    [self getRGBComponents:components forColor:clr];</div><div class="line">    SKLog(@&quot;------------%f %f %f&quot;, components[0], components[1], components[2]);</div><div class="line">    </div><div class="line">    CGFloat num = components[0] + components[1] + components[2];</div><div class="line">    if(num &lt; 150)</div><div class="line">        return NO;</div><div class="line">    else</div><div class="line">        return YES;</div><div class="line">&#125;</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/11/14/每周烧脑-016/" itemprop="url">
+                  每周烧脑-016
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-14T10:22:36+08:00" content="2016-11-14">
+              2016-11-14
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Algorithm/" itemprop="url" rel="index">
+                    <span itemprop="name">Algorithm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/14/每周烧脑-016/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/14/每周烧脑-016/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/11/14/每周烧脑-016/" class="leancloud_visitors" data-flag-title="每周烧脑-016">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><p>给定一个长度为n的整数数组a（n&gt;0），每次操作把其中的n-1个元素加1，问最少需要多少次操作可以让数组中的所有元素相等。<br>如[1,2,3]的转换为：<br>[1,2,3]  =&gt;  [2,3,3]  =&gt;  [3,4,3]  =&gt;  [4,4,4]<br>需要三次操作<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">int minMoves(int* a, int n) &#123;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/11/14/每周烧脑-015/" itemprop="url">
+                  每周烧脑-015
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-14T10:21:22+08:00" content="2016-11-14">
+              2016-11-14
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Algorithm/" itemprop="url" rel="index">
+                    <span itemprop="name">Algorithm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/14/每周烧脑-015/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/14/每周烧脑-015/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/11/14/每周烧脑-015/" class="leancloud_visitors" data-flag-title="每周烧脑-015">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="矩阵清零"><a href="#矩阵清零" class="headerlink" title="矩阵清零"></a>矩阵清零</h3><p>给定一个MxN的矩阵，如果其中某个元素是0，则将其所在的行和列都清零。要求，原地操作，不能使用多余空间，即空间复杂度O(1)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">void SetZero( int **matrix, int m, int n)</div><div class="line">&#123;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="最佳答案"><a href="#最佳答案" class="headerlink" title="最佳答案"></a>最佳答案</h2><h2 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">void setZero(int **matrix, int m, int n)&#123;</div><div class="line">    </div><div class="line">    BOOL row[n]; // 行</div><div class="line">    BOOL line[m];// 列</div><div class="line">    for (int i = 0; i &lt; m; i ++) &#123;</div><div class="line">        for (int j = 0; j &lt; n; j ++) &#123;</div><div class="line">            if (matrix[i][j] == 0) &#123;</div><div class="line">                row[i] = true;</div><div class="line">                line[j] = true;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    for (int i = 0; i &lt; m; i ++) &#123;</div><div class="line">        for (int j = 0; j &lt; n; j ++) &#123;</div><div class="line">            if (row[i] || line[j]) &#123;</div><div class="line">                matrix[i][j] = 0;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
           
         
@@ -1488,7 +1559,7 @@ return 0;
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1529,7 +1600,7 @@ return 0;
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">19</span>
+              <span class="site-state-item-count">35</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1546,7 +1617,7 @@ return 0;
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
