@@ -281,6 +281,658 @@
             
               
                 
+                <a class="post-title-link" href="/2016/11/14/开发手记16-SHA1-base64加密/" itemprop="url">
+                  开发手记16-SHA1+base64加密
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-14T15:10:21+08:00" content="2016-11-14">
+              2016-11-14
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/14/开发手记16-SHA1-base64加密/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/14/开发手记16-SHA1-base64加密/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/11/14/开发手记16-SHA1-base64加密/" class="leancloud_visitors" data-flag-title="开发手记16-SHA1+base64加密">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="NSString-Encryption-h"><a href="#NSString-Encryption-h" class="headerlink" title="NSString+Encryption.h"></a>NSString+Encryption.h</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">#import &lt;Foundation/Foundation.h&gt;</div><div class="line"></div><div class="line">@interface NSString (Encryption)</div><div class="line">/**</div><div class="line"> *  sha1+base64加密</div><div class="line"> *</div><div class="line"> *  @return 获取加密后的字符串</div><div class="line"> */</div><div class="line">- (NSString *)sha1_base64;</div><div class="line">@end</div></pre></td></tr></table></figure>
+<h2 id="NSString-Encryption-m"><a href="#NSString-Encryption-m" class="headerlink" title="NSString+Encryption.m"></a>NSString+Encryption.m</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">#import &quot;NSString+Encryption.h&quot;</div><div class="line">#import &lt;CommonCrypto/CommonDigest.h&gt;</div><div class="line">#import &quot;GTMBase64.h&quot;</div><div class="line">@implementation NSString (Encryption)</div><div class="line">/**</div><div class="line"> *  sha1+base64加密</div><div class="line"> *</div><div class="line"> *  @return 获取加密后的字符串</div><div class="line"> */</div><div class="line">- (NSString *)sha1_base64 &#123;</div><div class="line">    </div><div class="line">    const char *cStr = [self cStringUsingEncoding:NSUTF8StringEncoding];</div><div class="line">    NSData *data = [NSData dataWithBytes:cStr length:self.length];</div><div class="line">    </div><div class="line">    unsigned char digest[CC_SHA1_DIGEST_LENGTH];</div><div class="line">    CC_SHA1(data.bytes, (uint32_t)data.length, digest);</div><div class="line">    </div><div class="line">    NSData *base64 = [[NSData alloc] initWithBytes:digest length:CC_SHA1_DIGEST_LENGTH];</div><div class="line">    base64 = [GTMBase64 encodeData:base64];</div><div class="line">    </div><div class="line">    NSString *encryptionString = [[NSString alloc] initWithData:base64 encoding:NSUTF8StringEncoding];</div><div class="line">    </div><div class="line">    return encryptionString;</div><div class="line">&#125;</div><div class="line">@end</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/11/14/开发手记15-字符串SHA1加密/" itemprop="url">
+                  开发手记15-字符串SHA1加密
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-14T15:04:55+08:00" content="2016-11-14">
+              2016-11-14
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/14/开发手记15-字符串SHA1加密/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/14/开发手记15-字符串SHA1加密/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/11/14/开发手记15-字符串SHA1加密/" class="leancloud_visitors" data-flag-title="开发手记15-字符串SHA1加密">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="算法解析"><a href="#算法解析" class="headerlink" title="算法解析"></a>算法解析</h2><p>SHA1算法原理<br>1 SHA1算法简介<br>安全哈希算法（Secure Hash Algorithm）主要适用于数字签名标准（Digital Signature Standard DSS）里面定义的数字签名算法（Digital Signature Algorithm DSA）。对于长度小于2^64位的消息，SHA1会产生一个160位的消息摘要。当接收到消息的时候，这个消息摘要可以用来验证数据的完整性。在传输的过程中，数据很可能会发生变化，那么这时候就会产生不同的消息摘要。<br>SHA1有如下特性：不可以从消息摘要中复原信息；两个不同的消息不会产生同样的消息摘要。<br>2 术语和概念<br>2.1位(Bit)，字节（Byte）和字（Word）<br>SHA1始终把消息当成一个位（bit）字符串来处理。本文中，一个“字”（Word）是32位，而一个“字节”（Byte）是8位。比如，字符串“abc”可以被转换成一个位字符串：01100001 01100010 01100011。它也可以被表示成16进制字符串: 0x616263.<br>2.2 运算符和符号<br>下面的逻辑运算符都被运用于“字”（Word）<br>X^Y    = X， Y逻辑与<br>X \/ Y   = X， Y逻辑或<br>X XOR Y= X， Y逻辑异或<br>~X     =   X逻辑取反<br>X+Y定义如下：<br>字 X 和 Y 代表两个整数 x 和y, 其中 0 &lt;= x &lt; 2^32 且 0 &lt;= y &lt; 2^32. 令整数z = (x + y) mod 2^32. 这时候 0 &lt;= z &lt; 2^32. 将z转换成字Z, 那么就是 Z = X + Y.<br>循环左移位操作符Sn(X)。X是一个字，n是一个整数，0&lt;=n&lt;=32。Sn(X) = (X&lt;<n)or(x>&gt;32-n)<br>X&lt;<n定义如下：抛弃最左边的n位数字，将各个位依次向左移动n位，然后用0填补右边的n位（最后结果还是32位）。x>&gt;n是抛弃右边的n位，将各个位依次向右移动n位，然后在左边的n位填0。因此可以叫Sn(X)位循环移位运算<br>3 SHA1算法描述<br>在SHA1算法中，我们必须把原始消息（字符串，文件等）转换成位字符串。SHA1算法只接受位作为输入。假设我们对字符串“abc”产生消息摘要。首先，我们将它转换成位字符串如下：<br>01100001 01100010 01100011<br>―――――――――――――<br>‘a’=97   ‘b’=98   ‘c’=99<br>这个位字符串的长度为24。下面我们需要5个步骤来计算MD5。<br>3.1 补位<br>消息必须进行补位，以使其长度在对512取模以后的余数是448。也就是说，（补位后的消息长度）%512 = 448。即使长度已经满足对512取模后余数是448，补位也必须要进行。<br>补位是这样进行的：先补一个1，然后再补0，直到长度满足对512取模后余数是448。总而言之，补位是至少补一位，最多补512位。还是以前面的“abc”为例显示补位的过程。<br>原始信息： 01100001 01100010 01100011<br>补位第一步：01100001 01100010 01100011 1<br>首先补一个“1”<br>补位第二步：01100001 01100010 01100011 10…..0<br>然后补423个“0”<br>我们可以把最后补位完成后的数据用16进制写成下面的样子<br>61626380 00000000 00000000 00000000<br>00000000 00000000 00000000 00000000<br>00000000 00000000 00000000 00000000<br>00000000 00000000<br>现在，数据的长度是448了，我们可以进行下一步操作。<br>3.2 补长度<br>所谓的补长度是将原始数据的长度补到已经进行了补位操作的消息后面。通常用一个64位的数据来表示原始消息的长度。如果消息长度不大于2^64，那么第一个字就是0。在进行了补长度的操作以后，整个消息就变成下面这样了（16进制格式）<br>61626380 00000000 00000000 00000000<br>00000000 00000000 00000000 00000000<br>00000000 00000000 00000000 00000000<br>00000000 00000000 00000000 00000018<br>如果原始的消息长度超过了512，我们需要将它补成512的倍数。然后我们把整个消息分成一个一个512位的数据块，分别处理每一个数据块，从而得到消息摘要。<br>3.3 使用的常量<br>一系列的常量字K(0), K(1), … , K(79)，如果以16进制给出。它们如下：<br>Kt = 0x5A827999  (0 &lt;= t &lt;= 19)<br>Kt = 0x6ED9EBA1 (20 &lt;= t &lt;= 39)<br>Kt = 0x8F1BBCDC (40 &lt;= t &lt;= 59)<br>Kt = 0xCA62C1D6 (60 &lt;= t &lt;= 79).<br>3.4 需要使用的函数<br>在SHA1中我们需要一系列的函数。每个函数ft (0 &lt;= t &lt;= 79)都操作32位字B，C，D并且产生32位字作为输出。ft(B,C,D)可以如下定义<br>ft(B,C,D) = (B AND C) or ((NOT B) AND D) ( 0 &lt;= t &lt;= 19)<br>ft(B,C,D) = B XOR C XOR D              (20 &lt;= t &lt;= 39)<br>ft(B,C,D) = (B AND C) or (B AND D) or (C AND D) (40 &lt;= t &lt;= 59)<br>ft(B,C,D) = B XOR C XOR D                     (60 &lt;= t &lt;= 79).<br>3.5 计算消息摘要<br>必须使用进行了补位和补长度后的消息来计算消息摘要。计算需要两个缓冲区，每个都由5个32位的字组成，还需要一个80个32位字的缓冲区。第一个5个字的缓冲区被标识为A，B，C，D，E。第一个5个字的缓冲区被标识为H0, H1, H2, H3, H4<br>。80个字的缓冲区被标识为W0, W1,…, W79</n定义如下：抛弃最左边的n位数字，将各个位依次向左移动n位，然后用0填补右边的n位（最后结果还是32位）。x></n)or(x></p>
+<p>另外还需要一个一个字的TEMP缓冲区。<br>为了产生消息摘要，在第4部分中定义的16个字的数据块M1, M2,…, Mn<br>会依次进行处理，处理每个数据块Mi 包含80个步骤。<br>在处理每个数据块之前，缓冲区 被初始化为下面的值（16进制）<br>H0 = 0x67452301<br>H1 = 0xEFCDAB89<br>H2 = 0x98BADCFE<br>H3 = 0x10325476<br>H4 = 0xC3D2E1F0.<br>现在开始处理M1, M2, … , Mn。为了处理 Mi,需要进行下面的步骤<br>(1). 将 Mi 分成 16 个字 W0, W1, … , W15,  W0 是最左边的字<br>(2). 对于 t = 16 到 79 令 Wt = S1(Wt-3 XOR Wt-8 XOR Wt- 14 XOR Wt-16).<br>(3). 令 A = H0, B = H1, C = H2, D = H3, E = H4.<br>(4) 对于 t = 0 到 79，执行下面的循环<br>TEMP = S5(A) + ft(B,C,D) + E + Wt + Kt;<br>E = D; D = C; C = S30(B); B = A; A = TEMP;<br>(5). 令 H0 = H0 + A, H1 = H1 + B, H2 = H2 + C, H3 = H3 + D, H4 = H4 + E.<br>在处理完所有的 Mn, 后，消息摘要是一个160位的字符串，以下面的顺序标识<br>H0 H1 H2 H3 H4.<br>对于SHA256,SHA384,SHA512。你也可以用相似的办法来计算消息摘要。对消息进行补位的算法完全是一样的。</p>
+<h2 id="NSString-Encryption-h"><a href="#NSString-Encryption-h" class="headerlink" title="NSString+Encryption.h"></a>NSString+Encryption.h</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">#import &lt;Foundation/Foundation.h&gt;</div><div class="line"></div><div class="line">@interface NSString (Encryption)</div><div class="line">/**</div><div class="line"> *  sha1加密</div><div class="line"> *</div><div class="line"> *  @return 获取加密后的字符串</div><div class="line"> */</div><div class="line">- (NSString *)sha1;</div><div class="line">@end</div></pre></td></tr></table></figure>
+<h2 id="NSString-Encryption-m"><a href="#NSString-Encryption-m" class="headerlink" title="NSString+Encryption.m"></a>NSString+Encryption.m</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">#import &quot;NSString+Encryption.h&quot;</div><div class="line">#import &lt;CommonCrypto/CommonDigest.h&gt;</div><div class="line">@implementation NSString (Encryption)</div><div class="line">/**</div><div class="line"> *  sha1加密</div><div class="line"> *</div><div class="line"> *  @return 获取加密后的字符串</div><div class="line"> */</div><div class="line">- (NSString *)sha1 &#123;</div><div class="line">    //  将字符串转换成 C字符串</div><div class="line">    const char *cstr = [self cStringUsingEncoding:NSUTF8StringEncoding];</div><div class="line">    //  C字符串转换成二进制数据</div><div class="line">    NSData *data = [NSData dataWithBytes:cstr length:self.length];</div><div class="line">    </div><div class="line">    unsigned char digest[CC_SHA1_DIGEST_LENGTH];</div><div class="line">    CC_SHA1(data.bytes, (uint32_t)data.length, digest);</div><div class="line">    </div><div class="line">    NSMutableString *encryptionString = [NSMutableString stringWithCapacity:CC_SHA1_DIGEST_LENGTH * 2];</div><div class="line">    </div><div class="line">    for (int i = 0; i &lt; CC_SHA1_DIGEST_LENGTH; i++) &#123;</div><div class="line">        [encryptionString appendFormat:@&quot;%02x&quot;, digest[i]];</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    return encryptionString;</div><div class="line">&#125;</div><div class="line">@end</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/11/14/开发手记14-MD5-base64加密/" itemprop="url">
+                  开发手记14-MD5+base64加密
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-14T14:55:02+08:00" content="2016-11-14">
+              2016-11-14
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/14/开发手记14-MD5-base64加密/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/14/开发手记14-MD5-base64加密/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/11/14/开发手记14-MD5-base64加密/" class="leancloud_visitors" data-flag-title="开发手记14-MD5+base64加密">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="NSString-Encryption-h"><a href="#NSString-Encryption-h" class="headerlink" title="NSString+Encryption.h"></a>NSString+Encryption.h</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">#import &lt;Foundation/Foundation.h&gt;</div><div class="line"></div><div class="line">@interface NSString (Encryption)</div><div class="line">/**</div><div class="line"> *  md5+base64加密</div><div class="line"> *</div><div class="line"> *  @return 获取加密后的字符串</div><div class="line"> */</div><div class="line">- (NSString *)md5_base64;</div><div class="line">@end</div></pre></td></tr></table></figure>
+<h2 id="NSString-Encryption-m"><a href="#NSString-Encryption-m" class="headerlink" title="NSString+Encryption.m"></a>NSString+Encryption.m</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">#import &quot;NSString+Encryption.h&quot;</div><div class="line">#import &quot;GTMBase64.h&quot;</div><div class="line">@implementation NSString (Encryption)</div><div class="line">/**</div><div class="line"> *  md5+base64加密</div><div class="line"> *</div><div class="line"> *  @return 获取加密后的字符串</div><div class="line"> */</div><div class="line">- (NSString *)md5_base64 &#123;</div><div class="line">    </div><div class="line">    const char *cStr = [self UTF8String];</div><div class="line">    unsigned char digest[CC_MD5_DIGEST_LENGTH];</div><div class="line">    CC_MD5(cStr, (uint32_t)strlen(cStr), digest);</div><div class="line">    </div><div class="line">    NSData *base64 = [[NSData alloc] initWithBytes:digest length:CC_MD5_DIGEST_LENGTH];</div><div class="line">    base64 = [GTMBase64 encodeData:base64];</div><div class="line">    </div><div class="line">    NSString *encryptionString = [[NSString alloc] initWithData:base64 encoding:NSUTF8StringEncoding];</div><div class="line">    </div><div class="line">    return encryptionString;</div><div class="line">&#125;</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/11/14/开发手记13-字符串MD5加密/" itemprop="url">
+                  开发手记13-字符串MD5加密
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-14T14:38:44+08:00" content="2016-11-14">
+              2016-11-14
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/14/开发手记13-字符串MD5加密/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/14/开发手记13-字符串MD5加密/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/11/14/开发手记13-字符串MD5加密/" class="leancloud_visitors" data-flag-title="开发手记13-字符串MD5加密">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="NSString-SKExtension-h"><a href="#NSString-SKExtension-h" class="headerlink" title="NSString+SKExtension.h"></a>NSString+SKExtension.h</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">#import &lt;Foundation/Foundation.h&gt;</div><div class="line"></div><div class="line">@interface NSString (SKExtension)</div><div class="line">-(NSString *)md5;</div><div class="line">@end</div></pre></td></tr></table></figure>
+<h2 id="NSString-SKExtension-m"><a href="#NSString-SKExtension-m" class="headerlink" title="NSString+SKExtension.m"></a>NSString+SKExtension.m</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">#import &quot;NSString+SKExtension.h&quot;</div><div class="line">@implementation NSString (SKExtension)</div><div class="line">/**</div><div class="line"> *  md5加密</div><div class="line"> *</div><div class="line"> *  @return 获取加密后的字符串</div><div class="line"> */</div><div class="line">- (NSString *)md5 &#123;</div><div class="line">    </div><div class="line">    //  将传入OC字符串转换成C字符串</div><div class="line">    const char *cStr = [self UTF8String];</div><div class="line">    //  无符号字符数组 16位</div><div class="line">    unsigned char digest[CC_MD5_DIGEST_LENGTH];</div><div class="line">    CC_MD5(cStr, (uint32_t)strlen(cStr), digest);</div><div class="line">    </div><div class="line">    NSMutableString *encryptionString = [NSMutableString stringWithCapacity:CC_MD5_DIGEST_LENGTH *2];</div><div class="line">    </div><div class="line">    for (int i = 0; i &lt; CC_MD5_DIGEST_LENGTH; i++) &#123;</div><div class="line">        //  将转换后的字符转换成16进制, 02表示不足两位前面补0,  例如 &quot;a&quot; -&gt; &quot;0a&quot;,  &quot;3&quot; -&gt; &quot;03&quot;</div><div class="line">        [encryptionString appendFormat:@&quot;%02x&quot;,digest[i]];</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    return encryptionString;</div><div class="line">&#125;</div><div class="line">@end</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/11/14/开发手记12-号码正则表达式判断/" itemprop="url">
+                  开发手记12-号码正则表达式判断
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-14T14:29:55+08:00" content="2016-11-14">
+              2016-11-14
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/14/开发手记12-号码正则表达式判断/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/14/开发手记12-号码正则表达式判断/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/11/14/开发手记12-号码正则表达式判断/" class="leancloud_visitors" data-flag-title="开发手记12-号码正则表达式判断">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="NSString-ExaminePhoneNum-h"><a href="#NSString-ExaminePhoneNum-h" class="headerlink" title="NSString+ExaminePhoneNum.h"></a>NSString+ExaminePhoneNum.h</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">#import &lt;Foundation/Foundation.h&gt;</div><div class="line"></div><div class="line">@interface NSString (ExaminePhoneNum)</div><div class="line">- (BOOL)examineStrIsPhoneNum;</div><div class="line">- (BOOL)examineStrIsFixedPhone;</div><div class="line">- (BOOL)examineStrIs400Phone;</div><div class="line">- (BOOL)examineStrIs800Phone;</div><div class="line">@end</div></pre></td></tr></table></figure>
+<h2 id="NSString-ExaminePhoneNum-m"><a href="#NSString-ExaminePhoneNum-m" class="headerlink" title="NSString+ExaminePhoneNum.m"></a>NSString+ExaminePhoneNum.m</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">#import &quot;NSString+ExaminePhoneNum.h&quot;</div><div class="line">@implementation NSString (ExaminePhoneNum)</div><div class="line">// 判断是否是手机号</div><div class="line">- (BOOL)examineStrIsPhoneNum &#123;</div><div class="line">    NSString *regex = @&quot;^((13)|(14)|(15)|(17)|(18))\\d&#123;9&#125;$&quot;;//^1[3-5,7,8]&#123;1&#125;[0-9]&#123;9&#125;</div><div class="line">    </div><div class="line">    NSPredicate *pred = [NSPredicate predicateWithFormat:@&quot;SELF MATCHES %@&quot;, regex];</div><div class="line">    </div><div class="line">    return [pred evaluateWithObject:self];</div><div class="line">&#125;</div><div class="line">// 判断是否是电话</div><div class="line">- (BOOL)examineStrIsFixedPhone &#123;</div><div class="line">    NSString *regex = @&quot;0\\d&#123;2,3&#125;\\d&#123;5,9&#125;|0\\d&#123;2,3&#125;\\d&#123;5,9&#125;&quot;;</div><div class="line">    </div><div class="line">    NSPredicate *pred = [NSPredicate predicateWithFormat:@&quot;SELF MATCHES %@&quot;, regex];</div><div class="line">    </div><div class="line">    return [pred evaluateWithObject:self];</div><div class="line">&#125;</div><div class="line">// 判断是否是400电话</div><div class="line">- (BOOL)examineStrIs400Phone&#123;</div><div class="line">    NSString *regex = @&quot;^400[0-9]&#123;7&#125;&quot;;</div><div class="line">    NSPredicate *pred = [NSPredicate predicateWithFormat:@&quot;SELF MATCHES %@&quot;,regex];</div><div class="line">    return [pred evaluateWithObject:self];</div><div class="line">&#125;</div><div class="line">// 判断是否是800电话</div><div class="line">- (BOOL)examineStrIs800Phone&#123;</div><div class="line">    NSString *regex = @&quot;^800[0-9]&#123;7&#125;&quot;;</div><div class="line">    NSPredicate *pred = [NSPredicate predicateWithFormat:@&quot;SELF MATCHES %@&quot;,regex];</div><div class="line">    return [pred evaluateWithObject:self];</div><div class="line">&#125;</div><div class="line">@end</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/11/14/开发手记11-hex颜色转换/" itemprop="url">
                   开发手记11-hex颜色转换
                 </a>
@@ -908,658 +1560,11 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/11/14/开发手记6-宏单例/" itemprop="url">
-                  开发手记6-宏单例
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-14T14:04:04+08:00" content="2016-11-14">
-              2016-11-14
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/11/14/开发手记6-宏单例/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/14/开发手记6-宏单例/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/11/14/开发手记6-宏单例/" class="leancloud_visitors" data-flag-title="开发手记6-宏单例">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="SKSingleton"><a href="#SKSingleton" class="headerlink" title="SKSingleton"></a>SKSingleton</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">#ifndef SKSingleton_h</div><div class="line">#define SKSingleton_h</div><div class="line"></div><div class="line">/** 单例声明 */</div><div class="line">#define skSingleton_interface(className) \</div><div class="line">+ (instancetype)shared##className</div><div class="line"></div><div class="line">/** 单例实现 */</div><div class="line">#define skSingleton_impplementation(className) \</div><div class="line">static className * manager; \</div><div class="line">+ (instancetype)shared##className&#123; \</div><div class="line">    static dispatch_once_t onceToken; \</div><div class="line">    dispatch_once(&amp;onceToken, ^&#123; \</div><div class="line">        manager = [[[self class] alloc] init]; \</div><div class="line">    &#125;); \</div><div class="line">    return manager; \</div><div class="line">&#125;</div><div class="line"></div><div class="line">#endif /* SKSingleton_h */</div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/11/14/开发手记5-创建色块图片/" itemprop="url">
-                  开发手记5-创建色块图片
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-14T13:56:35+08:00" content="2016-11-14">
-              2016-11-14
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/11/14/开发手记5-创建色块图片/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/14/开发手记5-创建色块图片/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/11/14/开发手记5-创建色块图片/" class="leancloud_visitors" data-flag-title="开发手记5-创建色块图片">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">#import &lt;UIKit/UIKit.h&gt;</div><div class="line"></div><div class="line">@interface UIImage (SKExtension)</div><div class="line"></div><div class="line">/**</div><div class="line"> *  创建色块图片</div><div class="line"> *</div><div class="line"> *  @param color 填充颜色</div><div class="line"> *</div><div class="line"> *  @return 图片</div><div class="line"> */</div><div class="line">+ (UIImage *)imageWithColor:(UIColor *)color;</div><div class="line">@end</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">#import &quot;UIImage+SKExtension.h&quot;</div><div class="line"></div><div class="line">@implementation UIImage (SKExtension)</div><div class="line"></div><div class="line">// 创建色块图片</div><div class="line">+ (UIImage *)imageWithColor:(UIColor *)color&#123;</div><div class="line">    </div><div class="line">    CGRect rect = CGRectMake(0, 0, 1, 1);</div><div class="line">    </div><div class="line">    // 绘制图片</div><div class="line">    UIGraphicsBeginImageContextWithOptions(rect.size, NO, 0);// 开始</div><div class="line">    </div><div class="line">    [color setFill];// 设置填充颜色</div><div class="line">    UIRectFill(rect);// 填充颜色</div><div class="line">    UIImage * image = UIGraphicsGetImageFromCurrentImageContext();// 获取图片</div><div class="line">    UIGraphicsEndImageContext();// 结束</div><div class="line">    </div><div class="line">    return image;</div><div class="line">&#125;</div><div class="line">@end</div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/11/14/开发手记4-快速创建MVC目录结构脚本/" itemprop="url">
-                  开发手记4-快速创建MVC目录结构脚本
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-14T13:50:22+08:00" content="2016-11-14">
-              2016-11-14
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/11/14/开发手记4-快速创建MVC目录结构脚本/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/14/开发手记4-快速创建MVC目录结构脚本/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/11/14/开发手记4-快速创建MVC目录结构脚本/" class="leancloud_visitors" data-flag-title="开发手记4-快速创建MVC目录结构脚本">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="makeProjectDir-sh"><a href="#makeProjectDir-sh" class="headerlink" title="makeProjectDir.sh"></a>makeProjectDir.sh</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">#! /bin/bash</div><div class="line"></div><div class="line"># &quot;#&quot; 是注释</div><div class="line">#在哪儿执行这个脚本,下面的文件夹就创建在哪儿</div><div class="line"></div><div class="line">#shell脚本</div><div class="line">#创建一个classes文件夹并且进入这个文件夹</div><div class="line">mkdir classes &amp;&amp; cd classes</div><div class="line">#在进入的classes文件夹中依次创建下面几个文件夹</div><div class="line">mkdir Appdelegate General Helpers Marco Models Resources Scenes Vendors</div><div class="line"></div><div class="line">#当前路径是在classess里面,要取到上一级(..)的Appdelegate文件,移动到classess下的Appdelegate文件夹</div><div class="line">#mv 原文件 目的文件</div><div class="line">mv ../AppDelegate.h Appdelegate/AppDelegate.h</div><div class="line">mv ../AppDelegate.m Appdelegate/AppDelegate.m</div><div class="line">#echo 在终端输出一段文字</div><div class="line">echo &quot;创建项目文件夹成功&quot;</div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/11/14/开发手记3-创建文件夹脚本/" itemprop="url">
-                  开发手记3-创建文件夹脚本
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-14T13:46:23+08:00" content="2016-11-14">
-              2016-11-14
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/11/14/开发手记3-创建文件夹脚本/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/14/开发手记3-创建文件夹脚本/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/11/14/开发手记3-创建文件夹脚本/" class="leancloud_visitors" data-flag-title="开发手记3-创建文件夹脚本">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="makeModule-sh"><a href="#makeModule-sh" class="headerlink" title="makeModule.sh"></a>makeModule.sh</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"># !/bin/bash</div><div class="line"></div><div class="line">#判断是否传入一个参数</div><div class="line">#$1 是调用脚本时传进来的第一个参数</div><div class="line"># shell 中的脚本 判断if 时需要和test 组合起来</div><div class="line"># test 不是 text</div><div class="line">if test $1</div><div class="line">then</div><div class="line">	#判断结果是yes 会执行这儿</div><div class="line">	mkdir $1</div><div class="line">	cd $1</div><div class="line">	mkdir Views Models Controllers</div><div class="line">	echo &quot;$1模块创建成功&quot;</div><div class="line">else</div><div class="line">	#判断结果是no 会执行这儿</div><div class="line">	echo &quot;Error!!!!!缺少一个模块名称&quot;</div><div class="line">fi</div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/11/14/开发手记2-图片压缩/" itemprop="url">
-                  开发手记2-图片压缩
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-14T11:26:19+08:00" content="2016-11-14">
-              2016-11-14
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/11/14/开发手记2-图片压缩/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/14/开发手记2-图片压缩/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/11/14/开发手记2-图片压缩/" class="leancloud_visitors" data-flag-title="开发手记2-图片压缩">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="指定宽度按比例缩放"><a href="#指定宽度按比例缩放" class="headerlink" title="指定宽度按比例缩放"></a>指定宽度按比例缩放</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">#import &lt;UIKit/UIKit.h&gt;</div><div class="line"></div><div class="line">@interface UIImage (compressedWithWidth)</div><div class="line">/**</div><div class="line"> *  图片的压缩方法</div><div class="line"> *</div><div class="line"> *  @param sourceImg   要被压缩的图片</div><div class="line"> *  @param defineWidth 要被压缩的尺寸(宽)</div><div class="line"> *</div><div class="line"> *  @return 被压缩的图片</div><div class="line"> */</div><div class="line">+ (UIImage *)imgCompressed:(UIImage *)sourceImg targetWidth:(CGFloat)defineWidth;</div><div class="line">@end</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div></pre></td><td class="code"><pre><div class="line">#import &quot;UIImage+compressedWithWidth.h&quot;</div><div class="line"></div><div class="line">@implementation UIImage (compressedWithWidth)</div><div class="line">// 图片压缩方法</div><div class="line">+ (UIImage *)imgCompressed:(UIImage *)sourceImg targetWidth:(CGFloat)defineWidth&#123;</div><div class="line">    </div><div class="line">    UIImage *newImage = nil;</div><div class="line">    </div><div class="line">    CGSize imageSize = sourceImg.size;</div><div class="line">    CGFloat width = imageSize.width;</div><div class="line">    CGFloat height = imageSize.height;</div><div class="line">    </div><div class="line">    CGFloat targetWidth = defineWidth;</div><div class="line">    CGFloat targetHeight = height / (width / targetWidth);</div><div class="line">    </div><div class="line">    CGSize size = CGSizeMake(targetWidth, targetHeight);</div><div class="line">    CGFloat scaleFactor = 0.0;</div><div class="line">    CGFloat scaledWidth = targetWidth;</div><div class="line">    CGFloat scaledHeight = targetHeight;</div><div class="line">    </div><div class="line">    CGPoint thumbnailPoint = CGPointMake(0.0, 0.0);</div><div class="line">    </div><div class="line">    if (CGSizeEqualToSize(imageSize, size) == NO) &#123;</div><div class="line">        CGFloat widthFactor = targetWidth / width;</div><div class="line">        CGFloat heightFactor = targetHeight / height;</div><div class="line">        if (widthFactor &gt; heightFactor) &#123;</div><div class="line">            scaleFactor = widthFactor;</div><div class="line">        &#125;else&#123;</div><div class="line">            scaleFactor = heightFactor;</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        scaledWidth = width * scaleFactor;</div><div class="line">        scaledHeight = height * scaleFactor;</div><div class="line">        </div><div class="line">        if (widthFactor &gt; heightFactor) &#123;</div><div class="line">            thumbnailPoint.y = (targetHeight - scaledHeight) * 0.5;</div><div class="line">        &#125;else if (widthFactor &lt; heightFactor)&#123;</div><div class="line">            thumbnailPoint.x = (targetWidth - scaledWidth) * 0.5;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    UIGraphicsBeginImageContext(size);</div><div class="line">    CGRect thumbnailRect = CGRectZero;</div><div class="line">    thumbnailRect.origin = thumbnailPoint;</div><div class="line">    thumbnailRect.size.width = scaledWidth;</div><div class="line">    thumbnailRect.size.height = scaledHeight;</div><div class="line">    </div><div class="line">    [sourceImg drawInRect:thumbnailRect];</div><div class="line">    </div><div class="line">    newImage = UIGraphicsGetImageFromCurrentImageContext();</div><div class="line">    </div><div class="line">    if (newImage == nil) &#123;</div><div class="line">        NSAssert(!newImage, @&quot;图片压缩失败&quot;);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    UIGraphicsEndImageContext();</div><div class="line">    </div><div class="line">    return newImage;</div><div class="line">&#125;</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1600,7 +1605,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">48</span>
+              <span class="site-state-item-count">53</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1608,7 +1613,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1617,7 +1622,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

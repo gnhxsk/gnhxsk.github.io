@@ -281,6 +281,658 @@
             
               
                 
+                <a class="post-title-link" href="/2016/11/14/开发手记26-获取APP信息/" itemprop="url">
+                  开发手记26-获取APP信息
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-14T16:58:35+08:00" content="2016-11-14">
+              2016-11-14
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/14/开发手记26-获取APP信息/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/14/开发手记26-获取APP信息/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/11/14/开发手记26-获取APP信息/" class="leancloud_visitors" data-flag-title="开发手记26-获取APP信息">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="NSString-Extension-h"><a href="#NSString-Extension-h" class="headerlink" title="NSString+Extension.h"></a>NSString+Extension.h</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">#import &lt;Foundation/Foundation.h&gt;</div><div class="line">@interface NSString (Extension)</div><div class="line">/**</div><div class="line"> 获取APP名称</div><div class="line"></div><div class="line"> @return 氢广告</div><div class="line"> */</div><div class="line">+ (NSString *)stringFromApp_name;</div><div class="line"></div><div class="line">/**</div><div class="line"> 获取APP版本Version</div><div class="line"></div><div class="line"> @return 1.1.1</div><div class="line"> */</div><div class="line">+ (NSString *)stringFromApp_Version;</div><div class="line"></div><div class="line">/**</div><div class="line"> 获取APP开发版本号Build</div><div class="line"></div><div class="line"> @return 1</div><div class="line"> */</div><div class="line">+ (NSString *)stringFromApp_Build;</div><div class="line"></div><div class="line">/**</div><div class="line"> 获取BundleID</div><div class="line"></div><div class="line"> @return BundleID</div><div class="line"> */</div><div class="line">+ (NSString *)stringFromApp_BundleID;</div><div class="line">@end</div></pre></td></tr></table></figure>
+<h2 id="NSString-Extension-m"><a href="#NSString-Extension-m" class="headerlink" title="NSString+Extension.m"></a>NSString+Extension.m</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">#import &quot;NSString+Extension.h&quot;</div><div class="line">@implementation NSString (Extension)</div><div class="line">+ (NSString *)stringFromApp_name&#123;</div><div class="line">    NSDictionary *infoDic = [[NSBundle mainBundle] infoDictionary];</div><div class="line">    return [infoDic objectForKey:@&quot;CFBundleDisplayName&quot;];</div><div class="line">&#125;</div><div class="line">+ (NSString *)stringFromApp_Version&#123;</div><div class="line">    NSDictionary *infoDic = [[NSBundle mainBundle] infoDictionary];</div><div class="line">    return [infoDic objectForKey:@&quot;CFBundleShortVersionString&quot;];</div><div class="line">&#125;</div><div class="line">+ (NSString *)stringFromApp_Build&#123;</div><div class="line">    NSDictionary *infoDic = [[NSBundle mainBundle] infoDictionary];</div><div class="line">    return [infoDic objectForKey:@&quot;CFBundleVersion&quot;];</div><div class="line">&#125;</div><div class="line">+ (NSString *)stringFromApp_BundleID&#123;</div><div class="line">    return [[NSBundle mainBundle] bundleIdentifier];</div><div class="line">&#125;</div><div class="line">@end</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/11/14/开发手记25-获取设备信息/" itemprop="url">
+                  开发手记25-获取设备信息
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-14T16:48:49+08:00" content="2016-11-14">
+              2016-11-14
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/14/开发手记25-获取设备信息/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/14/开发手记25-获取设备信息/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/11/14/开发手记25-获取设备信息/" class="leancloud_visitors" data-flag-title="开发手记25-获取设备信息">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="NSString-Extension-h"><a href="#NSString-Extension-h" class="headerlink" title="NSString+Extension.h"></a>NSString+Extension.h</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div></pre></td><td class="code"><pre><div class="line">#import &lt;Foundation/Foundation.h&gt;</div><div class="line"></div><div class="line">typedef NS_ENUM(NSUInteger, connectiontype) &#123;</div><div class="line">    _Unknown = 0,        // 未知</div><div class="line">    _PC,                 // 局域网</div><div class="line">    _WIFI,               // WIFI</div><div class="line">    _CellularUnknown,    // 蜂窝数据网络-未知</div><div class="line">    _2G,                 // 蜂窝数据网路-2G</div><div class="line">    _3G,                 // 蜂窝数据网络-3G</div><div class="line">    _4G,                 // 蜂窝数据网络-4G</div><div class="line">&#125;;</div><div class="line"></div><div class="line">typedef NS_ENUM(NSUInteger, devicetype) &#123;</div><div class="line">    _Unknown = 0,        // 未知</div><div class="line">    _iPhone  = 1,        // iPhone</div><div class="line">    _iPad    = 3,        // iPad</div><div class="line">&#125;;</div><div class="line"></div><div class="line">@interface NSString (Extension)</div><div class="line">/**</div><div class="line"> 获取UUID</div><div class="line"> */</div><div class="line">+ (NSString *)stringFromUUID;</div><div class="line">/**</div><div class="line"> 获取IMEI</div><div class="line"></div><div class="line"> @return @“”</div><div class="line"> */</div><div class="line">+ (NSString *)stringFromSystem_IMEI;</div><div class="line"></div><div class="line">/**</div><div class="line"> 获取Mac地址</div><div class="line"></div><div class="line"> @return Mac</div><div class="line"> */</div><div class="line">+ (NSString *)stringFromSystem_Mac;</div><div class="line">/**</div><div class="line"> 获取IP地址</div><div class="line"></div><div class="line"> @return IP</div><div class="line"> */</div><div class="line">+ (NSString *)stringFromSystem_IP;</div><div class="line"></div><div class="line">/**</div><div class="line"> 获取操作系统</div><div class="line"></div><div class="line"> @return iOS</div><div class="line"> */</div><div class="line">+ (NSString *)stringFromSystem_OS;</div><div class="line"></div><div class="line">/**</div><div class="line"> 获取操作系统版本</div><div class="line"></div><div class="line"> @return 10.0</div><div class="line"> */</div><div class="line">+ (NSString *)stringFromSystem_OSV;</div><div class="line"></div><div class="line">/**</div><div class="line"> 获取IDFA</div><div class="line"></div><div class="line"> @return IDFA</div><div class="line"> */</div><div class="line">+ (NSString *)stringFromSystem_IDFA;</div><div class="line">/**</div><div class="line"> 获取设备制造商</div><div class="line"></div><div class="line"> @return Apple</div><div class="line"> */</div><div class="line">+ (NSString *)stringFromSystem_MAKE;</div><div class="line"></div><div class="line">/**</div><div class="line"> 获取运营商信息</div><div class="line"> </div><div class="line"> @return iOS4.0以上，可能会被封杀</div><div class="line"> */</div><div class="line">+ (NSString *)stringFromSystem_Carrier;</div><div class="line"></div><div class="line">/**</div><div class="line"> 获取设备型号</div><div class="line"></div><div class="line"> @return iPhone 4S</div><div class="line"> */</div><div class="line">+ (NSString *)stringFromSystem_Model;</div><div class="line"></div><div class="line">/**</div><div class="line"> 获取设备类型</div><div class="line"></div><div class="line"> @return 0：未知，1：iPhone，3：iPad</div><div class="line"> */</div><div class="line">+ (NSInteger)stringFromSystem_DevType;</div><div class="line"></div><div class="line">/**</div><div class="line"> 获取联网类型</div><div class="line"></div><div class="line"> @return 2G,3G,4G,WIFI,无网络</div><div class="line"> */</div><div class="line">+ (NSInteger)stringFromSystem_netType;</div><div class="line"></div><div class="line">/**</div><div class="line"> 获取当前设备方向</div><div class="line"></div><div class="line"> @return 0 竖直 1横屏</div><div class="line"> */</div><div class="line">+ (NSInteger)stringFromSystem_Orientation;</div><div class="line">@end</div></pre></td></tr></table></figure>
+<h2 id="NSString-Extension-m"><a href="#NSString-Extension-m" class="headerlink" title="NSString+Extension.m"></a>NSString+Extension.m</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div><div class="line">190</div><div class="line">191</div><div class="line">192</div><div class="line">193</div><div class="line">194</div><div class="line">195</div><div class="line">196</div><div class="line">197</div><div class="line">198</div><div class="line">199</div><div class="line">200</div><div class="line">201</div><div class="line">202</div><div class="line">203</div><div class="line">204</div><div class="line">205</div><div class="line">206</div><div class="line">207</div><div class="line">208</div><div class="line">209</div><div class="line">210</div><div class="line">211</div><div class="line">212</div><div class="line">213</div><div class="line">214</div><div class="line">215</div><div class="line">216</div><div class="line">217</div><div class="line">218</div><div class="line">219</div><div class="line">220</div><div class="line">221</div><div class="line">222</div><div class="line">223</div><div class="line">224</div><div class="line">225</div><div class="line">226</div><div class="line">227</div><div class="line">228</div><div class="line">229</div><div class="line">230</div><div class="line">231</div><div class="line">232</div><div class="line">233</div><div class="line">234</div><div class="line">235</div><div class="line">236</div><div class="line">237</div><div class="line">238</div><div class="line">239</div><div class="line">240</div><div class="line">241</div><div class="line">242</div><div class="line">243</div><div class="line">244</div><div class="line">245</div><div class="line">246</div><div class="line">247</div><div class="line">248</div><div class="line">249</div><div class="line">250</div><div class="line">251</div><div class="line">252</div><div class="line">253</div><div class="line">254</div><div class="line">255</div><div class="line">256</div><div class="line">257</div><div class="line">258</div><div class="line">259</div><div class="line">260</div><div class="line">261</div><div class="line">262</div><div class="line">263</div><div class="line">264</div><div class="line">265</div><div class="line">266</div><div class="line">267</div><div class="line">268</div><div class="line">269</div><div class="line">270</div><div class="line">271</div><div class="line">272</div><div class="line">273</div><div class="line">274</div><div class="line">275</div><div class="line">276</div><div class="line">277</div><div class="line">278</div><div class="line">279</div><div class="line">280</div><div class="line">281</div><div class="line">282</div><div class="line">283</div><div class="line">284</div><div class="line">285</div><div class="line">286</div><div class="line">287</div><div class="line">288</div><div class="line">289</div><div class="line">290</div><div class="line">291</div><div class="line">292</div><div class="line">293</div><div class="line">294</div><div class="line">295</div><div class="line">296</div><div class="line">297</div><div class="line">298</div><div class="line">299</div><div class="line">300</div><div class="line">301</div><div class="line">302</div><div class="line">303</div><div class="line">304</div><div class="line">305</div><div class="line">306</div><div class="line">307</div><div class="line">308</div><div class="line">309</div><div class="line">310</div><div class="line">311</div><div class="line">312</div><div class="line">313</div><div class="line">314</div><div class="line">315</div><div class="line">316</div><div class="line">317</div><div class="line">318</div></pre></td><td class="code"><pre><div class="line">#import &quot;NSString+Extension.h&quot;</div><div class="line">#import &lt;CommonCrypto/CommonDigest.h&gt;</div><div class="line">#import &lt;AdSupport/AdSupport.h&gt;</div><div class="line">#import &lt;sys/utsname.h&gt;</div><div class="line">#import &lt;UIKit/UIKit.h&gt;</div><div class="line">#import &lt;CoreTelephony/CTCarrier.h&gt;</div><div class="line">#import &lt;CoreTelephony/CTTelephonyNetworkInfo.h&gt;</div><div class="line">#import &quot;iPAddress.h&quot;</div><div class="line">@implementation NSString (Extension)</div><div class="line">+ (NSString *)stringFromUUID&#123;</div><div class="line">    return [[[UIDevice currentDevice] identifierForVendor] UUIDString];</div><div class="line">&#125;</div><div class="line">+ (NSString *)stringFromSystem_IMEI&#123;</div><div class="line">    // iOS7之后不能获取IMEI</div><div class="line">    /*</div><div class="line">     iOS 2.0版本以后UIDevice提供一个获取设备唯一标识符的方法uniqueIdentifier，通过该方法我们可以获取设备的序列号，</div><div class="line">     这个也是目前为止唯一可以确认唯一的标示符。好景不长，因为该唯一标识符与手机一一对应，苹果觉得可能会泄露用户隐私，</div><div class="line">     所以在iOS5之后该方法就被废弃掉了，因此iOS5以后不能获取手机IMEI，但是也是可以通过私有API获取手机的IMEI号的，</div><div class="line">     但是通过苹果私有API获取IMEI号，上架苹果商店会被拒掉的。</div><div class="line">     */</div><div class="line">    return @&quot;&quot;;</div><div class="line">&#125;</div><div class="line">+ (NSString *)stringFromSystem_Mac&#123;</div><div class="line">    // iOS7以后不能通过获得MAC地址来标示手机唯一</div><div class="line">    /*</div><div class="line">     应用在iOS6及以下时，可以正确取道Mac地址，在iOS7上，会返回固定值。</div><div class="line">     测试过mac地址，确实会返回固定值02:00:00:00:00:00</div><div class="line">     */</div><div class="line">    InitAddresses();</div><div class="line">    GetIPAddresses();</div><div class="line">    GetHWAddresses();</div><div class="line">    NSString *str;</div><div class="line">    for (int i = 0; i &lt; MAXADDRS; i ++) &#123;</div><div class="line">        static unsigned long localHost = 0x7F000001;// 127.0.0.1</div><div class="line">        unsigned long theAddr;</div><div class="line">        theAddr = ip_addrs[i];</div><div class="line">        if (theAddr == 0) &#123;</div><div class="line">            break;</div><div class="line">        &#125;</div><div class="line">        if (theAddr == localHost) &#123;</div><div class="line">            continue;</div><div class="line">        &#125;</div><div class="line">        str = [NSString stringWithFormat:@&quot;%s&quot;,hw_addrs[i]];</div><div class="line">        </div><div class="line">    &#125;</div><div class="line">    return str;</div><div class="line">&#125;</div><div class="line">+ (NSString *)stringFromSystem_IP&#123;</div><div class="line">    InitAddresses();</div><div class="line">    GetIPAddresses();</div><div class="line">    GetHWAddresses();</div><div class="line">    NSString *str;</div><div class="line">    for (int i = 0; i &lt; MAXADDRS; i ++) &#123;</div><div class="line">        static unsigned long localHost = 0x7F000001;// 127.0.0.1</div><div class="line">        unsigned long theAddr;</div><div class="line">        theAddr = ip_addrs[i];</div><div class="line">        if (theAddr == 0) &#123;</div><div class="line">            break;</div><div class="line">        &#125;</div><div class="line">        if (theAddr == localHost) &#123;</div><div class="line">            continue;</div><div class="line">        &#125;</div><div class="line">        str = [NSString stringWithFormat:@&quot;%s&quot;,ip_names[i]];</div><div class="line">    &#125;</div><div class="line">    return str;</div><div class="line">&#125;</div><div class="line">+ (NSString *)stringFromSystem_OS&#123;</div><div class="line">    return [NSString stringWithFormat:@&quot;%@&quot;,[[UIDevice currentDevice] systemName]];</div><div class="line">&#125;</div><div class="line">+ (NSString *)stringFromSystem_OSV&#123;</div><div class="line">    return [NSString stringWithFormat:@&quot;%@&quot;,[[UIDevice currentDevice] systemVersion]];</div><div class="line">&#125;</div><div class="line">+ (NSString *)stringFromSystem_IDFA&#123;</div><div class="line">    return [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];</div><div class="line">&#125;</div><div class="line">+ (NSString *)stringFromSystem_Carrier&#123;</div><div class="line">    CTTelephonyNetworkInfo *info = [[CTTelephonyNetworkInfo alloc] init];</div><div class="line">    </div><div class="line">    CTCarrier *carrier = [info subscriberCellularProvider];</div><div class="line">    </div><div class="line">    return [NSString stringWithFormat:@&quot;%@&quot;,[carrier carrierName]];</div><div class="line">&#125;</div><div class="line">+ (NSString *)stringFromSystem_MAKE&#123;</div><div class="line">    return @&quot;Apple&quot;;</div><div class="line">&#125;</div><div class="line">+ (NSString *)stringFromSystem_Model&#123;</div><div class="line">    struct utsname systemInfo;</div><div class="line">    uname(&amp;systemInfo);</div><div class="line">    NSString *platform = [NSString stringWithCString:systemInfo.machine encoding:NSASCIIStringEncoding];</div><div class="line">    if ([platform isEqualToString:@&quot;iPhone1,1&quot;])&#123;</div><div class="line">        return @&quot;iPhone 2G&quot;;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    if ([platform isEqualToString:@&quot;iPhone1,2&quot;])&#123;</div><div class="line">        return @&quot;iPhone 3G&quot;;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    if ([platform isEqualToString:@&quot;iPhone2,1&quot;])&#123;</div><div class="line">        return @&quot;iPhone 3GS&quot;;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    if ([platform isEqualToString:@&quot;iPhone3,1&quot;])&#123;</div><div class="line">        return @&quot;iPhone 4&quot;;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    if ([platform isEqualToString:@&quot;iPhone3,2&quot;])&#123;</div><div class="line">        return @&quot;iPhone 4&quot;;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    if ([platform isEqualToString:@&quot;iPhone3,3&quot;])&#123;</div><div class="line">        return @&quot;iPhone 4&quot;;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    if ([platform isEqualToString:@&quot;iPhone4,1&quot;])&#123;</div><div class="line">        return @&quot;iPhone 4S&quot;;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    if ([platform isEqualToString:@&quot;iPhone5,1&quot;])&#123;</div><div class="line">        return @&quot;iPhone 5&quot;;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    if ([platform isEqualToString:@&quot;iPhone5,2&quot;])&#123;</div><div class="line">        return @&quot;iPhone 5&quot;;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    if ([platform isEqualToString:@&quot;iPhone5,3&quot;])&#123;</div><div class="line">        return @&quot;iPhone 5c&quot;;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    if ([platform isEqualToString:@&quot;iPhone5,4&quot;])&#123;</div><div class="line">        return @&quot;iPhone 5c&quot;;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    if ([platform isEqualToString:@&quot;iPhone6,1&quot;])&#123;</div><div class="line">        return @&quot;iPhone 5s&quot;;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    if ([platform isEqualToString:@&quot;iPhone6,2&quot;])&#123;</div><div class="line">        return @&quot;iPhone 5s&quot;;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    if ([platform isEqualToString:@&quot;iPhone7,1&quot;])&#123;</div><div class="line">        return @&quot;iPhone 6 Plus&quot;;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    if ([platform isEqualToString:@&quot;iPhone7,2&quot;])&#123;</div><div class="line">        return @&quot;iPhone 6&quot;;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    if ([platform isEqualToString:@&quot;iPhone8,1&quot;])&#123;</div><div class="line">        return @&quot;iPhone 6s&quot;;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    if ([platform isEqualToString:@&quot;iPhone8,2&quot;])&#123;</div><div class="line">        return @&quot;iPhone 6s Plus&quot;;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    if ([platform isEqualToString:@&quot;iPod1,1&quot;])&#123;</div><div class="line">        return @&quot;iPod Touch 1G&quot;;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    if ([platform isEqualToString:@&quot;iPod2,1&quot;])&#123;</div><div class="line">        return @&quot;iPod Touch 2G&quot;;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    if ([platform isEqualToString:@&quot;iPod3,1&quot;])&#123;</div><div class="line">        return @&quot;iPod Touch 3G&quot;;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    if ([platform isEqualToString:@&quot;iPod4,1&quot;])&#123;</div><div class="line">        return @&quot;iPod Touch 4G&quot;;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    if ([platform isEqualToString:@&quot;iPod5,1&quot;])&#123;</div><div class="line">        return @&quot;iPod Touch 5G&quot;;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    if ([platform isEqualToString:@&quot;iPad1,1&quot;])&#123;</div><div class="line">        return @&quot;iPad 1G&quot;;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    if ([platform isEqualToString:@&quot;iPad2,1&quot;])&#123;</div><div class="line">        return @&quot;iPad 2&quot;;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    if ([platform isEqualToString:@&quot;iPad2,2&quot;])&#123;</div><div class="line">        return @&quot;iPad 2&quot;;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    if ([platform isEqualToString:@&quot;iPad2,3&quot;])&#123;</div><div class="line">        return @&quot;iPad 2&quot;;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    if ([platform isEqualToString:@&quot;iPad2,4&quot;])&#123;</div><div class="line">        return @&quot;iPad 2&quot;;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    if ([platform isEqualToString:@&quot;iPad2,5&quot;])&#123;</div><div class="line">        return @&quot;iPad Mini 1G&quot;;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    if ([platform isEqualToString:@&quot;iPad2,6&quot;])&#123;</div><div class="line">        return @&quot;iPad Mini 1G&quot;;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    if ([platform isEqualToString:@&quot;iPad2,7&quot;])&#123;</div><div class="line">        return @&quot;iPad Mini 1G&quot;;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    if ([platform isEqualToString:@&quot;iPad3,1&quot;])&#123;</div><div class="line">        return @&quot;iPad 3&quot;;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    if ([platform isEqualToString:@&quot;iPad3,2&quot;])&#123;</div><div class="line">        return @&quot;iPad 3&quot;;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    if ([platform isEqualToString:@&quot;iPad3,3&quot;])&#123;</div><div class="line">        return @&quot;iPad 3&quot;;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    if ([platform isEqualToString:@&quot;iPad3,4&quot;])&#123;</div><div class="line">        return @&quot;iPad 4&quot;;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    if ([platform isEqualToString:@&quot;iPad3,5&quot;])&#123;</div><div class="line">        return @&quot;iPad 4&quot;;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    if ([platform isEqualToString:@&quot;iPad3,6&quot;])&#123;</div><div class="line">        return @&quot;iPad 4&quot;;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    if ([platform isEqualToString:@&quot;iPad4,1&quot;])&#123;</div><div class="line">        return @&quot;iPad Air&quot;;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    if ([platform isEqualToString:@&quot;iPad4,2&quot;])&#123;</div><div class="line">        return @&quot;iPad Air&quot;;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    if ([platform isEqualToString:@&quot;iPad4,3&quot;])&#123;</div><div class="line">        return @&quot;iPad Air&quot;;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    if ([platform isEqualToString:@&quot;iPad4,4&quot;])&#123;</div><div class="line">        return @&quot;iPad Mini 2G&quot;;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    if ([platform isEqualToString:@&quot;iPad4,5&quot;])&#123;</div><div class="line">        return @&quot;iPad Mini 2G&quot;;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    if ([platform isEqualToString:@&quot;iPad4,6&quot;])&#123;</div><div class="line">        return @&quot;iPad Mini 2G&quot;;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    if ([platform isEqualToString:@&quot;i386&quot;])&#123;</div><div class="line">        return @&quot;iPhone Simulator&quot;;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    if ([platform isEqualToString:@&quot;x86_64&quot;])&#123;</div><div class="line">        return @&quot;iPhone Simulator&quot;;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    return platform;</div><div class="line">&#125;</div><div class="line">+ (NSInteger)stringFromSystem_DevType&#123;</div><div class="line">    </div><div class="line">    NSString *platform = [UIDevice currentDevice].model;</div><div class="line">    if ([platform containsString:@&quot;iPhone&quot;]) &#123;</div><div class="line">        return _iPhone;</div><div class="line">    &#125;else if ([platform containsString:@&quot;iPad&quot;])&#123;</div><div class="line">        return _iPad;</div><div class="line">    &#125;else&#123;</div><div class="line">        return _Unknown;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">+ (NSInteger)stringFromSystem_netType&#123;</div><div class="line">    UIApplication *application = [UIApplication sharedApplication];</div><div class="line">    NSArray *children = [[[application valueForKeyPath:@&quot;statusBar&quot;] valueForKeyPath:@&quot;foregroundView&quot;] subviews];</div><div class="line">    int type = 0;</div><div class="line">    for (id child in children) &#123;</div><div class="line">        if ([child isKindOfClass:NSClassFromString(@&quot;UIStatusBarDataNetworkItemView&quot;)]) &#123;</div><div class="line">            type = [[child valueForKeyPath:@&quot;dataNetworkType&quot;] intValue];</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    switch (type) &#123;</div><div class="line">        case 0:</div><div class="line">            return _CellularUnknown;</div><div class="line">            break;</div><div class="line">        case 1:</div><div class="line">            return _2G;</div><div class="line">            break;</div><div class="line">        case 2:</div><div class="line">            return _3G;</div><div class="line">            break;</div><div class="line">        case 3:</div><div class="line">            return _4G;</div><div class="line">            break;</div><div class="line">        case 5:</div><div class="line">            return _WIFI;</div><div class="line">            break;</div><div class="line">        default:</div><div class="line">            return _Unknown;</div><div class="line">            break;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">+ (NSInteger)stringFromSystem_Orientation&#123;</div><div class="line">    UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];</div><div class="line">    if (orientation ==UIDeviceOrientationPortrait ||</div><div class="line">        orientation == UIDeviceOrientationPortraitUpsideDown) &#123;</div><div class="line">        return 0;</div><div class="line">    &#125;else&#123;</div><div class="line">        return 1;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">@end</div></pre></td></tr></table></figure>
+<h2 id="iPAddress-h"><a href="#iPAddress-h" class="headerlink" title="iPAddress.h"></a>iPAddress.h</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">#ifndef iPAddress_h</div><div class="line">#define iPAddress_h</div><div class="line"></div><div class="line">#include &lt;stdio.h&gt;</div><div class="line">#include &lt;stdlib.h&gt;</div><div class="line">#include &lt;string.h&gt;</div><div class="line">#include &lt;unistd.h&gt;</div><div class="line">#include &lt;sys/ioctl.h&gt;</div><div class="line">#include &lt;sys/types.h&gt;</div><div class="line">#include &lt;sys/socket.h&gt;</div><div class="line">#include &lt;netinet/in.h&gt;</div><div class="line">#include &lt;netdb.h&gt;</div><div class="line">#include &lt;arpa/inet.h&gt;</div><div class="line">#include &lt;sys/sockio.h&gt;</div><div class="line">#include &lt;net/if.h&gt;</div><div class="line">#include &lt;errno.h&gt;</div><div class="line">#include &lt;net/if_dl.h&gt;</div><div class="line">#include &lt;net/ethernet.h&gt;</div><div class="line"></div><div class="line">#define BUFFERSIZE  4000</div><div class="line">#define MAXADDRS    32</div><div class="line">#define min(a,b)    ((a) &lt; (b) ? (a) : (b))</div><div class="line">#define max(a,b)    ((a) &gt; (b) ? (a) : (b))</div><div class="line"></div><div class="line">extern char *if_names[MAXADDRS];</div><div class="line">extern char *ip_names[MAXADDRS];</div><div class="line">extern char *hw_addrs[MAXADDRS];</div><div class="line">extern unsigned long ip_addrs[MAXADDRS];</div><div class="line"></div><div class="line">// Function prototypes</div><div class="line">void InitAddresses();</div><div class="line">void FreeAddresses();</div><div class="line">void GetIPAddresses();</div><div class="line">void GetHWAddresses();</div><div class="line">#endif /* iPAddress_h */</div></pre></td></tr></table></figure>
+<h2 id="iPAddress-c"><a href="#iPAddress-c" class="headerlink" title="iPAddress.c"></a>iPAddress.c</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div></pre></td><td class="code"><pre><div class="line">#include &quot;iPAddress.h&quot;</div><div class="line">char *if_names[MAXADDRS];</div><div class="line">char *ip_names[MAXADDRS];</div><div class="line">char *hw_addrs[MAXADDRS];</div><div class="line">unsigned long ip_addrs[MAXADDRS];</div><div class="line"></div><div class="line">static int   nextAddr = 0;</div><div class="line"></div><div class="line">void InitAddresses()</div><div class="line">&#123;</div><div class="line">    int i;</div><div class="line">    for (i=0; i&lt;MAXADDRS; ++i)</div><div class="line">    &#123;</div><div class="line">        if_names[i] = ip_names[i] = hw_addrs[i] = NULL;</div><div class="line">        ip_addrs[i] = 0;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">void FreeAddresses()</div><div class="line">&#123;</div><div class="line">    int i;</div><div class="line">    for (i=0; i&lt;MAXADDRS; ++i)</div><div class="line">    &#123;</div><div class="line">        if (if_names[i] != 0) free(if_names[i]);</div><div class="line">        if (ip_names[i] != 0) free(ip_names[i]);</div><div class="line">        if (hw_addrs[i] != 0) free(hw_addrs[i]);</div><div class="line">        ip_addrs[i] = 0;</div><div class="line">    &#125;</div><div class="line">    InitAddresses();</div><div class="line">&#125;</div><div class="line"></div><div class="line">void GetIPAddresses()</div><div class="line">&#123;</div><div class="line">    int                 i, len, flags;</div><div class="line">    char                buffer[BUFFERSIZE], *ptr, lastname[IFNAMSIZ], *cptr;</div><div class="line">    struct ifconf       ifc;</div><div class="line">    struct ifreq        *ifr, ifrcopy;</div><div class="line">    struct sockaddr_in  *sin;</div><div class="line">    </div><div class="line">    char temp[80];</div><div class="line">    </div><div class="line">    int sockfd;</div><div class="line">    </div><div class="line">    for (i=0; i&lt;MAXADDRS; ++i)</div><div class="line">    &#123;</div><div class="line">        if_names[i] = ip_names[i] = NULL;</div><div class="line">        ip_addrs[i] = 0;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    sockfd = socket(AF_INET, SOCK_DGRAM, 0);</div><div class="line">    if (sockfd &lt; 0)</div><div class="line">    &#123;</div><div class="line">        perror(&quot;socket failed&quot;);</div><div class="line">        return;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    ifc.ifc_len = BUFFERSIZE;</div><div class="line">    ifc.ifc_buf = buffer;</div><div class="line">    </div><div class="line">    if (ioctl(sockfd, SIOCGIFCONF, &amp;ifc) &lt; 0)</div><div class="line">    &#123;</div><div class="line">        perror(&quot;ioctl error&quot;);</div><div class="line">        return;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    lastname[0] = 0;</div><div class="line">    </div><div class="line">    for (ptr = buffer; ptr &lt; buffer + ifc.ifc_len; )</div><div class="line">    &#123;</div><div class="line">        ifr = (struct ifreq *)ptr;</div><div class="line">        len = max(sizeof(struct sockaddr), ifr-&gt;ifr_addr.sa_len);</div><div class="line">        ptr += sizeof(ifr-&gt;ifr_name) + len;   // for next one in buffer</div><div class="line">        </div><div class="line">        if (ifr-&gt;ifr_addr.sa_family != AF_INET)</div><div class="line">        &#123;</div><div class="line">            continue; // ignore if not desired address family</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        if ((cptr = (char *)strchr(ifr-&gt;ifr_name, &apos;:&apos;)) != NULL)</div><div class="line">        &#123;</div><div class="line">            *cptr = 0;        // replace colon will null</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        if (strncmp(lastname, ifr-&gt;ifr_name, IFNAMSIZ) == 0)</div><div class="line">        &#123;</div><div class="line">            continue; /* already processed this interface */</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        memcpy(lastname, ifr-&gt;ifr_name, IFNAMSIZ);</div><div class="line">        </div><div class="line">        ifrcopy = *ifr;</div><div class="line">        ioctl(sockfd, SIOCGIFFLAGS, &amp;ifrcopy);</div><div class="line">        flags = ifrcopy.ifr_flags;</div><div class="line">        if ((flags &amp; IFF_UP) == 0)</div><div class="line">        &#123;</div><div class="line">            continue; // ignore if interface not up</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        if_names[nextAddr] = (char *)malloc(strlen(ifr-&gt;ifr_name)+1);</div><div class="line">        if (if_names[nextAddr] == NULL)</div><div class="line">        &#123;</div><div class="line">            return;</div><div class="line">        &#125;</div><div class="line">        strcpy(if_names[nextAddr], ifr-&gt;ifr_name);</div><div class="line">        </div><div class="line">        sin = (struct sockaddr_in *)&amp;ifr-&gt;ifr_addr;</div><div class="line">        strcpy(temp, inet_ntoa(sin-&gt;sin_addr));</div><div class="line">        </div><div class="line">        ip_names[nextAddr] = (char *)malloc(strlen(temp)+1);</div><div class="line">        if (ip_names[nextAddr] == NULL)</div><div class="line">        &#123;</div><div class="line">            return;</div><div class="line">        &#125;</div><div class="line">        strcpy(ip_names[nextAddr], temp);</div><div class="line">        </div><div class="line">        ip_addrs[nextAddr] = sin-&gt;sin_addr.s_addr;</div><div class="line">        </div><div class="line">        ++nextAddr;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    close(sockfd);</div><div class="line">&#125;</div><div class="line"></div><div class="line">void GetHWAddresses()</div><div class="line">&#123;</div><div class="line">    struct ifconf ifc;</div><div class="line">    struct ifreq *ifr;</div><div class="line">    int i, sockfd;</div><div class="line">    char buffer[BUFFERSIZE], *cp, *cplim;</div><div class="line">    char temp[80];</div><div class="line">    </div><div class="line">    for (i=0; i&lt;MAXADDRS; ++i)</div><div class="line">    &#123;</div><div class="line">        hw_addrs[i] = NULL;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    sockfd = socket(AF_INET, SOCK_DGRAM, 0);</div><div class="line">    if (sockfd &lt; 0)</div><div class="line">    &#123;</div><div class="line">        perror(&quot;socket failed&quot;);</div><div class="line">        return;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    ifc.ifc_len = BUFFERSIZE;</div><div class="line">    ifc.ifc_buf = buffer;</div><div class="line">    </div><div class="line">    if (ioctl(sockfd, SIOCGIFCONF, (char *)&amp;ifc) &lt; 0)</div><div class="line">    &#123;</div><div class="line">        perror(&quot;ioctl error&quot;);</div><div class="line">        close(sockfd);</div><div class="line">        return;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    ifr = ifc.ifc_req;</div><div class="line">    </div><div class="line">    cplim = buffer + ifc.ifc_len;</div><div class="line">    </div><div class="line">    for (cp=buffer; cp &lt; cplim; )</div><div class="line">    &#123;</div><div class="line">        ifr = (struct ifreq *)cp;</div><div class="line">        if (ifr-&gt;ifr_addr.sa_family == AF_LINK)</div><div class="line">        &#123;</div><div class="line">            struct sockaddr_dl *sdl = (struct sockaddr_dl *)&amp;ifr-&gt;ifr_addr;</div><div class="line">            int a,b,c,d,e,f;</div><div class="line">            int i;</div><div class="line">            </div><div class="line">            strcpy(temp, (char *)ether_ntoa((const struct ether_addr *)LLADDR(sdl)));</div><div class="line">            sscanf(temp, &quot;%x:%x:%x:%x:%x:%x&quot;, &amp;a, &amp;b, &amp;c, &amp;d, &amp;e, &amp;f);</div><div class="line">            sprintf(temp, &quot;%02X:%02X:%02X:%02X:%02X:%02X&quot;,a,b,c,d,e,f);</div><div class="line">            </div><div class="line">            for (i=0; i&lt;MAXADDRS; ++i)</div><div class="line">            &#123;</div><div class="line">                if ((if_names[i] != NULL) &amp;&amp; (strcmp(ifr-&gt;ifr_name, if_names[i]) == 0))</div><div class="line">                &#123;</div><div class="line">                    if (hw_addrs[i] == NULL)</div><div class="line">                    &#123;</div><div class="line">                        hw_addrs[i] = (char *)malloc(strlen(temp)+1);</div><div class="line">                        strcpy(hw_addrs[i], temp);</div><div class="line">                        break;</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        cp += sizeof(ifr-&gt;ifr_name) + max(sizeof(ifr-&gt;ifr_addr), ifr-&gt;ifr_addr.sa_len);</div><div class="line">    &#125;</div><div class="line">    close(sockfd);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/11/14/开发手记24-时间戳/" itemprop="url">
+                  开发手记24-时间戳
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-14T16:40:45+08:00" content="2016-11-14">
+              2016-11-14
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/14/开发手记24-时间戳/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/14/开发手记24-时间戳/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/11/14/开发手记24-时间戳/" class="leancloud_visitors" data-flag-title="开发手记24-时间戳">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="NSString-Extension-h"><a href="#NSString-Extension-h" class="headerlink" title="NSString+Extension.h"></a>NSString+Extension.h</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">#import &lt;Foundation/Foundation.h&gt;</div><div class="line">@interface NSString (Extension)</div><div class="line">/**</div><div class="line"> 获取上传到服务器的时间格式的当前时间</div><div class="line"></div><div class="line"> @return @&quot;2016-11-07T13:58:52Z&quot;</div><div class="line"> */</div><div class="line">+ (NSString *)stringToServerStringWithCurrentDate;</div><div class="line">/**</div><div class="line"> *  服务器返回的时间字符串转换成标准时间字符串</div><div class="line"> *</div><div class="line"> *  @return 标准时间字符串</div><div class="line"> */</div><div class="line">- (NSString *)stringToDateString;</div><div class="line">/**</div><div class="line"> *  标准时间字符串转换成上传服务器的时间字符串</div><div class="line"> *  dateFormat   是你上传到的时间的格式 例如  yyyy/MM/dd   yyyy-MM-dd</div><div class="line"> *  @return 标准时间字符串</div><div class="line"> */</div><div class="line">- (NSString *)stringToServerStringWithDataFormat:(NSString *)dateFormat;</div><div class="line">/**</div><div class="line"> *  返回的过期时间转换成时间戳</div><div class="line"> *</div><div class="line"> *  @return 一个要过期的时间戳</div><div class="line"> */</div><div class="line">- (NSInteger)stringTimeToTimeInterval;</div><div class="line">@end</div></pre></td></tr></table></figure>
+<h2 id="NSString-Extension-m"><a href="#NSString-Extension-m" class="headerlink" title="NSString+Extension.m"></a>NSString+Extension.m</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line">#import &quot;NSString+Extension.h&quot;</div><div class="line">@implementation NSString (ExaminePhoneNum)</div><div class="line">// 获取上传到服务器的时间格式的当前时间</div><div class="line">+ (NSString *)stringToServerStringWithCurrentDate&#123;</div><div class="line">    </div><div class="line">    NSDate *date = [NSDate date];</div><div class="line">    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];</div><div class="line">    [dateFormatter setDateFormat:@&quot;yyyy-MM-dd&apos;T&apos;HH:mm:ss&apos;Z&apos;&quot;];</div><div class="line">    return [dateFormatter stringFromDate:date];</div><div class="line">&#125;</div><div class="line">// 服务器返回的时间字符串转换成标准时间字符串</div><div class="line">- (NSString *)stringToDateString&#123;</div><div class="line">    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];</div><div class="line"></div><div class="line">    [formatter setDateFormat:@&quot;yyyy-MM-dd&apos;T&apos;HH:mm:ss&apos;+08:00&apos;&quot;];</div><div class="line">    NSDate* date = [formatter dateFromString:self]; //------------将字符串按formatter转成nsdate</div><div class="line"></div><div class="line">    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];</div><div class="line">    </div><div class="line">    [dateFormatter setDateFormat:@&quot;&quot;];</div><div class="line">  </div><div class="line">    return [dateFormatter stringFromDate:date];</div><div class="line">&#125;</div><div class="line">// 标准时间字符串转换成上传服务器的时间字符串</div><div class="line">- (NSString *)stringToServerStringWithDataFormat:(NSString *)dateFormat&#123;</div><div class="line">    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];</div><div class="line">    [formatter setDateFormat:dateFormat];</div><div class="line"></div><div class="line">    NSDate* date = [formatter dateFromString:self]; //------------将字符串</div><div class="line">    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];</div><div class="line">//    dateFormatter.timeZone = [NSTimeZone timeZoneForSecondsFromGMT:0];</div><div class="line">    [dateFormatter setDateFormat:@&quot;yyyy-MM-dd&apos;T&apos;HH:mm:ss&apos;Z&apos;&quot;];</div><div class="line">    return [dateFormatter stringFromDate:date];</div><div class="line">&#125;</div><div class="line">// 返回的过期时间转换成时间戳</div><div class="line">- (NSInteger)stringTimeToTimeInterval&#123;</div><div class="line">    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];</div><div class="line">    [formatter setTimeZone:[NSTimeZone timeZoneWithAbbreviation:@&quot;UTC&quot;]];</div><div class="line">    [formatter setDateFormat:@&quot;yyyy-MM-dd&apos;T&apos;HH:mm:ss&apos;Z&apos;&quot;];</div><div class="line">    NSDate* date = [formatter dateFromString:self];</div><div class="line">    NSInteger time = [date timeIntervalSince1970];</div><div class="line">    return time - 100;</div><div class="line">&#125;</div><div class="line">@end</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/11/14/开发手记23-数据四舍五入保存/" itemprop="url">
+                  开发手记23-数据四舍五入保存
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-14T16:33:31+08:00" content="2016-11-14">
+              2016-11-14
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/14/开发手记23-数据四舍五入保存/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/14/开发手记23-数据四舍五入保存/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/11/14/开发手记23-数据四舍五入保存/" class="leancloud_visitors" data-flag-title="开发手记23-数据四舍五入保存">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="NSString-Extension-h"><a href="#NSString-Extension-h" class="headerlink" title="NSString+Extension.h"></a>NSString+Extension.h</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">#import &lt;Foundation/Foundation.h&gt;</div><div class="line">@interface NSString (Extension)</div><div class="line">/**</div><div class="line"> 小说点后超过两位时，四舍五入保存两位</div><div class="line"></div><div class="line"> @param str 传入的字符串</div><div class="line"></div><div class="line"> @return 保留两位小数点后的字符串</div><div class="line"> */</div><div class="line">+ (NSString *)strSeparatedToKeepTwoDecimalPlaces:(NSString *)str;</div><div class="line">@end</div></pre></td></tr></table></figure>
+<h2 id="NSString-Extension-m"><a href="#NSString-Extension-m" class="headerlink" title="NSString+Extension.m"></a>NSString+Extension.m</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">#import &quot;NSString+Extension.h&quot;</div><div class="line">@implementation NSString (ExaminePhoneNum)</div><div class="line">// 小说点后超过两位时，四舍五入保存两位</div><div class="line">+ (NSString *)strSeparatedToKeepTwoDecimalPlaces:(NSString *)str&#123;</div><div class="line">    </div><div class="line">    if ([str containsString:@&quot;.&quot;]) &#123;</div><div class="line">        NSArray *arr = [str componentsSeparatedByString:@&quot;.&quot;];</div><div class="line">        NSString *str0 = arr[0];</div><div class="line">        NSString *str1 = arr[1];</div><div class="line">        if (str1.length &gt; 2) &#123;</div><div class="line">            NSString *str2 = [str1 substringToIndex:2];</div><div class="line">            NSString *str3 = [str1 substringWithRange:NSMakeRange(2, 1)];</div><div class="line">            if (str3.integerValue &gt;= 5) &#123;</div><div class="line">                str2 = [NSString stringWithFormat:@&quot;%ld&quot;,(long)(str2.integerValue + 1)];</div><div class="line">                if (str2.integerValue &gt;= 100) &#123;</div><div class="line">                    str2 = @&quot;00&quot;;</div><div class="line">                    str0 = [NSString stringWithFormat:@&quot;%ld&quot;,(long)(str0.integerValue + 1)];</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            return [NSString stringWithFormat:@&quot;%@.%@&quot;,str0,str2];</div><div class="line">        &#125;else&#123;</div><div class="line">            return str;</div><div class="line">        &#125;</div><div class="line">    &#125;else&#123;</div><div class="line">        return str;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/11/14/开发手记22-XML转义/" itemprop="url">
+                  开发手记22-XML转义
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-14T16:29:04+08:00" content="2016-11-14">
+              2016-11-14
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/14/开发手记22-XML转义/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/14/开发手记22-XML转义/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/11/14/开发手记22-XML转义/" class="leancloud_visitors" data-flag-title="开发手记22-XML转义">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="NSString-Extension-h"><a href="#NSString-Extension-h" class="headerlink" title="NSString+Extension.h"></a>NSString+Extension.h</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">#import &lt;Foundation/Foundation.h&gt;</div><div class="line">@interface NSString (Extension)</div><div class="line">/**</div><div class="line"> 保存时将特殊字符转义为xml字符</div><div class="line"></div><div class="line"> @return 转义后的字符</div><div class="line"> */</div><div class="line">+ (NSString *)specialStringChangeForXml:(NSString *)str;</div><div class="line"></div><div class="line">/**</div><div class="line"> 解析xml的时候将特殊字符转换为普通字符</div><div class="line"></div><div class="line"> @param str xml字符串</div><div class="line"></div><div class="line"> @return 转义后的字符</div><div class="line"> */</div><div class="line">+ (NSString *)xmlSpecialStringChangeForNormalString:(NSString *)str;</div><div class="line">@end</div></pre></td></tr></table></figure>
+<h2 id="NSString-Extension-m"><a href="#NSString-Extension-m" class="headerlink" title="NSString+Extension.m"></a>NSString+Extension.m</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">#import &quot;NSString+Extension.h&quot;</div><div class="line">@implementation NSString (ExaminePhoneNum)</div><div class="line">// 字符串转义编码</div><div class="line">+ (NSString *)specialStringChangeForXml:(NSString *)str&#123;</div><div class="line">    </div><div class="line">    str = [str stringByReplacingOccurrencesOfString:@&quot;&amp;&quot; withString:@&quot;&amp;amp;&quot;];</div><div class="line">    str = [str stringByReplacingOccurrencesOfString:@&quot;&lt;&quot; withString:@&quot;&amp;lt;&quot;];</div><div class="line">    str = [str stringByReplacingOccurrencesOfString:@&quot;&gt;&quot; withString:@&quot;&amp;gt;&quot;];</div><div class="line">    str = [str stringByReplacingOccurrencesOfString:@&quot;&apos;&quot; withString:@&quot;&amp;apos;&quot;];</div><div class="line">    str = [str stringByReplacingOccurrencesOfString:@&quot;\&quot;&quot; withString:@&quot;&amp;quot;&quot;];</div><div class="line">    </div><div class="line">    return str;</div><div class="line">&#125;</div><div class="line">// 字符串转义解码</div><div class="line">+ (NSString *)xmlSpecialStringChangeForNormalString:(NSString *)str&#123;</div><div class="line">    </div><div class="line">    str = [str stringByReplacingOccurrencesOfString:@&quot;&amp;amp;&quot; withString:@&quot;&amp;&quot;];</div><div class="line">    str = [str stringByReplacingOccurrencesOfString:@&quot;&amp;lt;&quot; withString:@&quot;&lt;&quot;];</div><div class="line">    str = [str stringByReplacingOccurrencesOfString:@&quot;&amp;gt;&quot; withString:@&quot;&gt;&quot;];</div><div class="line">    str = [str stringByReplacingOccurrencesOfString:@&quot;&amp;apos;&quot; withString:@&quot;&apos;&quot;];</div><div class="line">    str = [str stringByReplacingOccurrencesOfString:@&quot;&amp;quot;&quot; withString:@&quot;\&quot;&quot;];</div><div class="line">    </div><div class="line">    return str;</div><div class="line">&#125;</div><div class="line">@end</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/11/14/开发手记21-获取当前时间戳字符串/" itemprop="url">
                   开发手记21-获取当前时间戳字符串
                 </a>
@@ -910,663 +1562,11 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/11/14/开发手记16-SHA1-base64加密/" itemprop="url">
-                  开发手记16-SHA1+base64加密
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-14T15:10:21+08:00" content="2016-11-14">
-              2016-11-14
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/11/14/开发手记16-SHA1-base64加密/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/14/开发手记16-SHA1-base64加密/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/11/14/开发手记16-SHA1-base64加密/" class="leancloud_visitors" data-flag-title="开发手记16-SHA1+base64加密">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="NSString-Encryption-h"><a href="#NSString-Encryption-h" class="headerlink" title="NSString+Encryption.h"></a>NSString+Encryption.h</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">#import &lt;Foundation/Foundation.h&gt;</div><div class="line"></div><div class="line">@interface NSString (Encryption)</div><div class="line">/**</div><div class="line"> *  sha1+base64加密</div><div class="line"> *</div><div class="line"> *  @return 获取加密后的字符串</div><div class="line"> */</div><div class="line">- (NSString *)sha1_base64;</div><div class="line">@end</div></pre></td></tr></table></figure>
-<h2 id="NSString-Encryption-m"><a href="#NSString-Encryption-m" class="headerlink" title="NSString+Encryption.m"></a>NSString+Encryption.m</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">#import &quot;NSString+Encryption.h&quot;</div><div class="line">#import &lt;CommonCrypto/CommonDigest.h&gt;</div><div class="line">#import &quot;GTMBase64.h&quot;</div><div class="line">@implementation NSString (Encryption)</div><div class="line">/**</div><div class="line"> *  sha1+base64加密</div><div class="line"> *</div><div class="line"> *  @return 获取加密后的字符串</div><div class="line"> */</div><div class="line">- (NSString *)sha1_base64 &#123;</div><div class="line">    </div><div class="line">    const char *cStr = [self cStringUsingEncoding:NSUTF8StringEncoding];</div><div class="line">    NSData *data = [NSData dataWithBytes:cStr length:self.length];</div><div class="line">    </div><div class="line">    unsigned char digest[CC_SHA1_DIGEST_LENGTH];</div><div class="line">    CC_SHA1(data.bytes, (uint32_t)data.length, digest);</div><div class="line">    </div><div class="line">    NSData *base64 = [[NSData alloc] initWithBytes:digest length:CC_SHA1_DIGEST_LENGTH];</div><div class="line">    base64 = [GTMBase64 encodeData:base64];</div><div class="line">    </div><div class="line">    NSString *encryptionString = [[NSString alloc] initWithData:base64 encoding:NSUTF8StringEncoding];</div><div class="line">    </div><div class="line">    return encryptionString;</div><div class="line">&#125;</div><div class="line">@end</div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/11/14/开发手记15-字符串SHA1加密/" itemprop="url">
-                  开发手记15-字符串SHA1加密
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-14T15:04:55+08:00" content="2016-11-14">
-              2016-11-14
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/11/14/开发手记15-字符串SHA1加密/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/14/开发手记15-字符串SHA1加密/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/11/14/开发手记15-字符串SHA1加密/" class="leancloud_visitors" data-flag-title="开发手记15-字符串SHA1加密">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="算法解析"><a href="#算法解析" class="headerlink" title="算法解析"></a>算法解析</h2><p>SHA1算法原理<br>1 SHA1算法简介<br>安全哈希算法（Secure Hash Algorithm）主要适用于数字签名标准（Digital Signature Standard DSS）里面定义的数字签名算法（Digital Signature Algorithm DSA）。对于长度小于2^64位的消息，SHA1会产生一个160位的消息摘要。当接收到消息的时候，这个消息摘要可以用来验证数据的完整性。在传输的过程中，数据很可能会发生变化，那么这时候就会产生不同的消息摘要。<br>SHA1有如下特性：不可以从消息摘要中复原信息；两个不同的消息不会产生同样的消息摘要。<br>2 术语和概念<br>2.1位(Bit)，字节（Byte）和字（Word）<br>SHA1始终把消息当成一个位（bit）字符串来处理。本文中，一个“字”（Word）是32位，而一个“字节”（Byte）是8位。比如，字符串“abc”可以被转换成一个位字符串：01100001 01100010 01100011。它也可以被表示成16进制字符串: 0x616263.<br>2.2 运算符和符号<br>下面的逻辑运算符都被运用于“字”（Word）<br>X^Y    = X， Y逻辑与<br>X \/ Y   = X， Y逻辑或<br>X XOR Y= X， Y逻辑异或<br>~X     =   X逻辑取反<br>X+Y定义如下：<br>字 X 和 Y 代表两个整数 x 和y, 其中 0 &lt;= x &lt; 2^32 且 0 &lt;= y &lt; 2^32. 令整数z = (x + y) mod 2^32. 这时候 0 &lt;= z &lt; 2^32. 将z转换成字Z, 那么就是 Z = X + Y.<br>循环左移位操作符Sn(X)。X是一个字，n是一个整数，0&lt;=n&lt;=32。Sn(X) = (X&lt;<n)or(x>&gt;32-n)<br>X&lt;<n定义如下：抛弃最左边的n位数字，将各个位依次向左移动n位，然后用0填补右边的n位（最后结果还是32位）。x>&gt;n是抛弃右边的n位，将各个位依次向右移动n位，然后在左边的n位填0。因此可以叫Sn(X)位循环移位运算<br>3 SHA1算法描述<br>在SHA1算法中，我们必须把原始消息（字符串，文件等）转换成位字符串。SHA1算法只接受位作为输入。假设我们对字符串“abc”产生消息摘要。首先，我们将它转换成位字符串如下：<br>01100001 01100010 01100011<br>―――――――――――――<br>‘a’=97   ‘b’=98   ‘c’=99<br>这个位字符串的长度为24。下面我们需要5个步骤来计算MD5。<br>3.1 补位<br>消息必须进行补位，以使其长度在对512取模以后的余数是448。也就是说，（补位后的消息长度）%512 = 448。即使长度已经满足对512取模后余数是448，补位也必须要进行。<br>补位是这样进行的：先补一个1，然后再补0，直到长度满足对512取模后余数是448。总而言之，补位是至少补一位，最多补512位。还是以前面的“abc”为例显示补位的过程。<br>原始信息： 01100001 01100010 01100011<br>补位第一步：01100001 01100010 01100011 1<br>首先补一个“1”<br>补位第二步：01100001 01100010 01100011 10…..0<br>然后补423个“0”<br>我们可以把最后补位完成后的数据用16进制写成下面的样子<br>61626380 00000000 00000000 00000000<br>00000000 00000000 00000000 00000000<br>00000000 00000000 00000000 00000000<br>00000000 00000000<br>现在，数据的长度是448了，我们可以进行下一步操作。<br>3.2 补长度<br>所谓的补长度是将原始数据的长度补到已经进行了补位操作的消息后面。通常用一个64位的数据来表示原始消息的长度。如果消息长度不大于2^64，那么第一个字就是0。在进行了补长度的操作以后，整个消息就变成下面这样了（16进制格式）<br>61626380 00000000 00000000 00000000<br>00000000 00000000 00000000 00000000<br>00000000 00000000 00000000 00000000<br>00000000 00000000 00000000 00000018<br>如果原始的消息长度超过了512，我们需要将它补成512的倍数。然后我们把整个消息分成一个一个512位的数据块，分别处理每一个数据块，从而得到消息摘要。<br>3.3 使用的常量<br>一系列的常量字K(0), K(1), … , K(79)，如果以16进制给出。它们如下：<br>Kt = 0x5A827999  (0 &lt;= t &lt;= 19)<br>Kt = 0x6ED9EBA1 (20 &lt;= t &lt;= 39)<br>Kt = 0x8F1BBCDC (40 &lt;= t &lt;= 59)<br>Kt = 0xCA62C1D6 (60 &lt;= t &lt;= 79).<br>3.4 需要使用的函数<br>在SHA1中我们需要一系列的函数。每个函数ft (0 &lt;= t &lt;= 79)都操作32位字B，C，D并且产生32位字作为输出。ft(B,C,D)可以如下定义<br>ft(B,C,D) = (B AND C) or ((NOT B) AND D) ( 0 &lt;= t &lt;= 19)<br>ft(B,C,D) = B XOR C XOR D              (20 &lt;= t &lt;= 39)<br>ft(B,C,D) = (B AND C) or (B AND D) or (C AND D) (40 &lt;= t &lt;= 59)<br>ft(B,C,D) = B XOR C XOR D                     (60 &lt;= t &lt;= 79).<br>3.5 计算消息摘要<br>必须使用进行了补位和补长度后的消息来计算消息摘要。计算需要两个缓冲区，每个都由5个32位的字组成，还需要一个80个32位字的缓冲区。第一个5个字的缓冲区被标识为A，B，C，D，E。第一个5个字的缓冲区被标识为H0, H1, H2, H3, H4<br>。80个字的缓冲区被标识为W0, W1,…, W79</n定义如下：抛弃最左边的n位数字，将各个位依次向左移动n位，然后用0填补右边的n位（最后结果还是32位）。x></n)or(x></p>
-<p>另外还需要一个一个字的TEMP缓冲区。<br>为了产生消息摘要，在第4部分中定义的16个字的数据块M1, M2,…, Mn<br>会依次进行处理，处理每个数据块Mi 包含80个步骤。<br>在处理每个数据块之前，缓冲区 被初始化为下面的值（16进制）<br>H0 = 0x67452301<br>H1 = 0xEFCDAB89<br>H2 = 0x98BADCFE<br>H3 = 0x10325476<br>H4 = 0xC3D2E1F0.<br>现在开始处理M1, M2, … , Mn。为了处理 Mi,需要进行下面的步骤<br>(1). 将 Mi 分成 16 个字 W0, W1, … , W15,  W0 是最左边的字<br>(2). 对于 t = 16 到 79 令 Wt = S1(Wt-3 XOR Wt-8 XOR Wt- 14 XOR Wt-16).<br>(3). 令 A = H0, B = H1, C = H2, D = H3, E = H4.<br>(4) 对于 t = 0 到 79，执行下面的循环<br>TEMP = S5(A) + ft(B,C,D) + E + Wt + Kt;<br>E = D; D = C; C = S30(B); B = A; A = TEMP;<br>(5). 令 H0 = H0 + A, H1 = H1 + B, H2 = H2 + C, H3 = H3 + D, H4 = H4 + E.<br>在处理完所有的 Mn, 后，消息摘要是一个160位的字符串，以下面的顺序标识<br>H0 H1 H2 H3 H4.<br>对于SHA256,SHA384,SHA512。你也可以用相似的办法来计算消息摘要。对消息进行补位的算法完全是一样的。</p>
-<h2 id="NSString-Encryption-h"><a href="#NSString-Encryption-h" class="headerlink" title="NSString+Encryption.h"></a>NSString+Encryption.h</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">#import &lt;Foundation/Foundation.h&gt;</div><div class="line"></div><div class="line">@interface NSString (Encryption)</div><div class="line">/**</div><div class="line"> *  sha1加密</div><div class="line"> *</div><div class="line"> *  @return 获取加密后的字符串</div><div class="line"> */</div><div class="line">- (NSString *)sha1;</div><div class="line">@end</div></pre></td></tr></table></figure>
-<h2 id="NSString-Encryption-m"><a href="#NSString-Encryption-m" class="headerlink" title="NSString+Encryption.m"></a>NSString+Encryption.m</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">#import &quot;NSString+Encryption.h&quot;</div><div class="line">#import &lt;CommonCrypto/CommonDigest.h&gt;</div><div class="line">@implementation NSString (Encryption)</div><div class="line">/**</div><div class="line"> *  sha1加密</div><div class="line"> *</div><div class="line"> *  @return 获取加密后的字符串</div><div class="line"> */</div><div class="line">- (NSString *)sha1 &#123;</div><div class="line">    //  将字符串转换成 C字符串</div><div class="line">    const char *cstr = [self cStringUsingEncoding:NSUTF8StringEncoding];</div><div class="line">    //  C字符串转换成二进制数据</div><div class="line">    NSData *data = [NSData dataWithBytes:cstr length:self.length];</div><div class="line">    </div><div class="line">    unsigned char digest[CC_SHA1_DIGEST_LENGTH];</div><div class="line">    CC_SHA1(data.bytes, (uint32_t)data.length, digest);</div><div class="line">    </div><div class="line">    NSMutableString *encryptionString = [NSMutableString stringWithCapacity:CC_SHA1_DIGEST_LENGTH * 2];</div><div class="line">    </div><div class="line">    for (int i = 0; i &lt; CC_SHA1_DIGEST_LENGTH; i++) &#123;</div><div class="line">        [encryptionString appendFormat:@&quot;%02x&quot;, digest[i]];</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    return encryptionString;</div><div class="line">&#125;</div><div class="line">@end</div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/11/14/开发手记14-MD5-base64加密/" itemprop="url">
-                  开发手记14-MD5+base64加密
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-14T14:55:02+08:00" content="2016-11-14">
-              2016-11-14
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/11/14/开发手记14-MD5-base64加密/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/14/开发手记14-MD5-base64加密/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/11/14/开发手记14-MD5-base64加密/" class="leancloud_visitors" data-flag-title="开发手记14-MD5+base64加密">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="NSString-Encryption-h"><a href="#NSString-Encryption-h" class="headerlink" title="NSString+Encryption.h"></a>NSString+Encryption.h</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">#import &lt;Foundation/Foundation.h&gt;</div><div class="line"></div><div class="line">@interface NSString (Encryption)</div><div class="line">/**</div><div class="line"> *  md5+base64加密</div><div class="line"> *</div><div class="line"> *  @return 获取加密后的字符串</div><div class="line"> */</div><div class="line">- (NSString *)md5_base64;</div><div class="line">@end</div></pre></td></tr></table></figure>
-<h2 id="NSString-Encryption-m"><a href="#NSString-Encryption-m" class="headerlink" title="NSString+Encryption.m"></a>NSString+Encryption.m</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">#import &quot;NSString+Encryption.h&quot;</div><div class="line">#import &quot;GTMBase64.h&quot;</div><div class="line">@implementation NSString (Encryption)</div><div class="line">/**</div><div class="line"> *  md5+base64加密</div><div class="line"> *</div><div class="line"> *  @return 获取加密后的字符串</div><div class="line"> */</div><div class="line">- (NSString *)md5_base64 &#123;</div><div class="line">    </div><div class="line">    const char *cStr = [self UTF8String];</div><div class="line">    unsigned char digest[CC_MD5_DIGEST_LENGTH];</div><div class="line">    CC_MD5(cStr, (uint32_t)strlen(cStr), digest);</div><div class="line">    </div><div class="line">    NSData *base64 = [[NSData alloc] initWithBytes:digest length:CC_MD5_DIGEST_LENGTH];</div><div class="line">    base64 = [GTMBase64 encodeData:base64];</div><div class="line">    </div><div class="line">    NSString *encryptionString = [[NSString alloc] initWithData:base64 encoding:NSUTF8StringEncoding];</div><div class="line">    </div><div class="line">    return encryptionString;</div><div class="line">&#125;</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/11/14/开发手记13-字符串MD5加密/" itemprop="url">
-                  开发手记13-字符串MD5加密
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-14T14:38:44+08:00" content="2016-11-14">
-              2016-11-14
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/11/14/开发手记13-字符串MD5加密/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/14/开发手记13-字符串MD5加密/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/11/14/开发手记13-字符串MD5加密/" class="leancloud_visitors" data-flag-title="开发手记13-字符串MD5加密">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="NSString-SKExtension-h"><a href="#NSString-SKExtension-h" class="headerlink" title="NSString+SKExtension.h"></a>NSString+SKExtension.h</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">#import &lt;Foundation/Foundation.h&gt;</div><div class="line"></div><div class="line">@interface NSString (SKExtension)</div><div class="line">-(NSString *)md5;</div><div class="line">@end</div></pre></td></tr></table></figure>
-<h2 id="NSString-SKExtension-m"><a href="#NSString-SKExtension-m" class="headerlink" title="NSString+SKExtension.m"></a>NSString+SKExtension.m</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">#import &quot;NSString+SKExtension.h&quot;</div><div class="line">@implementation NSString (SKExtension)</div><div class="line">/**</div><div class="line"> *  md5加密</div><div class="line"> *</div><div class="line"> *  @return 获取加密后的字符串</div><div class="line"> */</div><div class="line">- (NSString *)md5 &#123;</div><div class="line">    </div><div class="line">    //  将传入OC字符串转换成C字符串</div><div class="line">    const char *cStr = [self UTF8String];</div><div class="line">    //  无符号字符数组 16位</div><div class="line">    unsigned char digest[CC_MD5_DIGEST_LENGTH];</div><div class="line">    CC_MD5(cStr, (uint32_t)strlen(cStr), digest);</div><div class="line">    </div><div class="line">    NSMutableString *encryptionString = [NSMutableString stringWithCapacity:CC_MD5_DIGEST_LENGTH *2];</div><div class="line">    </div><div class="line">    for (int i = 0; i &lt; CC_MD5_DIGEST_LENGTH; i++) &#123;</div><div class="line">        //  将转换后的字符转换成16进制, 02表示不足两位前面补0,  例如 &quot;a&quot; -&gt; &quot;0a&quot;,  &quot;3&quot; -&gt; &quot;03&quot;</div><div class="line">        [encryptionString appendFormat:@&quot;%02x&quot;,digest[i]];</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    return encryptionString;</div><div class="line">&#125;</div><div class="line">@end</div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/11/14/开发手记12-号码正则表达式判断/" itemprop="url">
-                  开发手记12-号码正则表达式判断
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-14T14:29:55+08:00" content="2016-11-14">
-              2016-11-14
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/11/14/开发手记12-号码正则表达式判断/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/14/开发手记12-号码正则表达式判断/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/11/14/开发手记12-号码正则表达式判断/" class="leancloud_visitors" data-flag-title="开发手记12-号码正则表达式判断">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="NSString-ExaminePhoneNum-h"><a href="#NSString-ExaminePhoneNum-h" class="headerlink" title="NSString+ExaminePhoneNum.h"></a>NSString+ExaminePhoneNum.h</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">#import &lt;Foundation/Foundation.h&gt;</div><div class="line"></div><div class="line">@interface NSString (ExaminePhoneNum)</div><div class="line">- (BOOL)examineStrIsPhoneNum;</div><div class="line">- (BOOL)examineStrIsFixedPhone;</div><div class="line">- (BOOL)examineStrIs400Phone;</div><div class="line">- (BOOL)examineStrIs800Phone;</div><div class="line">@end</div></pre></td></tr></table></figure>
-<h2 id="NSString-ExaminePhoneNum-m"><a href="#NSString-ExaminePhoneNum-m" class="headerlink" title="NSString+ExaminePhoneNum.m"></a>NSString+ExaminePhoneNum.m</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">#import &quot;NSString+ExaminePhoneNum.h&quot;</div><div class="line">@implementation NSString (ExaminePhoneNum)</div><div class="line">// 判断是否是手机号</div><div class="line">- (BOOL)examineStrIsPhoneNum &#123;</div><div class="line">    NSString *regex = @&quot;^((13)|(14)|(15)|(17)|(18))\\d&#123;9&#125;$&quot;;//^1[3-5,7,8]&#123;1&#125;[0-9]&#123;9&#125;</div><div class="line">    </div><div class="line">    NSPredicate *pred = [NSPredicate predicateWithFormat:@&quot;SELF MATCHES %@&quot;, regex];</div><div class="line">    </div><div class="line">    return [pred evaluateWithObject:self];</div><div class="line">&#125;</div><div class="line">// 判断是否是电话</div><div class="line">- (BOOL)examineStrIsFixedPhone &#123;</div><div class="line">    NSString *regex = @&quot;0\\d&#123;2,3&#125;\\d&#123;5,9&#125;|0\\d&#123;2,3&#125;\\d&#123;5,9&#125;&quot;;</div><div class="line">    </div><div class="line">    NSPredicate *pred = [NSPredicate predicateWithFormat:@&quot;SELF MATCHES %@&quot;, regex];</div><div class="line">    </div><div class="line">    return [pred evaluateWithObject:self];</div><div class="line">&#125;</div><div class="line">// 判断是否是400电话</div><div class="line">- (BOOL)examineStrIs400Phone&#123;</div><div class="line">    NSString *regex = @&quot;^400[0-9]&#123;7&#125;&quot;;</div><div class="line">    NSPredicate *pred = [NSPredicate predicateWithFormat:@&quot;SELF MATCHES %@&quot;,regex];</div><div class="line">    return [pred evaluateWithObject:self];</div><div class="line">&#125;</div><div class="line">// 判断是否是800电话</div><div class="line">- (BOOL)examineStrIs800Phone&#123;</div><div class="line">    NSString *regex = @&quot;^800[0-9]&#123;7&#125;&quot;;</div><div class="line">    NSPredicate *pred = [NSPredicate predicateWithFormat:@&quot;SELF MATCHES %@&quot;,regex];</div><div class="line">    return [pred evaluateWithObject:self];</div><div class="line">&#125;</div><div class="line">@end</div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1607,7 +1607,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">48</span>
+              <span class="site-state-item-count">53</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1615,7 +1615,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1624,7 +1624,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
